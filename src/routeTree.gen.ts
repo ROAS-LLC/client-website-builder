@@ -10,17 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RoasRouteImport } from './routes/roas'
-import { Route as AosRouteImport } from './routes/aos'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AosIndexRouteImport } from './routes/aos/index'
+import { Route as AosPageRouteImport } from './routes/aos/$page'
 
 const RoasRoute = RoasRouteImport.update({
   id: '/roas',
   path: '/roas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AosRoute = AosRouteImport.update({
-  id: '/aos',
-  path: '/aos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -28,35 +24,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AosIndexRoute = AosIndexRouteImport.update({
+  id: '/aos/',
+  path: '/aos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AosPageRoute = AosPageRouteImport.update({
+  id: '/aos/$page',
+  path: '/aos/$page',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/aos': typeof AosRoute
   '/roas': typeof RoasRoute
+  '/aos/$page': typeof AosPageRoute
+  '/aos/': typeof AosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/aos': typeof AosRoute
   '/roas': typeof RoasRoute
+  '/aos/$page': typeof AosPageRoute
+  '/aos': typeof AosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/aos': typeof AosRoute
   '/roas': typeof RoasRoute
+  '/aos/$page': typeof AosPageRoute
+  '/aos/': typeof AosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/aos' | '/roas'
+  fullPaths: '/' | '/roas' | '/aos/$page' | '/aos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/aos' | '/roas'
-  id: '__root__' | '/' | '/aos' | '/roas'
+  to: '/' | '/roas' | '/aos/$page' | '/aos'
+  id: '__root__' | '/' | '/roas' | '/aos/$page' | '/aos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AosRoute: typeof AosRoute
   RoasRoute: typeof RoasRoute
+  AosPageRoute: typeof AosPageRoute
+  AosIndexRoute: typeof AosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,13 +78,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoasRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/aos': {
-      id: '/aos'
-      path: '/aos'
-      fullPath: '/aos'
-      preLoaderRoute: typeof AosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -82,13 +85,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aos/': {
+      id: '/aos/'
+      path: '/aos'
+      fullPath: '/aos/'
+      preLoaderRoute: typeof AosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aos/$page': {
+      id: '/aos/$page'
+      path: '/aos/$page'
+      fullPath: '/aos/$page'
+      preLoaderRoute: typeof AosPageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AosRoute: AosRoute,
   RoasRoute: RoasRoute,
+  AosPageRoute: AosPageRoute,
+  AosIndexRoute: AosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
