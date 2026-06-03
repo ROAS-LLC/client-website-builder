@@ -452,6 +452,7 @@ h1, h2, h3, h4 {
   .stat .num{font-size:52px;}
   .vault-grid{grid-template-columns:1fr 1fr;}
   .proof-grid{grid-template-columns:1fr;}
+  .proof-grid > .proof{grid-column:auto !important;}
   .trust-strip{gap:30px;}
   .btn{font-size:18px;padding:18px 26px;}
   .topbar .mid{display:none;}
