@@ -414,6 +414,20 @@ if (window.matchMedia('(max-width: 620px)').matches) {
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }
 
+/* mobile bottom CTA bar: show after scrolling past 25% of page */
+(function(){
+  const bar=document.querySelector('.mobile-cta-bar');
+  if(!bar) return;
+  function onScroll(){
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    const pct=h>0 ? window.scrollY/h : 0;
+    if(pct>0.25){ bar.classList.add('show'); document.body.classList.add('mcta-on'); }
+    else{ bar.classList.remove('show'); document.body.classList.remove('mcta-on'); }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+
 /* fast-cut montage in the thumbnail */
 (function(){
   const frames=[...document.querySelectorAll('#reel img')]; let i=0;
