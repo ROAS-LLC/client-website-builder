@@ -176,17 +176,17 @@ h1, h2, h3, h4 {
 .scard {
   position:relative; overflow:hidden; text-align:center;
   background: rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18);
-  border-radius:18px; padding: 42px 30px 36px; box-shadow: 0 24px 50px -30px rgba(0,0,0,.6);
+  border-radius:18px; padding: 26px 24px 24px; box-shadow: 0 24px 50px -30px rgba(0,0,0,.6);
   transition: transform .2s ease, border-color .2s ease, background .2s ease;
 }
 .scard::before { content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
   width:70%; height:2px; background:linear-gradient(90deg, transparent, var(--violet-soft), transparent); opacity:.8; }
 .scard:hover { transform: translateY(-5px); border-color: rgba(197,136,224,.5); background: rgba(255,255,255,.08); }
 .scard .tag { display:inline-block; font-family:'Outfit',sans-serif; font-weight:700; font-size:11.5px;
-  letter-spacing:.24em; text-transform:uppercase; color:var(--violet-soft); margin-bottom:18px; }
-.scard .num { font-family:'Outfit',sans-serif; font-weight:900; font-size:66px; line-height:.95; letter-spacing:-.03em;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--violet-soft); margin-bottom:10px; }
+.scard .num { font-family:'Outfit',sans-serif; font-weight:900; font-size:54px; line-height:.95; letter-spacing:-.03em;
   color:#EBD4FA; background: linear-gradient(180deg,#fff 30%, #E7C9F4); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-.scard .lbl { color: var(--violet-soft); font-size:15px; margin-top:16px; max-width: 250px; margin-inline:auto; line-height:1.45; }
+.scard .lbl { color: var(--violet-soft); font-size:14px; margin-top:10px; max-width: 250px; margin-inline:auto; line-height:1.4; }
 
 /* ---------- Generic card ---------- */
 .card { background: var(--card); border-radius: var(--radius); border:1px solid var(--paper-line); box-shadow: var(--shadow-card); }
@@ -479,12 +479,12 @@ h1, h2, h3, h4 {
   header#top{padding:18px 0 40px !important;}
   .desktop-only{display:none !important;}
   /* bigger decade-of-proof numbers */
-  .scard{padding:30px 20px !important;}
-  .scard .num{font-size:74px !important;}
-  .scard .lbl{font-size:16px !important; max-width:none !important;}
-  .scard .tag{font-size:13px !important;}
+  .scard{padding:22px 18px !important;}
+  .scard .num{font-size:54px !important;}
+  .scard .lbl{font-size:14px !important; max-width:none !important; margin-top:8px !important;}
+  .scard .tag{font-size:12px !important; margin-bottom:8px !important;}
   /* ensure reveal animation never leaves cards invisible on mobile */
-  .reveal{opacity:1 !important; transform:none !important;}
+  .reveal:not(.scard):not(.statband h2){opacity:1 !important; transform:none !important;}
 }
 .lbl-mob{display:none;}
 @media (max-width: 620px){
