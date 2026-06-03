@@ -411,12 +411,14 @@
 
 <script>
 /* reveal on scroll — on small screens, show everything immediately */
+/* reveal on scroll — mobile shows everything except stat cards instantly */
 if (window.matchMedia('(max-width: 620px)').matches) {
-  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
-} else {
-  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14, rootMargin:'200px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(!el.classList.contains('scard') && !el.closest('.statband')) el.classList.add('in');
+  });
 }
+const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14, rootMargin:'0px 0px -10% 0px'});
+document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
 
 /* mobile bottom CTA bar: show after scrolling past 25% of the page.
    Use an absolute pixel threshold computed once so toggling body padding
