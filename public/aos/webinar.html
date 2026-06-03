@@ -42,7 +42,7 @@
 <!-- ============ HERO ============ -->
 <header class="dark grain" id="top" style="padding:64px 0 80px; overflow:hidden;">
   <div class="wrap">
-    <div class="eyebrow-row" style="margin-bottom:26px;">
+    <div class="eyebrow-row desktop-only" style="margin-bottom:26px;">
       <span class="pill live eyebrow-pill" style="padding:10px 22px; gap:11px; flex-wrap:nowrap; justify-content:center; max-width:100%; white-space:nowrap;">
         <span class="ring"></span>LIVE MASTERCLASS · 100% FREE
         <span class="eyebrow-sep" style="width:1px; height:15px; background:rgba(255,255,255,.25);"></span>
@@ -413,6 +413,20 @@ if (window.matchMedia('(max-width: 620px)').matches) {
   const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14, rootMargin:'200px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }
+
+/* mobile bottom CTA bar: show after scrolling past 25% of page */
+(function(){
+  const bar=document.querySelector('.mobile-cta-bar');
+  if(!bar) return;
+  function onScroll(){
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    const pct=h>0 ? window.scrollY/h : 0;
+    if(pct>0.25){ bar.classList.add('show'); document.body.classList.add('mcta-on'); }
+    else{ bar.classList.remove('show'); document.body.classList.remove('mcta-on'); }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
 
 /* fast-cut montage in the thumbnail */
 (function(){
