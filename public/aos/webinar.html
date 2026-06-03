@@ -61,6 +61,9 @@
     <div style="display:grid; grid-template-columns: 1.32fr 1fr; gap:26px; align-items:stretch; margin-top:48px;" class="hero-grid">
       <!-- VSL montage — click to register -->
       <div class="vsl" id="vsl" role="button" tabindex="0" aria-label="Watch the preview — register to unlock the training">
+        <video class="vsl-video" autoplay muted loop playsinline preload="auto" poster="assets/reel-rooftop.png">
+          <source src="assets/1ds-clip.mp4" type="video/mp4">
+        </video>
         <div class="reel" id="reel" aria-hidden="true">
           <img src="assets/reel-netflix1.png" class="on" alt="">
           <img src="assets/reel-liverking.png" alt="">
@@ -413,15 +416,19 @@ if (window.matchMedia('(max-width: 620px)').matches) {
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }
 
-/* mobile bottom CTA bar: show after scrolling past 25% of page */
+/* mobile bottom CTA bar: show after scrolling past 25% of the page.
+   Use an absolute pixel threshold computed once so toggling body padding
+   doesn't bounce the page height across the trigger (causing flicker). */
 (function(){
   const bar=document.querySelector('.mobile-cta-bar');
   if(!bar) return;
+  let trigger = Math.max(300, (document.documentElement.scrollHeight - window.innerHeight) * 0.25);
+  window.addEventListener('load', ()=>{
+    trigger = Math.max(300, (document.documentElement.scrollHeight - window.innerHeight) * 0.25);
+  });
   function onScroll(){
-    const h=document.documentElement.scrollHeight-window.innerHeight;
-    const pct=h>0 ? window.scrollY/h : 0;
-    if(pct>0.25){ bar.classList.add('show'); document.body.classList.add('mcta-on'); }
-    else{ bar.classList.remove('show'); document.body.classList.remove('mcta-on'); }
+    if(window.scrollY > trigger){ bar.classList.add('show'); document.body.classList.add('mcta-on'); }
+    else if(window.scrollY < trigger - 60){ bar.classList.remove('show'); document.body.classList.remove('mcta-on'); }
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
