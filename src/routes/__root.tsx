@@ -77,12 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Demo Site Reviewer" },
-      { name: "description", content: "Contact your manager for your preview link." },
-      { property: "og:title", content: "Demo Site Reviewer" },
-      { property: "og:description", content: "Contact your manager for your preview link." },
+      { title: "ROAS - DEMO SITE" },
+      { name: "description", content: "Build professional client websites with this intuitive application." },
+      { property: "og:title", content: "ROAS - DEMO SITE" },
+      { property: "og:description", content: "Build professional client websites with this intuitive application." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "ROAS - DEMO SITE" },
+      { name: "twitter:description", content: "Build professional client websites with this intuitive application." },
     ],
     links: [
       {
