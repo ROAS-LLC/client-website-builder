@@ -474,7 +474,7 @@ h1, h2, h3, h4 {
   body{padding-bottom:78px;}
   /* bigger decade-of-proof numbers */
   .scard{padding:30px 20px !important;}
-  .scard .num{font-size:88px !important;}
+  .scard .num{font-size:74px !important;}
   .scard .lbl{font-size:16px !important; max-width:none !important;}
   .scard .tag{font-size:13px !important;}
   /* ensure reveal animation never leaves cards invisible on mobile */
