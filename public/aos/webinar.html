@@ -411,7 +411,24 @@ if (window.matchMedia('(max-width: 620px)').matches) {
     if(!el.classList.contains('scard') && !el.closest('.statband')) el.classList.add('in');
   });
 }
-const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14, rootMargin:'0px 0px -10% 0px'});
+function animateCount(el){
+  if(el.dataset.counted) return;
+  el.dataset.counted='true';
+  const target=parseInt(el.dataset.count||'0',10);
+  const prefix=el.dataset.prefix||'';
+  const suffix=el.dataset.suffix||'';
+  const start=performance.now();
+  const duration=1200;
+  function tick(now){
+    const p=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    const value=Math.round(target*eased);
+    el.textContent=prefix+value.toLocaleString()+suffix;
+    if(p<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); e.target.querySelectorAll?.('.countup').forEach(animateCount); io.unobserve(e.target);}})},{threshold:.14, rootMargin:'0px 0px -10% 0px'});
 document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
 
 /* mobile bottom CTA bar: show after scrolling past 25% of the page.
