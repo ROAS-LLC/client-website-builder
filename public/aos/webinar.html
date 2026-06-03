@@ -61,17 +61,7 @@
     <div style="display:grid; grid-template-columns: 1.32fr 1fr; gap:26px; align-items:stretch; margin-top:48px;" class="hero-grid">
       <!-- VSL montage — click to register -->
       <div class="vsl" id="vsl" role="button" tabindex="0" aria-label="Watch the preview — register to unlock the training">
-        <div class="reel" id="reel" aria-hidden="true">
-          <img src="assets/reel-netflix1.png" class="on" alt="">
-          <img src="assets/reel-liverking.png" alt="">
-          <img src="assets/reel-netflix2.png" alt="">
-          <img src="assets/reel-founders.png" alt="">
-          <img src="assets/reel-deadlift.png" alt="">
-          <img src="assets/reel-vitruvian.png" alt="">
-          <img src="assets/reel-rooftop.png" alt="">
-          <img src="assets/reel-biohacker.png" alt="">
-          <img src="assets/person-drdome.png" alt="">
-        </div>
+        <img class="gif-reel" src="assets/aos-preview-reel.gif" alt="Authority OS client proof montage" loading="eager" decoding="async">
         <div class="scrim"></div>
         <span class="brandmark"><img src="assets/aos-logo-dark.png" alt="" style="width:28px;height:28px;"><span class="wm" style="font-size:13px;">AUTHORITY OS</span></span>
         <span class="recdot"><i></i>PREVIEW</span>
@@ -431,28 +421,25 @@ function animateCount(el){
 const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); e.target.querySelectorAll?.('.countup').forEach(animateCount); io.unobserve(e.target);}})},{threshold:.14, rootMargin:'0px 0px -10% 0px'});
 document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
 
-/* mobile bottom CTA bar: show after scrolling past 25% of the page.
-   Use an absolute pixel threshold computed once so toggling body padding
-   doesn't bounce the page height across the trigger (causing flicker). */
+/* mobile bottom CTA bar: only appear after an intentional user scroll. */
 (function(){
   const bar=document.querySelector('.mobile-cta-bar');
   if(!bar) return;
-  let trigger = Math.max(300, (document.documentElement.scrollHeight - window.innerHeight) * 0.25);
-  window.addEventListener('load', ()=>{
-    trigger = Math.max(300, (document.documentElement.scrollHeight - window.innerHeight) * 0.25);
-  });
+  const mobile=window.matchMedia('(max-width: 620px)');
+  let userScrolled=false;
+  const markUserScroll=()=>{ userScrolled=true; };
+  window.addEventListener('touchmove',markUserScroll,{passive:true,once:true});
+  window.addEventListener('wheel',markUserScroll,{passive:true,once:true});
+  window.addEventListener('keydown',markUserScroll,{once:true});
   function onScroll(){
-    if(window.scrollY > trigger){ bar.classList.add('show'); document.body.classList.add('mcta-on'); }
-    else if(window.scrollY < trigger - 60){ bar.classList.remove('show'); document.body.classList.remove('mcta-on'); }
+    if(!mobile.matches || !userScrolled){ bar.classList.remove('show'); return; }
+    const trigger=Math.max(520, window.innerHeight * 0.82);
+    if(window.scrollY > trigger) bar.classList.add('show');
+    else if(window.scrollY < trigger - 120) bar.classList.remove('show');
   }
   window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
   onScroll();
-})();
-
-/* fast-cut montage in the thumbnail */
-(function(){
-  const frames=[...document.querySelectorAll('#reel img')]; let i=0;
-  if(frames.length>1) setInterval(()=>{ frames[i].classList.remove('on'); i=(i+1)%frames.length; frames[i].classList.add('on'); }, 720);
 })();
 
 /* register modal (opens when the preview is clicked) */
