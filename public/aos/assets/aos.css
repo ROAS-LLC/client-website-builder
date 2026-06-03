@@ -302,10 +302,8 @@ h1, h2, h3, h4 {
 
 /* ---------- VSL montage + register modal ---------- */
 .vsl { position:relative; border-radius:20px; overflow:hidden; border:1px solid var(--ink-line); background:#0b0610; cursor:pointer; box-shadow:0 40px 90px -30px rgba(0,0,0,.8); aspect-ratio:16/9; }
-.vsl .reel { position:absolute; inset:0; background:#0b0610; }
+.vsl .gif-reel { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:#0b0610; }
 @media (min-width:921px){ .vsl { aspect-ratio:auto; height:100%; min-height:360px; } }
-.vsl .reel img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s ease; }
-.vsl .reel img.on { opacity:1; }
 .vsl .scrim { position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(11,6,16,.5) 0%, transparent 26%, transparent 60%, rgba(11,6,16,.82)); }
 .vsl .brandmark { position:absolute; top:15px; left:16px; z-index:3; }
 .vsl .recdot { position:absolute; top:18px; right:16px; z-index:3; display:inline-flex; align-items:center; gap:7px;
@@ -478,9 +476,7 @@ h1, h2, h3, h4 {
   /* mobile bottom CTA bar */
   .mobile-cta-bar{display:flex !important;}
   .mobile-cta-bar:not(.show){transform:translateY(110%); pointer-events:none;}
-  .mobile-cta-bar{transition:transform .25s ease;}
-  body{padding-bottom:0;}
-  body.mcta-on{padding-bottom:104px;}
+  .mobile-cta-bar{transition:transform .28s cubic-bezier(.2,.8,.2,1); will-change:transform;}
   header#top{padding:18px 0 40px !important;}
   .desktop-only{display:none !important;}
   /* bigger decade-of-proof numbers */
