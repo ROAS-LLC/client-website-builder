@@ -76,8 +76,11 @@ h1, h2, h3, h4 {
   font-family: 'Outfit', sans-serif; font-weight: 700;
   font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--violet-soft);
+  background: transparent !important;
+  padding: 0;
+  border-radius: 0;
 }
-.kicker.dark { color: var(--grape-600); }
+.kicker.dark { color: var(--grape-600); background: transparent !important; }
 .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(231,178,75,.18); }
 
 /* ---------- Buttons ---------- */
