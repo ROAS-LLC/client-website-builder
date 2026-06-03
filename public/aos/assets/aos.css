@@ -434,8 +434,8 @@ h1, h2, h3, h4 {
 }
 @media (max-width: 920px){
   .hero-grid{grid-template-columns:1fr !important;}
-  .vsl{display:block !important; width:100% !important; height:clamp(190px, 56.25vw, 430px) !important; min-height:190px !important; aspect-ratio:auto !important; transform:translateZ(0); -webkit-transform:translateZ(0);}
-  .vsl .gif-reel{display:block !important; position:absolute !important; width:100% !important; height:100% !important; opacity:1 !important; visibility:visible !important; transform:translateZ(0); -webkit-transform:translateZ(0);}
+  .vsl{display:block !important; width:100% !important; height:auto !important; min-height:0 !important; aspect-ratio:auto !important; transform:translateZ(0); -webkit-transform:translateZ(0);}
+  .vsl .gif-reel{display:block !important; position:relative !important; inset:auto !important; width:100% !important; height:auto !important; aspect-ratio:16/9; opacity:1 !important; visibility:visible !important; transform:translateZ(0); -webkit-transform:translateZ(0);}
   .oldnew{grid-template-columns:1fr !important;}
   .disc-cols{grid-template-columns:1fr !important; gap:28px !important;}
   .proof-wide{grid-template-columns:1fr !important;}
