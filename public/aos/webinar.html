@@ -412,9 +412,13 @@
 </div>
 
 <script>
-/* reveal on scroll */
-const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* reveal on scroll — on small screens, show everything immediately */
+if (window.matchMedia('(max-width: 620px)').matches) {
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+} else {
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14, rootMargin:'200px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
 
 /* fast-cut montage in the thumbnail */
 (function(){
