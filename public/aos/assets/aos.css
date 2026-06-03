@@ -472,7 +472,12 @@ h1, h2, h3, h4 {
   .topbar-sub .seen img{height:12px;}
   /* mobile bottom CTA bar */
   .mobile-cta-bar{display:flex !important;}
-  body{padding-bottom:104px;}
+  .mobile-cta-bar:not(.show){transform:translateY(110%); pointer-events:none;}
+  .mobile-cta-bar{transition:transform .25s ease;}
+  body{padding-bottom:0;}
+  body.mcta-on{padding-bottom:104px;}
+  header#top{padding:18px 0 40px !important;}
+  .desktop-only{display:none !important;}
   /* bigger decade-of-proof numbers */
   .scard{padding:30px 20px !important;}
   .scard .num{font-size:74px !important;}
