@@ -496,6 +496,15 @@ h1, h2, h3, h4 {
 .vsl .vsl-video + .reel{display:none;}
 /* topbar sub-row hidden on desktop */
 .topbar-sub{display:none;}
+/* tablet: collapse mid into sub-row so the topbar doesn't squish */
+@media (min-width: 621px) and (max-width: 1024px){
+  .topbar .mid{display:none;}
+  .topbar-sub{display:flex !important; align-items:center; justify-content:center; gap:10px;
+    padding:9px 18px; border-top:1px solid var(--ink-line);
+    background:rgba(11,6,16,.92); color:var(--t-light-dim); font-size:13px; flex-wrap:wrap; text-align:center;}
+  .topbar-sub .seen{display:inline-flex; align-items:center; gap:8px; color:#fff; font-weight:600;}
+  .topbar-sub .seen img{height:13px;}
+}
 /* mobile bottom CTA bar — hidden on desktop */
 .mobile-cta-bar{
   display:none;
