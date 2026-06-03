@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RoasRouteImport } from './routes/roas'
+import { Route as AosRouteImport } from './routes/aos'
 import { Route as IndexRouteImport } from './routes/index'
 
 const RoasRoute = RoasRouteImport.update({
   id: '/roas',
   path: '/roas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AosRoute = AosRouteImport.update({
+  id: '/aos',
+  path: '/aos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aos': typeof AosRoute
   '/roas': typeof RoasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aos': typeof AosRoute
   '/roas': typeof RoasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aos': typeof AosRoute
   '/roas': typeof RoasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/roas'
+  fullPaths: '/' | '/aos' | '/roas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/roas'
-  id: '__root__' | '/' | '/roas'
+  to: '/' | '/aos' | '/roas'
+  id: '__root__' | '/' | '/aos' | '/roas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AosRoute: typeof AosRoute
   RoasRoute: typeof RoasRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/roas'
       fullPath: '/roas'
       preLoaderRoute: typeof RoasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aos': {
+      id: '/aos'
+      path: '/aos'
+      fullPath: '/aos'
+      preLoaderRoute: typeof AosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AosRoute: AosRoute,
   RoasRoute: RoasRoute,
 }
 export const routeTree = rootRouteImport
