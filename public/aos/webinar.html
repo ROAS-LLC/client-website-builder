@@ -9,7 +9,7 @@
 </head>
 <body data-screen-label="Opt-In Page">
 
-<!-- ============ STICKY TOP BAR ============ -->
+<!-- ============ TOP BAR ============ -->
 <div class="topbar">
   <div class="row">
     <a class="brandmark" href="#top">
@@ -23,6 +23,20 @@
     </div>
     <a class="btn sm" href="#register"><span class="lbl-full">Save My Free Seat</span><span class="lbl-mob">Claim Spot</span></a>
   </div>
+  <div class="topbar-sub">
+    <span class="seen">As seen on <img src="assets/logo-netflix.png" alt="Netflix"></span>
+    <span style="opacity:.4">·</span>
+    <span>Free Masterclass · Tue, Jun 30 · 7:30PM ET</span>
+  </div>
+</div>
+
+<!-- ============ MOBILE BOTTOM CTA BAR ============ -->
+<div class="mobile-cta-bar">
+  <div class="mcta-when">
+    <strong>Tue, Jun 30</strong>
+    <span>7:30PM ET · Live</span>
+  </div>
+  <a class="btn sm" href="#register">Claim Spot</a>
 </div>
 
 <!-- ============ HERO ============ -->
@@ -398,9 +412,13 @@
 </div>
 
 <script>
-/* reveal on scroll */
-const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* reveal on scroll — on small screens, show everything immediately */
+if (window.matchMedia('(max-width: 620px)').matches) {
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+} else {
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14, rootMargin:'200px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
 
 /* fast-cut montage in the thumbnail */
 (function(){
