@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/aos/")({
   head: () => ({
     meta: [
-      { title: "AOS Funnel — Pages for Review" },
+      { title: "AOS Funnel: Pages for Review" },
       { name: "description", content: "Here are the pages for your webinar funnel for review." },
-      { property: "og:title", content: "AOS Funnel — Pages for Review" },
+      { property: "og:title", content: "AOS Funnel: Pages for Review" },
       { property: "og:description", content: "Here are the pages for your webinar funnel for review." },
       { name: "robots", content: "noindex, nofollow" },
     ],
