@@ -474,7 +474,7 @@ h1, h2, h3, h4 {
   .eyebrow-row{margin-bottom:18px !important;}
   .eyebrow-row > span{font-size:12px !important; letter-spacing:.12em !important; line-height:1.35 !important; flex-wrap:wrap; justify-content:center; gap:8px !important;}
   /* compact top CTA on mobile */
-  .topbar .btn.sm{font-size:13px; padding:9px 14px;}
+  .topbar .btn.sm{font-size:15px; padding:11px 18px;}
   .topbar .row{padding:9px 14px; gap:10px;}
   /* topbar no longer sticky on mobile, sub-row shows */
   .topbar{position:static !important;}
@@ -483,8 +483,8 @@ h1, h2, h3, h4 {
     background:rgba(11,6,16,.92); color:var(--t-light-dim); font-size:11.5px; flex-wrap:wrap; text-align:center;}
   .topbar-sub .seen{display:inline-flex; align-items:center; gap:7px; color:#fff; font-weight:600;}
   .topbar-sub .seen img{height:12px;}
-  /* mobile bottom CTA bar */
-  .mobile-cta-bar{display:flex !important;}
+  /* mobile bottom CTA bar — only revealed after intentional scroll (JS adds .ready) */
+  .mobile-cta-bar.ready{display:flex !important;}
   .mobile-cta-bar:not(.show){transform:translateY(110%); pointer-events:none;}
   .mobile-cta-bar{transition:transform .28s cubic-bezier(.2,.8,.2,1); will-change:transform;}
   header#top{padding:18px 0 40px !important;}
@@ -522,11 +522,11 @@ h1, h2, h3, h4 {
   border-top:1px solid var(--ink-line); box-shadow:0 -10px 30px -10px rgba(0,0,0,.6);
   min-height:74px;
 }
-.mobile-cta-bar .mcta-when{display:flex; flex-direction:column; line-height:1.2; gap:3px;}
-.mobile-cta-bar .mcta-when strong{color:#fff; font-family:'Outfit',sans-serif; font-weight:800; font-size:16px; display:inline-flex; align-items:baseline; gap:6px;}
-.mobile-cta-bar .mcta-when span{color:var(--t-light-dim); font-size:11.5px; font-family:'Outfit',sans-serif; font-weight:600; letter-spacing:.01em; white-space:nowrap;}
-.mobile-cta-bar .zoom-logo{height:16px; width:auto; display:inline-block; vertical-align:-2px;}
-.mobile-cta-bar .btn.sm{font-size:14px; padding:12px 18px;}
+.mobile-cta-bar .mcta-when{display:flex; flex-direction:column; line-height:1.2; gap:4px;}
+.mobile-cta-bar .mcta-when strong{color:#fff; font-family:'Outfit',sans-serif; font-weight:800; font-size:18px; display:inline-flex; align-items:baseline; gap:6px;}
+.mobile-cta-bar .mcta-when span{color:var(--t-light-dim); font-size:13px; font-family:'Outfit',sans-serif; font-weight:600; letter-spacing:.01em; white-space:nowrap;}
+.mobile-cta-bar .zoom-logo{height:18px; width:auto; display:inline-block; vertical-align:-2px;}
+.mobile-cta-bar .btn.sm{font-size:16px; padding:14px 22px;}
 
 /* Event date + countdown inside opt-in form (borderless) */
 .event-when{
