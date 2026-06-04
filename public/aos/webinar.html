@@ -448,6 +448,7 @@ document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
   window.addEventListener('keydown',markUserScroll,{once:true});
   function onScroll(){
     if(!mobile.matches || !userScrolled){ bar.classList.remove('show'); return; }
+    bar.classList.add('ready');
     const trigger=Math.max(520, window.innerHeight * 0.82);
     if(window.scrollY > trigger) bar.classList.add('show');
     else if(window.scrollY < trigger - 120) bar.classList.remove('show');
