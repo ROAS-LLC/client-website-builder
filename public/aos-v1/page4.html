@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Registered. Authority OS Masterclass</title>
+<link rel="icon" href="/aos/assets/aos-logo.png">
+<link rel="stylesheet" href="/aos/assets/aos.css">
+</head>
+<body data-screen-label="Confirmation Page">
+
+<canvas id="confetti"></canvas>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="row">
+    <a class="brandmark" href="/aos-v1/page1">
+      <img src="/aos/assets/aos-logo-dark.png" alt="Authority OS">
+      <span class="wm">AUTHORITY<small>OPERATING SYSTEM</small></span>
+    </a>
+    <span class="seen" style="color:var(--t-light-dim); font-size:13px;">As seen on <img src="/aos/assets/logo-netflix.png" alt="Netflix" style="height:14px; display:inline; vertical-align:middle; margin-left:5px;"></span>
+  </div>
+</div>
+
+<!-- ============ HERO: VIDEO FIRST ============ -->
+<header class="dark grain" data-screen-label="Confirmed hero" style="padding:54px 0 70px; overflow:hidden;">
+  <div class="wrap" style="max-width:900px;">
+    <div class="center">
+      <h1 style="font-size:clamp(36px,5.6vw,68px); font-weight:900; letter-spacing:-.035em;">[CONFIRMATION HEADLINE GOES HERE]<span id="name-bit"></span></h1>
+      <p style="max-width:640px; margin:18px auto 0; font-size:clamp(17px,2.1vw,22px); color:var(--t-light-dim); line-height:1.5;">
+        [CONFIRMATION SUBHEADLINE GOES HERE.]
+      </p>
+    </div>
+
+    <!-- VIDEO centered -->
+    <div id="vidWrap" style="max-width:880px; margin:34px auto 0; aspect-ratio:16/9; border-radius:18px; overflow:hidden; position:relative; cursor:pointer; box-shadow:0 50px 100px -34px rgba(0,0,0,.85); border:1px solid var(--ink-line); background:#0b0610;">
+      <video class="vbg" src="/aos/assets/1ds-clip.mp4" autoplay muted loop playsinline></video>
+      <video id="clip" src="/aos/assets/1ds-clip.mp4" autoplay muted loop playsinline></video>
+      <div id="vidOverlay" style="position:absolute; inset:0; z-index:2; display:grid; place-items:center; background:linear-gradient(180deg, rgba(11,6,16,.2) 0%, rgba(11,6,16,.04) 45%, rgba(11,6,16,.5));">
+        <div style="width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;backdrop-filter:blur(6px);">
+          <svg width="28" height="32" viewBox="0 0 30 34" fill="#fff"><path d="M30 17 0 34V0z"/></svg>
+        </div>
+        <span style="position:absolute; bottom:16px; left:0; right:0; text-align:center; color:#fff; font-size:13.5px; font-weight:600;">Click to play with sound</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ YOUR HOSTS ============ -->
+<section class="section tight" data-screen-label="Your hosts" style="background:var(--ink); color:var(--t-light);">
+  <div class="wrap" style="max-width:1040px;">
+    <div class="eyebrow-row">
+      <span class="kicker"><span class="dot"></span>About your founders</span>
+    </div>
+    <h2 class="center" style="font-size:clamp(28px,4vw,46px); color:#fff;">Meet the founders going live with you</h2>
+    <p class="center" style="color:var(--t-light-dim); font-size:17px; max-width:640px; margin:16px auto 44px;">
+      The co-founders of 1DS Collective. Give them a follow so you recognize them on the live.
+    </p>
+    <div class="host-grid">
+      <div class="host-v reveal">
+        <div class="img"><img src="/aos/assets/sam-parham.png" alt="Sam Parham"></div>
+        <div class="body">
+          <div class="role">Co-Founder · Your Presenter</div>
+          <h3>Sam Parham</h3>
+          <p>The on-camera anchor of the AOS movement and the strategist who turns invisible experts into category authorities.</p>
+          <a href="https://www.instagram.com/samparham/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-weight:700; color:var(--grape);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.4.7.8.9 1.4.17.4.36 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.4.44-.8.7-1.4.9-.4.17-1 .36-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.4-.7-.8-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.4-.44.8-.7 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+            Follow Sam, @samparham
+          </a>
+        </div>
+      </div>
+      <div class="host-v reveal">
+        <div class="img"><img src="/aos/assets/john-hyland.png" alt="John Hyland"></div>
+        <div class="body">
+          <div class="role">Co-Founder · CEO of 1DS</div>
+          <h3>John Hyland</h3>
+          <p>The architect behind the agency's boldest builds, including the campaign now featured on Netflix's <i>Untold: The Liver King.</i></p>
+          <a href="https://www.instagram.com/j_hy/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-weight:700; color:var(--grape);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.4.7.8.9 1.4.17.4.36 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.4.44-.8.7-1.4.9-.4.17-1 .36-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.4-.7-.8-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.4-.44.8-.7 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+            Follow John, @j_hy
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOLLOW THESE STEPS ============ -->
+<section class="section tight" data-screen-label="[STEPS SECTION HEADLINE GOES HERE]" style="background:var(--ink); color:var(--t-light);">
+  <div class="wrap" style="max-width:760px;">
+    <h2 class="center" style="font-size:clamp(28px,4vw,46px);">[STEPS SECTION HEADLINE GOES HERE]</h2>
+    <p class="center" style="color:var(--t-light-dim); font-size:16px; margin:14px auto 0;">
+      [STEPS INTRO COPY GOES HERE.]
+    </p>
+
+    <!-- STEP 1 -->
+    <div class="step-card reveal" style="margin-top:34px;">
+      <span class="step-pill">Step 1</span>
+      <h3>[STEP 1 TITLE GOES HERE]</h3>
+      <p class="sd">Tuesday, June 30, 2026 at 7:30 PM ET / 4:30 PM PT. [STEP 1 SUPPORTING LINE GOES HERE.]</p>
+      <div class="cal-btns">
+        <a class="cal-btn" id="gcal" href="#" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.3 35 24 35c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6C29.6 34.6 26.9 35.5 24 35.5c-5.3 0-9.7-3.4-11.3-8.1l-6.6 5.1C9.6 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.6 5.6C42 35.9 44 30.4 44 24c0-1.3-.1-2.3-.4-3.5z"/></svg>
+          Google
+        </a>
+        <a class="cal-btn" id="ical" href="#" download="authority-os-masterclass.ics">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 12.04c-.03-3.02 2.47-4.47 2.58-4.54-1.41-2.06-3.6-2.34-4.38-2.37-1.86-.19-3.64 1.1-4.58 1.1-.95 0-2.4-1.08-3.95-1.05-2.03.03-3.9 1.18-4.94 3-2.11 3.66-.54 9.06 1.5 12.03 1 1.45 2.19 3.08 3.74 3.02 1.5-.06 2.07-.97 3.89-.97 1.81 0 2.33.97 3.91.94 1.62-.03 2.64-1.48 3.63-2.94 1.15-1.68 1.62-3.31 1.64-3.39-.04-.02-3.14-1.21-3.17-4.8zM14.13 4.7c.83-1 1.39-2.4 1.24-3.79-1.2.05-2.65.8-3.51 1.8-.77.88-1.45 2.3-1.27 3.65 1.34.1 2.71-.68 3.54-1.66z"/></svg>
+          Apple
+        </a>
+        <a class="cal-btn" id="ocal" href="#" target="_blank" rel="noopener">
+          <svg width="23" height="23" viewBox="0 0 24 24"><rect x="2" y="4.5" width="20" height="15" rx="2.4" fill="#0F6CBD"/><path d="M8.2 8.6c-2.1 0-3.5 1.7-3.5 4s1.4 4 3.5 4 3.5-1.7 3.5-4-1.4-4-3.5-4zm0 6.2c-1 0-1.7-.9-1.7-2.2s.7-2.2 1.7-2.2 1.7.9 1.7 2.2-.7 2.2-1.7 2.2z" fill="#fff"/></svg>
+          Outlook
+        </a>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card reveal" style="margin-top:20px;">
+      <span class="step-pill">Step 2</span>
+      <h3>[STEP 2 TITLE GOES HERE]</h3>
+      <p class="sd">[STEP 2 SUPPORTING LINE GOES HERE]</p>
+      <div class="share-box">
+        <div class="lbl">Copy &amp; send this message:</div>
+        <textarea id="shareMsg" rows="3" readonly>Hey! I just registered for a free masterclass on becoming the most known name in your field, without becoming an influencer. Thought you'd want in: https://go.1dscollective.com/masterclass</textarea>
+      </div>
+      <button class="btn block" id="copyBtn" style="margin-top:14px;">Copy message<span class="sub">Then send it to 3 people</span></button>
+      <div class="track">
+        <label id="t1"><input type="checkbox"> I shared with my first friend</label>
+        <label id="t2"><input type="checkbox"> I shared with a second person (don't lie!)</label>
+        <label id="t3"><input type="checkbox"> I shared with 3 friends!</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM BEHIND: LOGOS + STATS ============ -->
+<section class="section tight" data-screen-label="Team behind" style="background:var(--ink); color:var(--t-light);">
+  <div class="wrap" style="max-width:1040px; text-align:center;">
+    <p class="kicker" style="justify-content:center; margin-bottom:30px;">You just got a seat with the team behind</p>
+    <div class="trust-strip" style="margin-bottom:54px;">
+      <img src="/aos/assets/logo-universal.png" alt="Universal">
+      <img src="/aos/assets/logo-bmw.png" alt="BMW">
+      <img src="/aos/assets/logo-ogio.png" alt="OGIO">
+      <img src="/aos/assets/logo-jennikayne.png" alt="Jenni Kayne">
+      <img src="/aos/assets/logo-reathlete.png" alt="REATHLETE">
+      <img src="/aos/assets/logo-vitruvian.png" alt="Vitruvian">
+    </div>
+    <div class="stat-cards">
+      <div class="scard reveal"><span class="tag">Reach</span><div class="num">15B+</div><div class="lbl">views driven across brand &amp; thought-leadership content</div></div>
+      <div class="scard reveal"><span class="tag">Revenue</span><div class="num">$200M+</div><div class="lbl">generated for category-leading brands</div></div>
+      <div class="scard reveal"><span class="tag">Growth</span><div class="num">7-Fig</div><div class="lbl">growth within 12 months for multiple brands we scale</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES ============ -->
+<section class="section" data-screen-label="Case studies" style="background:var(--ink); color:var(--t-light); position:relative;">
+  <div class="wrap">
+    <div class="eyebrow-row">
+      <span class="kicker"><span class="dot"></span>The names you know</span>
+    </div>
+    <h2 class="center" style="font-size:clamp(28px,4vw,46px);">You're learning from the team that built these</h2>
+    <p class="center" style="color:var(--t-light-dim); font-size:17px; max-width:720px; margin:16px auto 44px;">
+      Not a guru who did it once. The agency behind the brands and names you already recognize.
+    </p>
+    <div class="proof-grid">
+      <article class="proof reveal">
+        <div class="ph"><img src="/aos/assets/person-liverking.png" alt="Liver King"></div>
+        <div class="meta"><div class="nm">Liver King</div><div class="ds">From zero presence to a global cultural signal. The build now featured on Netflix.</div></div>
+      </article>
+      <article class="proof reveal">
+        <div class="ph"><img src="/aos/assets/person-drdome.png" alt="Dr. Dominik Nischwitz"></div>
+        <div class="meta"><div class="nm">Dr. Dominik Nischwitz</div><div class="ds">"Dr. Dome." Biodentistry 3.0, a new global standard for how dentists think, treat &amp; lead.</div></div>
+      </article>
+      <article class="proof reveal">
+        <div class="ph"><img src="/aos/assets/person-tim.png" alt="Tim, Biohacker"></div>
+        <div class="meta"><div class="nm">Tim, The Biohacker</div><div class="ds">A signal that draws millions, unites disruptors, and powers summit stages worldwide.</div></div>
+      </article>
+      <article class="proof reveal">
+        <div class="ph"><img src="/aos/assets/person-jennikayne-family.png" alt="Jenni Kayne"></div>
+        <div class="meta"><div class="nm">Jenni Kayne</div><div class="ds">From TV to TikTok, we built the signal everywhere. 300K+ organic views and sales to match.</div></div>
+      </article>
+      <article class="proof proof-wide reveal" style="grid-column: span 2;">
+        <div class="ph"><img src="/aos/assets/whitfield.png" alt="Dr. Robert Whitfield" style="object-position:50% 28%;"></div>
+        <div style="padding:34px 40px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--violet-soft);">Now built to scale</div>
+          <div class="nm" style="font-size:26px; margin:10px 0 8px;">Dr. Robert Whitfield</div>
+          <div class="ds" style="font-size:15.5px;">The most trusted name in BII recovery. Proof that real, credentialed expertise is the last moat in the age of AI slop.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU'LL LEARN ============ -->
+<section class="section tight" data-screen-label="What you'll learn" style="background:var(--ink); color:var(--t-light);">
+  <div class="wrap" style="max-width:760px;">
+    <h2 class="center" style="font-size:clamp(26px,3.8vw,42px); margin-bottom:38px;">[LEARN SECTION HEADLINE GOES HERE]</h2>
+    <div class="learn-cards">
+      <div class="learn-card reveal"><div class="n">A</div><h4>[LEARN POINT 1 TITLE]</h4><p>[Short description of learn point 1.]</p></div>
+      <div class="learn-card reveal"><div class="n">B</div><h4>[LEARN POINT 2 TITLE]</h4><p>[Short description of learn point 2.]</p></div>
+      <div class="learn-card reveal"><div class="n">C</div><h4>[LEARN POINT 3 TITLE]</h4><p>[Short description of learn point 3.]</p></div>
+      <div class="learn-card reveal"><div class="n">D</div><h4>[LEARN POINT 4 TITLE]</h4><p>[Short description of learn point 4.]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAST VIP CHANCE ============ -->
+<section class="section tight" data-screen-label="Last VIP chance" style="background:var(--ink);">
+  <div class="wrap" style="max-width:760px;">
+    <div class="reveal" style="text-align:center;">
+      <h2 style="font-size:clamp(24px,3.4vw,36px); color:#fff; margin:0;">[VIP NUDGE HEADLINE GOES HERE]</h2>
+      <p style="color:var(--t-light-dim); font-size:16px; max-width:520px; margin:14px auto 24px;">
+        [VIP NUDGE BODY COPY GOES HERE.]
+      </p>
+      <a class="btn" href="/aos-v1/page2" style="margin:0 auto;">Upgrade to VIP for $97<span class="sub">Recording + book + ebook + manuscript</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div style="display:flex; justify-content:center; margin-bottom:8px;">
+      <a class="brandmark" href="/aos-v1/page1">
+        <img src="/aos/assets/aos-logo-dark.png" alt="Authority OS" style="width:34px;height:34px;">
+        <span class="wm" style="color:#fff;">AUTHORITY<small>OPERATING SYSTEM</small></span>
+      </a>
+    </div>
+    <div class="links">
+      <a href="#">Contact</a><span style="opacity:.3">|</span>
+      <a href="#">Privacy Policy</a><span style="opacity:.3">|</span>
+      <a href="#">Terms of Use</a><span style="opacity:.3">|</span>
+      <a href="#">Earnings Disclaimer</a>
+    </div>
+    <p class="disc">© 2026 1DS Collective. All rights reserved. Agency results referenced are not typical and not a promise of your results.</p>
+  </div>
+</footer>
+
+<script>
+/* personalize */
+try{ const nm=(localStorage.getItem('aos_reg_name')||'').trim(); if(nm){ document.getElementById('name-bit').textContent=', '+nm.split(' ')[0]; } }catch(_){}
+
+/* reveal */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* video play */
+const clip=document.getElementById('clip'), ov=document.getElementById('vidOverlay'), vw=document.getElementById('vidWrap');
+vw.addEventListener('click',()=>{ if(clip.muted || clip.paused){ clip.muted=false; clip.currentTime=0; clip.play(); clip.setAttribute('controls','controls'); ov.style.opacity='0'; ov.style.pointerEvents='none'; } });
+
+/* calendar links */
+const cText='Authority OS Masterclass: Visibility Beats Ability';
+const cDetail='Your live masterclass with Sam Parham (1DS Collective). Become the most known name in your field.';
+document.getElementById('gcal').href=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(cText)}&dates=20260630T233000Z/20260701T010000Z&details=${encodeURIComponent(cDetail)}`;
+document.getElementById('ocal').href=`https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(cText)}&startdt=2026-06-30T23:30:00Z&enddt=2026-07-01T01:00:00Z&body=${encodeURIComponent(cDetail)}&path=/calendar/action/compose`;
+document.getElementById('ical').href=`data:text/calendar;charset=utf8,${encodeURIComponent(['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','DTSTART:20260630T233000Z','DTEND:20260701T010000Z','SUMMARY:'+cText,'DESCRIPTION:'+cDetail,'END:VEVENT','END:VCALENDAR'].join('\n'))}`;
+
+/* copy share message */
+document.getElementById('copyBtn').addEventListener('click',function(){
+  const ta=document.getElementById('shareMsg');
+  ta.select(); try{ navigator.clipboard.writeText(ta.value); }catch(_){ document.execCommand('copy'); }
+  this.innerHTML='✓ Copied! Now send it to 3 people<span class="sub">Then check them off below</span>';
+  this.classList.add('gold');
+});
+
+/* track shares */
+document.querySelectorAll('.track label').forEach(l=>{
+  const cb=l.querySelector('input');
+  cb.addEventListener('change',()=>{ l.classList.toggle('done', cb.checked); });
+});
+
+/* confetti burst on load */
+(function(){
+  const c=document.getElementById('confetti'), x=c.getContext('2d');
+  let W,H; function size(){ W=c.width=innerWidth; H=c.height=innerHeight; } size(); addEventListener('resize',size);
+  const cols=['#7E27A4','#A24BC9','#C167E2','#28C083','#E7B24B','#ffffff'];
+  const P=Array.from({length:160},()=>({x:Math.random()*W, y:-20-Math.random()*H*0.4, r:5+Math.random()*7, c:cols[(Math.random()*cols.length)|0], vy:2+Math.random()*4, vx:-2+Math.random()*4, rot:Math.random()*6.28, vr:-.2+Math.random()*.4}));
+  let t0=performance.now();
+  (function loop(now){
+    const el=now-t0; x.clearRect(0,0,W,H);
+    P.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.04; p.rot+=p.vr;
+      x.save(); x.translate(p.x,p.y); x.rotate(p.rot); x.fillStyle=p.c; x.globalAlpha=Math.max(0,1-el/4200);
+      x.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.5); x.restore(); });
+    if(el<4200) requestAnimationFrame(loop); else x.clearRect(0,0,W,H);
+  })(t0);
+})();
+</script>
+</body>
+</html>

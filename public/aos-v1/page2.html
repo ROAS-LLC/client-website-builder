@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One-Time VIP Upgrade | Authority OS</title>
+<link rel="icon" href="/aos/assets/aos-logo.png">
+<link rel="stylesheet" href="/aos/assets/aos.css">
+</head>
+<body data-screen-label="VIP Upsell Page">
+
+<!-- ============ WARNING BAR (first thing) ============ -->
+<div class="warnbar" data-screen-label="Urgency bar">
+  YOUR SEATS ARE NOT CONFIRMED YET. <b>Don't close this page.</b>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="dark grain" data-screen-label="VIP offer top" style="padding:34px 0 58px; overflow:hidden;">
+  <div class="wrap" style="max-width:920px;">
+    <!-- progress -->
+    <div class="progress" data-screen-label="Progress bar"><i></i><span class="pct">Registration 73% complete</span></div>
+
+    <h1 class="center" style="font-size:clamp(30px,4.4vw,52px); font-weight:900; letter-spacing:-.02em; margin-top:34px; line-height:1.12;">
+      [VIP MAIN HEADLINE GOES HERE]
+    </h1>
+
+    <p class="center" style="margin:22px auto 0; font-size:clamp(15px,1.9vw,19px); color:var(--t-light-dim);">
+      [VIP SUBHEADLINE GOES HERE]
+    </p>
+
+    <div class="center" style="margin-top:18px;">
+      <span class="green-bar">[URGENCY LINE GOES HERE]</span>
+    </div>
+
+    <!-- bundle mockup -->
+    <div class="vault reveal">
+      <div class="vault-head">Everything in your VIP upgrade</div>
+      <div class="vault-grid">
+        <div class="vault-item">
+          <div class="vmock"><div style="width:100%;aspect-ratio:16/11;border-radius:8px;border:1px solid var(--ink-line);background:radial-gradient(120% 120% at 50% 30%, rgba(126,39,164,.55), rgba(11,6,16,.95));display:grid;place-items:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;"><svg width="10" height="12" viewBox="0 0 30 34" fill="#fff"><path d="M30 17 0 34V0z"/></svg></div></div></div>
+          <div class="vlabel">Lifetime Recording</div><div class="vval">$197 value</div>
+        </div>
+        <div class="vault-item">
+          <div class="vmock"><div style="width:62px;aspect-ratio:3/4.3;border-radius:3px 6px 6px 3px;background:linear-gradient(150deg,#15091F,#3B0E52);box-shadow:-3px 8px 18px -6px rgba(0,0,0,.7), inset 4px 0 0 rgba(255,255,255,.08);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;transform:rotate(-4deg);"><img src="/aos/assets/aos-wordmark-white.png" alt="" style="width:22px;opacity:.9;"><span style="font-family:'Outfit',sans-serif;font-weight:800;color:#fff;font-size:8px;text-align:center;line-height:1;">Authority<br>OS</span></div></div>
+          <div class="vlabel">Physical Book</div><div class="vval">$39 value</div>
+        </div>
+        <div class="vault-item">
+          <div class="vmock"><div style="width:58px;height:84px;border-radius:9px;border:4px solid #2A1238;background:linear-gradient(150deg,#1A0A28,#3B0E52);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;"><img src="/aos/assets/aos-wordmark-white.png" alt="" style="width:20px;opacity:.9;"><span style="font-family:'Outfit',sans-serif;font-weight:800;color:#fff;font-size:8px;">AOS</span></div></div>
+          <div class="vlabel">Instant eBook</div><div class="vval">$19 value</div>
+        </div>
+        <div class="vault-item">
+          <div class="vmock"><div style="width:64px;height:84px;background:#F4EFE6;border-radius:2px;box-shadow:4px 4px 0 -1px #d9d2c4, 8px 8px 0 -2px #cfc7b6;transform:rotate(3deg);padding:11px 10px;"><div style="height:5px;width:60%;background:#b9a98e;margin-bottom:6px;border-radius:1px;"></div><div style="height:3px;width:100%;background:#cdbfa6;margin-bottom:4px;border-radius:1px;"></div><div style="height:3px;width:90%;background:#cdbfa6;margin-bottom:4px;border-radius:1px;"></div><div style="height:3px;width:95%;background:#cdbfa6;border-radius:1px;"></div></div></div>
+          <div class="vlabel">Author's Manuscript</div><div class="vval">$99 value</div>
+        </div>
+      </div>
+      <div class="vault-total"><span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--t-light-dim);">Total value</span><span class="was">$354</span><span class="arrow">→</span><span class="now">$97 today</span></div>
+    </div>
+
+    <p class="center" style="color:var(--t-light-dim); font-size:14px; margin:20px auto 0;">
+      [SOCIAL PROOF LINE GOES HERE]
+    </p>
+
+    <!-- dual CTA -->
+    <div class="center" style="margin-top:26px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+      <button class="btn-vip" onclick="claimVip()">YES, I WANT THE VIP UPGRADE FOR $97<small>Recording + physical book + ebook + manuscript</small></button>
+      <a class="btn-free" href="/aos-v1/page3">No thanks, I'll keep my free seat</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ WHY UPGRADE TO VIP ============ -->
+<section class="section tight" data-screen-label="Why upgrade to VIP" style="background:var(--ink); color:var(--t-light);">
+  <div class="wrap" style="max-width:900px;">
+    <h2 class="center" style="font-size:clamp(28px,4vw,46px);">[WHY-UPGRADE HEADLINE GOES HERE]</h2>
+    <p class="center" style="color:var(--t-light-dim); font-size:17px; max-width:640px; margin:16px auto 38px;">
+      [WHY-UPGRADE SUBHEAD GOES HERE.]
+    </p>
+
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><div class="bn">Bonus 1</div><h4>[BONUS 1 TITLE GOES HERE]</h4><p>[Short description of bonus 1 value.]</p><span class="val">$197 value</span></div>
+      <div class="why-card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="bn">Bonus 2</div><h4>[BONUS 2 TITLE GOES HERE]</h4><p>[Short description of bonus 2 value.]</p><span class="val">$39 value</span></div>
+      <div class="why-card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div><div class="bn">Bonus 3</div><h4>[BONUS 3 TITLE GOES HERE]</h4><p>[Short description of bonus 3 value.]</p><span class="val">$19 value</span></div>
+      <div class="why-card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></div><div class="bn">Bonus 4</div><h4>[BONUS 4 TITLE GOES HERE]</h4><p>[Short description of bonus 4 value.]</p><span class="val">$99 value</span></div>
+    </div>
+
+    <div class="center" style="margin-top:44px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+      <button class="btn-vip" onclick="claimVip()">YES, I WANT THE VIP UPGRADE FOR $97<small>Total value $354, today just $97</small></button>
+      <a class="btn-free" href="/aos-v1/page3">No thanks, I'll keep my free seat</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKET COMPARISON ============ -->
+<section class="section tight" data-screen-label="Choose your option" style="background:var(--ink); color:var(--t-light);">
+  <div class="wrap" style="max-width:920px;">
+    <h2 class="center" style="font-size:clamp(26px,3.6vw,40px); margin-bottom:40px;">[OFFER SELECTION HEADLINE GOES HERE]</h2>
+
+    <div class="tickets">
+      <!-- FREE -->
+      <div class="ticket free reveal">
+        <div class="ttl">Free Seat</div>
+        <div class="price">$0</div>
+        <ul>
+          <li><span class="mk y">✓</span> Live access to the AuthorityOS Masterclass</li>
+          <li class="off"><span class="mk n">✕</span> Lifetime recording of the full training</li>
+          <li class="off"><span class="mk n">✕</span> The physical AuthorityOS book, shipped to your door</li>
+          <li class="off"><span class="mk n">✕</span> Instant digital eBook (read tonight)</li>
+          <li class="off"><span class="mk n">✕</span> The original author's manuscript (unreleased v5.1)</li>
+        </ul>
+        <a class="btn-free" href="/aos-v1/page3" style="text-align:center; display:block; padding:14px; border:1px solid var(--ink-line); border-radius:11px; text-decoration:none;">NO, I'LL KEEP MY FREE SEAT</a>
+      </div>
+
+      <!-- VIP -->
+      <div class="ticket vip reveal">
+        <div class="ttl">VIP Upgrade</div>
+        <div class="price">$97</div>
+        <ul>
+          <li><span class="mk y">✓</span> Live access to the AuthorityOS Masterclass</li>
+          <li><span class="mk y">✓</span> Lifetime recording of the full training</li>
+          <li><span class="mk y">✓</span> The physical AuthorityOS book, shipped to your door</li>
+          <li><span class="mk y">✓</span> Instant digital eBook (read tonight)</li>
+          <li><span class="mk y">✓</span> The original author's manuscript (unreleased v5.1)</li>
+        </ul>
+        <button class="btn-vip" onclick="claimVip()" style="max-width:none;">YES, I WANT THE VIP UPGRADE FOR $97</button>
+      </div>
+    </div>
+
+    <p class="center" style="color:var(--t-light-dim); font-size:14.5px; margin-top:30px; max-width:620px; margin-inline:auto;">
+      [CHECKOUT REASSURANCE LINE GOES HERE]
+    </p>
+  </div>
+</section>
+
+<!-- ============ GUARANTEE ============ -->
+<section class="section tight" data-screen-label="Guarantee" style="background:var(--ink);">
+  <div class="wrap" style="max-width:880px;">
+    <div class="gtee reveal">
+      <div style="width:60px;height:60px;border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;background:linear-gradient(135deg,#7E27A4,#A24BC9);box-shadow:0 16px 36px -12px rgba(126,39,164,.6);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h2 style="font-size:clamp(28px,4vw,44px); color:#fff;">[GUARANTEE HEADLINE GOES HERE]</h2>
+      <p style="color:var(--t-light-dim); font-size:17px; max-width:620px; margin:18px auto 0; line-height:1.6;">
+        [GUARANTEE BODY COPY GOES HERE.]
+      </p>
+      <p style="color:#fff; font-size:17px; max-width:620px; margin:14px auto 0; font-weight:600;">
+        [GUARANTEE PROMISE LINE GOES HERE.]
+      </p>
+      <p style="color:var(--t-light-dim); font-size:15px; max-width:620px; margin:12px auto 28px;">
+        [GUARANTEE DETAIL LINE GOES HERE.]
+      </p>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+        <button class="btn-vip" onclick="claimVip()">YES, I WANT THE VIP UPGRADE FOR $97<small>30-day money-back guarantee</small></button>
+        <a class="btn-free" href="/aos-v1/page3">No thanks, I'll keep my free seat</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="links">
+      <a href="#">Contact</a><span style="opacity:.3">|</span>
+      <a href="#">Privacy Policy</a><span style="opacity:.3">|</span>
+      <a href="#">Terms of Use</a><span style="opacity:.3">|</span>
+      <a href="#">Refund Policy</a>
+    </div>
+    <p class="disc">
+      © 2026 1DS Collective. All rights reserved. This is a one-time upgrade offered with your masterclass registration.
+      Physical book ships within 5 to 7 business days. Digital products are delivered instantly to your registered email.
+    </p>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+function claimVip(){ try{ localStorage.setItem('aos_order','vip'); }catch(_){} window.location.href='/aos-v1/page4'; }
+</script>
+</body>
+</html>
