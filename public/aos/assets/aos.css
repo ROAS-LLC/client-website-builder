@@ -531,7 +531,7 @@ h1, h2, h3, h4 {
   font-size:14px;
   letter-spacing:.10em;
   text-transform:uppercase;
-  color:var(--t-light-dim);
+  color:var(--grape);
   margin-bottom:10px;
 }
 .event-when__cd{
@@ -542,14 +542,18 @@ h1, h2, h3, h4 {
 }
 .event-when__cd b{
   font-family:'Outfit',sans-serif; font-weight:800;
-  font-size:24px; line-height:1; color:#fff;
+  font-size:24px; line-height:1; color:var(--grape-deep);
   font-variant-numeric:tabular-nums;
 }
 .event-when__cd i{
   font-style:normal; margin-top:4px;
   font-size:10px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--t-light-dim);
+  color:var(--t-dark-dim);
 }
+/* Dark-background variant (e.g. under bottom CTA on dark sections) */
+.event-when--dark .event-when__date{ color:var(--violet-soft); }
+.event-when--dark .event-when__cd b{ color:#fff; }
+.event-when--dark .event-when__cd i{ color:var(--t-light-dim); }
 @media (max-width:380px){
   .event-when__cd b{font-size:20px;}
   .event-when__date{font-size:12.5px;}
