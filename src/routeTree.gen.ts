@@ -13,6 +13,7 @@ import { Route as RoasRouteImport } from './routes/roas'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AosIndexRouteImport } from './routes/aos/index'
 import { Route as AosPageRouteImport } from './routes/aos/$page'
+import { Route as AosV1PageRouteImport } from './routes/aos-v1/$page'
 
 const RoasRoute = RoasRouteImport.update({
   id: '/roas',
@@ -34,16 +35,23 @@ const AosPageRoute = AosPageRouteImport.update({
   path: '/aos/$page',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AosV1PageRoute = AosV1PageRouteImport.update({
+  id: '/aos-v1/$page',
+  path: '/aos-v1/$page',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
+  '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/aos/': typeof AosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
+  '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/aos': typeof AosIndexRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
+  '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/aos/': typeof AosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/roas' | '/aos/$page' | '/aos/'
+  fullPaths: '/' | '/roas' | '/aos-v1/$page' | '/aos/$page' | '/aos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/roas' | '/aos/$page' | '/aos'
-  id: '__root__' | '/' | '/roas' | '/aos/$page' | '/aos/'
+  to: '/' | '/roas' | '/aos-v1/$page' | '/aos/$page' | '/aos'
+  id: '__root__' | '/' | '/roas' | '/aos-v1/$page' | '/aos/$page' | '/aos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   RoasRoute: typeof RoasRoute
+  AosV1PageRoute: typeof AosV1PageRoute
   AosPageRoute: typeof AosPageRoute
   AosIndexRoute: typeof AosIndexRoute
 }
@@ -99,12 +109,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AosPageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aos-v1/$page': {
+      id: '/aos-v1/$page'
+      path: '/aos-v1/$page'
+      fullPath: '/aos-v1/$page'
+      preLoaderRoute: typeof AosV1PageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   RoasRoute: RoasRoute,
+  AosV1PageRoute: AosV1PageRoute,
   AosPageRoute: AosPageRoute,
   AosIndexRoute: AosIndexRoute,
 }
