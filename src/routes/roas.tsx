@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/roas")({
   head: () => ({
     meta: [
-      { title: "ROAS — Demo Site Reviewer" },
+      { title: "ROAS: Demo Site Reviewer" },
       { name: "description", content: "ROAS preview page." },
-      { property: "og:title", content: "ROAS — Demo Site Reviewer" },
+      { property: "og:title", content: "ROAS: Demo Site Reviewer" },
       { property: "og:description", content: "ROAS preview page." },
     ],
   }),
