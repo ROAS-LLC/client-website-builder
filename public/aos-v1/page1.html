@@ -478,7 +478,7 @@ function handleReg(form){
   if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ form.email.focus(); form.email.style.borderColor='#e0556b'; return false; }
   if(!phone){ form.phone.focus(); form.phone.style.borderColor='#e0556b'; return false; }
   try{ localStorage.setItem('aos_reg_name',(form.name.value||'').trim()); localStorage.setItem('aos_reg_email',email); }catch(_){}
-  window.location.href='/aos/vip'; return true;
+  window.location.href='/aos-v1/page2'; return true;
 }
 document.getElementById('optinForm').addEventListener('submit',function(e){ e.preventDefault(); handleReg(this); });
 document.getElementById('modalForm').addEventListener('submit',function(e){ e.preventDefault(); handleReg(this); });
