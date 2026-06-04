@@ -479,5 +479,26 @@ function handleReg(form){
 document.getElementById('optinForm').addEventListener('submit',function(e){ e.preventDefault(); handleReg(this); });
 document.getElementById('modalForm').addEventListener('submit',function(e){ e.preventDefault(); handleReg(this); });
 </script>
+
+/* event date countdown — Tue, June 30, 2026 7:30 PM ET (UTC-4 EDT) */
+(function(){
+  const target = new Date('2026-06-30T19:30:00-04:00').getTime();
+  const nodes = document.querySelectorAll('[data-countdown]');
+  if(!nodes.length) return;
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    let diff = Math.max(0, target - Date.now());
+    const d = Math.floor(diff/86400000); diff -= d*86400000;
+    const h = Math.floor(diff/3600000); diff -= h*3600000;
+    const m = Math.floor(diff/60000); diff -= m*60000;
+    const s = Math.floor(diff/1000);
+    nodes.forEach(n=>{
+      const dE=n.querySelector('[data-d]'),hE=n.querySelector('[data-h]'),mE=n.querySelector('[data-m]'),sE=n.querySelector('[data-s]');
+      if(dE) dE.textContent=pad(d); if(hE) hE.textContent=pad(h); if(mE) mE.textContent=pad(m); if(sE) sE.textContent=pad(s);
+    });
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
 </body>
 </html>
