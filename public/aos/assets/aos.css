@@ -525,7 +525,7 @@ h1, h2, h3, h4 {
 .mobile-cta-bar .mcta-when{display:flex; flex-direction:column; line-height:1.2; gap:3px;}
 .mobile-cta-bar .mcta-when strong{color:#fff; font-family:'Outfit',sans-serif; font-weight:800; font-size:18px; display:inline-flex; align-items:baseline; gap:6px;}
 .mobile-cta-bar .mcta-when span{color:var(--t-light-dim); font-size:12px; font-family:'Outfit',sans-serif; font-weight:600; letter-spacing:.02em;}
-.mobile-cta-bar .zoom-logo{font-family:'Outfit',sans-serif; font-weight:800; color:#2D8CFF; font-size:20px; letter-spacing:-.04em; text-transform:lowercase; line-height:1;}
+.mobile-cta-bar .zoom-logo{height:18px; width:auto; display:inline-block; vertical-align:-2px;}
 .mobile-cta-bar .btn.sm{font-size:15px; padding:14px 22px;}
 
 /* Event date + countdown inside opt-in form (borderless) */
