@@ -73,6 +73,10 @@
       <div class="optin-card" id="register">
         <h3>Save Your Free Seat</h3>
         <p class="lead">Enter your best email to lock your spot. Seats for the live session are capped.</p>
+        <div class="event-when">
+          <div class="event-when__date">Tuesday, June 30 · 7:30 PM ET</div>
+          <div class="event-when__cd" data-countdown><span><b data-d>00</b><i>days</i></span><span><b data-h>00</b><i>hrs</i></span><span><b data-m>00</b><i>min</i></span><span><b data-s>00</b><i>sec</i></span></div>
+        </div>
         <form id="optinForm" novalidate>
           <input class="field" type="text" name="name" placeholder="First name" autocomplete="given-name" required>
           <input class="field" type="email" name="email" placeholder="Your best email *" autocomplete="email" required>
@@ -371,6 +375,10 @@
     <button class="close" id="modalClose" aria-label="Close">&times;</button>
     <h3>Save Your Free Seat</h3>
     <p class="lead">Enter your best email to lock your spot. Seats for the live session are capped.</p>
+    <div class="event-when">
+      <div class="event-when__date">Tuesday, June 30 · 7:30 PM ET</div>
+      <div class="event-when__cd" data-countdown><span><b data-d>00</b><i>days</i></span><span><b data-h>00</b><i>hrs</i></span><span><b data-m>00</b><i>min</i></span><span><b data-s>00</b><i>sec</i></span></div>
+    </div>
     <form id="modalForm" novalidate>
       <input class="field" type="text" name="name" placeholder="First name" autocomplete="given-name" required>
       <input class="field" type="email" name="email" placeholder="Your best email *" autocomplete="email" required>
@@ -470,6 +478,27 @@ function handleReg(form){
 }
 document.getElementById('optinForm').addEventListener('submit',function(e){ e.preventDefault(); handleReg(this); });
 document.getElementById('modalForm').addEventListener('submit',function(e){ e.preventDefault(); handleReg(this); });
+</script>
+
+/* event date countdown — Tue, June 30, 2026 7:30 PM ET (UTC-4 EDT) */
+(function(){
+  const target = new Date('2026-06-30T19:30:00-04:00').getTime();
+  const nodes = document.querySelectorAll('[data-countdown]');
+  if(!nodes.length) return;
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    let diff = Math.max(0, target - Date.now());
+    const d = Math.floor(diff/86400000); diff -= d*86400000;
+    const h = Math.floor(diff/3600000); diff -= h*3600000;
+    const m = Math.floor(diff/60000); diff -= m*60000;
+    const s = Math.floor(diff/1000);
+    nodes.forEach(n=>{
+      const dE=n.querySelector('[data-d]'),hE=n.querySelector('[data-h]'),mE=n.querySelector('[data-m]'),sE=n.querySelector('[data-s]');
+      if(dE) dE.textContent=pad(d); if(hE) hE.textContent=pad(h); if(mE) mE.textContent=pad(m); if(sE) sE.textContent=pad(s);
+    });
+  }
+  tick(); setInterval(tick,1000);
+})();
 </script>
 </body>
 </html>
