@@ -75,7 +75,7 @@
       btn.innerHTML = 'Saving your seat…';
       btn.disabled = true;
       var params = new URLSearchParams({ name: fn.value.trim() });
-      window.location.href = '/yasir/vip?' + params.toString();
+      window.location.href = '/yasir-webinar/vip?' + params.toString();
     });
   }
   document.querySelectorAll('.js-reg-form').forEach(attachForm);

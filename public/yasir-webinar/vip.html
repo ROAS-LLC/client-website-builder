@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wait — Your Seat Isn't Confirmed Yet · Speak Like a CEO</title>
-<link rel="stylesheet" href="/yasir/styles.css">
+<link rel="stylesheet" href="/yasir-webinar/styles.css">
 <style>
   /* ---- warning bar ---- */
   .warnbar{
@@ -108,7 +108,7 @@
 
 <header class="topbar">
   <div class="wrap">
-    <img src="/yasir/assets/logo-white.png" alt="Yasir Khan">
+    <img src="/yasir-webinar/assets/logo-white.png" alt="Yasir Khan">
     <div class="when"><span>Thursday, June 16 · <b>7:30 PM ET</b></span></div>
   </div>
 </header>
@@ -180,12 +180,12 @@
       <div class="why-video">
         <div class="hv-frame" id="why-vframe">
           <div class="hv-slides" id="hv-slides">
-            <img class="hv-slide is-active" src="/yasir/assets/yasir-tedx.png" alt="Yasir Khan">
-            <img class="hv-slide" src="/yasir/assets/yasir-saudi.png" alt="" aria-hidden="true">
-            <img class="hv-slide" src="/yasir/assets/yasir-coaching-1.png" alt="" aria-hidden="true">
-            <img class="hv-slide" src="/yasir/assets/yasir-hero.png" alt="" aria-hidden="true">
+            <img class="hv-slide is-active" src="/yasir-webinar/assets/yasir-webinar-tedx.png" alt="Yasir Khan">
+            <img class="hv-slide" src="/yasir-webinar/assets/yasir-webinar-saudi.png" alt="" aria-hidden="true">
+            <img class="hv-slide" src="/yasir-webinar/assets/yasir-webinar-coaching-1.png" alt="" aria-hidden="true">
+            <img class="hv-slide" src="/yasir-webinar/assets/yasir-webinar-hero.png" alt="" aria-hidden="true">
           </div>
-          <div class="hv-logo"><img src="/yasir/assets/logo-white.png" alt="Yasir Khan"></div>
+          <div class="hv-logo"><img src="/yasir-webinar/assets/logo-white.png" alt="Yasir Khan"></div>
           <button class="hv-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>
         </div>
       </div>
@@ -233,7 +233,7 @@
 
 <footer class="footer">
   <div class="wrap">
-    <img src="/yasir/assets/logo-white.png" alt="Yasir Khan">
+    <img src="/yasir-webinar/assets/logo-white.png" alt="Yasir Khan">
     <div class="links">
       <a href="#">Privacy Policy</a><span class="sep">|</span><a href="#">Terms of Service</a>
     </div>
@@ -255,8 +255,8 @@
     Object.keys(extra).forEach(function (k) { p.set(k, extra[k]); });
     return '?' + p.toString();
   }
-  function goVip() { window.location.href = '/yasir/checkout' + carry({}); }
-  function goFree() { window.location.href = '/yasir/thank-you' + carry({ tier: 'free' }); }
+  function goVip() { window.location.href = '/yasir-webinar/checkout' + carry({}); }
+  function goFree() { window.location.href = '/yasir-webinar/thank-you' + carry({ tier: 'free' }); }
 
   document.getElementById('vip-btn').addEventListener('click', goVip);
   document.getElementById('vip-btn-2').addEventListener('click', goVip);
