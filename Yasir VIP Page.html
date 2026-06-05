@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You're Almost In — VIP Upgrade · Speak Like a CEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --navy-0: #070d1d;
+    --navy-1: #0b1430;
+    --navy-2: #101c40;
+    --navy-3: #16244e;
+    --line: rgba(176, 196, 232, .14);
+    --line-strong: rgba(196, 210, 238, .28);
+    --plat: #eef2fb;
+    --plat-2: #c2cce0;
+    --plat-mut: #8593b4;
+    --silver-grad: linear-gradient(180deg, #ffffff 0%, #d3dcf0 55%, #a9b6d6 100%);
+    --gold: #d8b878;
+    --gold-lite: #f0dca8;
+    --grad-gold: linear-gradient(180deg, #f4e3b6 0%, #dcbd7e 45%, #c39f55 100%);
+    --grad-gold-text: linear-gradient(180deg, #f8edc7 0%, #e3c885 55%, #caa75c 100%);
+    --red: #e0496a;
+    --red-deep: #7d1d33;
+    --green: #4cc38a;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--navy-0);
+    color: var(--plat);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  ::selection { background: var(--gold); color: var(--navy-0); }
+
+  /* ── Urgency bar ── */
+  .urgency {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: linear-gradient(90deg, #5c1428, #8d2240 50%, #5c1428);
+    color: #ffe7ec;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-size: 12.5px;
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+  }
+  .urgency .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffd7da;
+    flex-shrink: 0;
+    animation: pulse 1.1s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .25; }
+  }
+
+  .progress-rail { height: 3px; background: var(--navy-2); }
+  .progress-fill { height: 100%; width: 66%; background: var(--grad-gold); }
+
+  /* ── Layout ── */
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 22px; }
+
+  .glow { position: relative; overflow: hidden; }
+  .glow::before {
+    content: "";
+    position: absolute;
+    left: 50%; top: -60px;
+    transform: translateX(-50%);
+    width: 760px; height: 600px;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse at center, rgba(120, 150, 220, .2), transparent 62%);
+  }
+  .glow::after {
+    content: "";
+    position: absolute;
+    left: 50%; top: 80px;
+    transform: translateX(-50%);
+    width: 560px; height: 480px;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse at center, rgba(216, 184, 120, .1), transparent 64%);
+  }
+
+  /* ── Header / stepper ── */
+  header.brand {
+    padding: 26px 0 6px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  header.brand img { height: 28px; margin: 0 auto; opacity: .95; }
+
+  .stepper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto 0;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--plat-mut);
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--navy-1);
+  }
+  .step .n {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    background: var(--navy-2);
+    color: var(--plat-mut);
+  }
+  .step .n svg { width: 11px; height: 11px; }
+  .step.done { color: var(--gold-lite); border-color: var(--line-strong); }
+  .step.done .n { background: var(--grad-gold); color: var(--navy-0); }
+  .step.active { color: var(--navy-0); background: var(--grad-gold); border-color: transparent; }
+  .step.active .n { background: rgba(0, 0, 0, .18); color: var(--navy-0); }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 34px 0 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .eyebrow {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    font-size: 12.5px;
+    color: var(--gold-lite);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(46px, 9vw, 80px);
+    line-height: .98;
+    letter-spacing: -.01em;
+    margin-bottom: 22px;
+  }
+  .hero h1 .silver {
+    background: var(--silver-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero h1 .gold {
+    background: var(--grad-gold-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .wait {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(22px, 4.6vw, 33px);
+    line-height: 1.12;
+    color: var(--plat);
+    max-width: 640px;
+    margin: 0 auto 18px;
+  }
+  .wait .hl { color: var(--red); }
+  .reserved {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--gold-lite);
+    border: 1px solid var(--line-strong);
+    background: rgba(216, 184, 120, .06);
+    padding: 9px 18px;
+    border-radius: 999px;
+    margin-bottom: 30px;
+  }
+  .reserved svg { width: 16px; height: 16px; color: var(--gold); }
+  .lede {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--plat-2);
+    font-size: 17px;
+    text-align: left;
+  }
+  .lede p { margin-bottom: 15px; }
+  .lede strong { color: var(--plat); font-weight: 600; }
+  .lede .em {
+    color: var(--gold-lite);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+  }
+
+  /* ── Section shell ── */
+  section { position: relative; z-index: 2; }
+  .pad { padding: 46px 0; }
+  .center { text-align: center; }
+  .kicker {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  h2.sec {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.06;
+    letter-spacing: -.01em;
+    margin-bottom: 8px;
+  }
+  h2.sec em {
+    font-style: italic;
+    background: var(--grad-gold-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ── Video card ── */
+  .video-card {
+    margin: 8px auto 0;
+    max-width: 640px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    background: var(--navy-1);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .55);
+    position: relative;
+  }
+  .video-tag {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--navy-0);
+    background: var(--grad-gold);
+    padding: 10px;
+  }
+  .video-tag svg { width: 15px; height: 15px; }
+  .video-slot {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    overflow: hidden;
+  }
+  .video-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .play .btn {
+    width: 74px; height: 74px;
+    border-radius: 50%;
+    background: rgba(7, 13, 29, .55);
+    border: 2px solid var(--gold-lite);
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 40px rgba(216, 184, 120, .4);
+  }
+  .play svg { width: 30px; height: 30px; color: var(--gold-lite); margin-left: 4px; }
+
+  /* ── Countdown ── */
+  .countdown {
+    margin: 30px auto 0;
+    max-width: 520px;
+    text-align: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    background: var(--navy-1);
+    padding: 22px 24px;
+  }
+  .countdown .lab {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .countdown .lab svg { width: 15px; height: 15px; }
+  .clock { display: flex; justify-content: center; gap: 14px; }
+  .unit { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+  .unit .num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1;
+    width: 78px;
+    padding: 12px 0;
+    border-radius: 12px;
+    background: var(--navy-2);
+    border: 1px solid var(--line);
+    background-image: var(--silver-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .unit .lbl {
+    font-size: 10.5px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--plat-mut);
+  }
+  .colon {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: var(--gold);
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+
+  /* ── Bonuses ── */
+  .bonus {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--navy-1);
+    padding: 22px;
+    margin-bottom: 18px;
+    transition: border-color .25s var(--ease), transform .25s var(--ease);
+  }
+  .bonus:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+  .bonus .media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .bonus .media img { width: 100%; height: 100%; object-fit: cover; }
+  .bonus .num-badge {
+    position: absolute;
+    top: -10px; left: -10px;
+    z-index: 6;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--grad-gold);
+    color: var(--navy-0);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .5);
+    border: 2px solid var(--navy-0);
+  }
+  .bonus h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+    margin-bottom: 7px;
+    line-height: 1.15;
+  }
+  .bonus p { font-size: 14.5px; color: var(--plat-2); margin-bottom: 12px; }
+  .bonus-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .pill {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    padding: 5px 11px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pill svg { width: 13px; height: 13px; }
+  .pill.val { background: rgba(216, 184, 120, .1); color: var(--gold-lite); border: 1px solid var(--line-strong); }
+  .pill.only { background: rgba(224, 73, 106, .12); color: #ff93a8; border: 1px solid rgba(224, 73, 106, .35); }
+
+  /* ── Free vs VIP comparison ── */
+  .compare {
+    margin: 8px auto 0;
+    max-width: 640px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .col { border: 1px solid var(--line); border-radius: 16px; background: var(--navy-1); padding: 24px 22px; }
+  .col.vip {
+    border-color: var(--line-strong);
+    background: linear-gradient(180deg, rgba(22, 36, 78, .7), var(--navy-1));
+    position: relative;
+  }
+  .col .ribbon {
+    position: absolute;
+    top: 14px; right: 14px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--navy-0);
+    background: var(--grad-gold);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .col h4 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    font-size: 15px;
+    color: var(--plat-mut);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .col.vip h4 { color: var(--gold-lite); }
+  .col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .col li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--plat-2); }
+  .col li svg { flex: 0 0 auto; width: 17px; height: 17px; margin-top: 1px; }
+  .col.free li svg { color: var(--plat-mut); }
+  .col.vip li svg { color: var(--green); }
+  .col.free li.no { color: var(--plat-mut); opacity: .7; }
+
+  /* ── Value stack ── */
+  .value {
+    margin: 30px auto 0;
+    max-width: 520px;
+    text-align: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 18px;
+    background: linear-gradient(180deg, var(--navy-2), var(--navy-1));
+    padding: 30px 26px;
+  }
+  .value .total { font-size: 16px; color: var(--plat-2); margin-bottom: 6px; }
+  .value .total s { color: var(--plat-mut); }
+  .value .total b { color: var(--plat); }
+  .value .today {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+    margin: 14px 0 4px;
+  }
+  .value .price {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 74px;
+    line-height: 1;
+    background: var(--grad-gold-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .value .price small { font-size: 34px; vertical-align: top; margin-right: 2px; }
+
+  /* ── Warning ── */
+  .warn {
+    margin: 30px auto 0;
+    max-width: 600px;
+    border-left: 3px solid var(--red);
+    background: rgba(224, 73, 106, .07);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 22px;
+  }
+  .warn p { font-size: 15px; color: var(--plat-2); }
+  .warn p + p { margin-top: 10px; }
+  .warn strong { color: #ff9aa9; font-weight: 600; }
+
+  /* ── Checkout ── */
+  .checkout {
+    margin: 8px auto 0;
+    max-width: 600px;
+    border: 1px solid var(--line-strong);
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--navy-1);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .6);
+  }
+  .checkout .head {
+    background: var(--grad-gold);
+    color: var(--navy-0);
+    text-align: center;
+    padding: 16px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: 18px;
+  }
+  .checkout .body { padding: 26px 24px; }
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--plat-mut);
+    margin-bottom: 6px;
+  }
+  .field .inwrap { position: relative; }
+  .field .inwrap svg {
+    position: absolute;
+    left: 13px; top: 50%;
+    transform: translateY(-50%);
+    width: 16px; height: 16px;
+    color: var(--plat-mut);
+    pointer-events: none;
+  }
+  .field input {
+    width: 100%;
+    background: rgba(7, 13, 29, .7);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 13px 15px 13px 40px;
+    color: var(--plat);
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+  }
+  .field input::placeholder { color: #5d6a8a; }
+  .field input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(216, 184, 120, .15); }
+  .field input.bad { border-color: var(--red); box-shadow: 0 0 0 3px rgba(224, 73, 106, .15); }
+
+  .summary { margin: 18px 0 16px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .summary .row {
+    display: grid;
+    grid-template-columns: 1fr 70px 90px;
+    padding: 11px 16px;
+    font-size: 14px;
+    align-items: center;
+  }
+  .summary .row.h {
+    background: var(--navy-2);
+    color: var(--plat-mut);
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .summary .row.item { border-top: 1px solid var(--line); }
+  .summary .row.item .nm {
+    font-weight: 600;
+    color: var(--gold-lite);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .summary .row .ta { text-align: right; }
+  .summary .row.tot {
+    border-top: 1px solid var(--line-strong);
+    background: rgba(216, 184, 120, .05);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    font-weight: 700;
+  }
+  .summary .row.tot .big { font-size: 18px; color: var(--gold-lite); }
+
+  .cta {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    background: var(--grad-gold);
+    color: var(--navy-0);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    font-size: 21px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 14px 34px rgba(216, 184, 120, .28);
+    transition: transform .15s var(--ease), filter .15s var(--ease);
+  }
+  .cta svg { width: 22px; height: 22px; }
+  .cta:hover { transform: translateY(-2px); filter: brightness(1.05); }
+  .cta:active { transform: translateY(0); filter: brightness(.96); }
+  .cta.added {
+    background: linear-gradient(180deg, #3ddc97, #1f9d6b);
+    color: #04150d;
+    box-shadow: 0 14px 34px rgba(76, 195, 138, .3);
+  }
+
+  .secure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--plat-mut);
+    letter-spacing: .04em;
+  }
+  .secure svg { width: 14px; height: 14px; color: var(--gold); }
+
+  .cards { display: flex; gap: 6px; justify-content: center; margin-top: 10px; opacity: .7; }
+  .cards span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: var(--plat-mut);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 3px 8px;
+  }
+
+  .decline {
+    display: block;
+    text-align: center;
+    margin: 24px auto 0;
+    max-width: 600px;
+    color: var(--plat-mut);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    transition: color .2s var(--ease), background .2s var(--ease);
+  }
+  .decline:hover { color: var(--plat-2); background: var(--navy-1); }
+
+  /* ── FAQ ── */
+  .faq { max-width: 600px; margin: 8px auto 0; }
+  .qa {
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: var(--navy-1);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .qa summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    font-size: 15px;
+    color: var(--plat);
+  }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary .pl {
+    flex: 0 0 auto;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    display: grid;
+    place-items: center;
+    transition: transform .25s var(--ease);
+  }
+  .qa summary .pl svg { width: 14px; height: 14px; color: var(--gold-lite); }
+  .qa[open] summary .pl { transform: rotate(45deg); }
+  .qa .a { padding: 0 22px 20px; font-size: 14.5px; color: var(--plat-2); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 50px;
+    padding: 34px 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  footer img { height: 24px; margin: 0 auto 16px; opacity: .5; }
+  footer .links { display: flex; gap: 10px; justify-content: center; color: var(--plat-mut); font-size: 12.5px; }
+  footer .links a { color: var(--plat-mut); text-decoration: none; }
+  footer .links a:hover { color: var(--gold-lite); }
+  footer .copy { margin-top: 12px; font-size: 11.5px; color: #4f5b78; }
+
+  /* ── Responsive ── */
+  @media (max-width: 560px) {
+    .bonus { grid-template-columns: 1fr; gap: 18px; }
+    .bonus .media { max-width: 240px; }
+    .unit .num { width: 64px; font-size: 38px; }
+    .summary .row { grid-template-columns: 1fr 50px 78px; }
+    .compare { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Urgency bar -->
+<div class="urgency">
+  <span class="dot"></span>
+  Do not close this page — your VIP upgrade is not complete
+</div>
+<div class="progress-rail"><div class="progress-fill"></div></div>
+
+<!-- Hero -->
+<div class="glow">
+  <div class="wrap">
+    <header class="brand">
+      <img src="project/yasir-vip/assets/logo.png" alt="Speak Like a CEO" />
+      <div class="stepper">
+        <div class="step done">
+          <span class="n"><i data-lucide="check"></i></span>
+          Registration
+        </div>
+        <div class="step active">
+          <span class="n">2</span>
+          VIP Upgrade
+        </div>
+        <div class="step">
+          <span class="n">3</span>
+          Confirmation
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Step 2 of 2</div>
+      <h1><span class="silver">You're</span> <span class="gold">Almost In.</span></h1>
+      <p class="wait"><span class="hl">WAIT!</span> Before you go to the confirmation page — this offer only shows up once.</p>
+      <div class="reserved">
+        <i data-lucide="badge-check"></i>
+        Your spot for the June 17th live training is reserved
+      </div>
+      <div class="lede">
+        <p>But here's what I've learned after training <strong>50,000+ leaders</strong>: the people who show up to a free training and actually change how they speak aren't the ones who just "attend."</p>
+        <p class="em">They're the ones who came in already warmed up.</p>
+        <p>That's what VIP is for. You get <strong>three things</strong> nobody else in that training will have.</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Video + countdown -->
+<section class="pad">
+  <div class="wrap">
+    <div class="video-card">
+      <div class="video-tag">
+        <i data-lucide="play"></i>
+        Watch — Yasir's personal message to you
+      </div>
+      <div class="video-slot">
+        <img src="project/yasir-vip/assets/yasir-speaking.jpg" alt="Yasir Khan — personal message" />
+        <div class="play">
+          <div class="btn"><i data-lucide="play"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="countdown">
+      <div class="lab"><i data-lucide="alarm-clock"></i> Offer expires in</div>
+      <div class="clock" id="clock">
+        <div class="unit"><div class="num" id="cd-m">15</div><div class="lbl">Minutes</div></div>
+        <div class="colon">:</div>
+        <div class="unit"><div class="num" id="cd-s">00</div><div class="lbl">Seconds</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What you get -->
+<section class="pad">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:30px">
+      <div class="kicker">What you get with VIP</div>
+      <h2 class="sec">Three Things The Free Room <em>Won't Have</em></h2>
+    </div>
+
+    <!-- Bonus 1 -->
+    <div class="bonus">
+      <div class="media">
+        <div class="num-badge">1</div>
+        <img src="project/yasir-vip/assets/yasir-stage-red.jpg" alt="Full Replay" />
+      </div>
+      <div>
+        <h3>Full Replay of the June 17th Live Training</h3>
+        <p>Can't stay for the whole thing? Want to rewatch the parts that matter most? VIP gets you the complete recording. Watch it once, watch it five times, skip to what you need.</p>
+        <div class="bonus-meta">
+          <span class="pill only"><i data-lucide="x"></i> Free registrants don't get this</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bonus 2 -->
+    <div class="bonus">
+      <div class="media">
+        <div class="num-badge">2</div>
+        <img src="project/yasir-vip/assets/yasir-headshot.jpg" alt="3 Secrets Course" />
+      </div>
+      <div>
+        <h3>"3 Secrets to World-Class Speech" Course <span style="color:var(--gold-lite);font-size:15px">(30 min)</span></h3>
+        <p>A complete recorded training where Yasir breaks down the three things that separate forgettable speakers from the ones people quote for weeks. Watch it before June 17th and you'll walk into the live event already ahead of everyone else in the room.</p>
+        <div class="bonus-meta">
+          <span class="pill val"><i data-lucide="zap"></i> Watch before the event</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bonus 3 -->
+    <div class="bonus">
+      <div class="media">
+        <div class="num-badge">3</div>
+        <img src="project/yasir-vip/assets/yasir-seated.jpg" alt="Anxiety Playbook PDF" />
+      </div>
+      <div>
+        <h3>"The Ultimate Public Speaking Anxiety Playbook" <span style="color:var(--gold-lite);font-size:15px">(PDF)</span></h3>
+        <p>Yasir's personal playbook for managing the anxiety, blanking out, and freezing that kills your delivery when it matters most. The biology behind why it happens and five tools he uses with his Fortune 500 clients. 15-minute read. Yours to keep.</p>
+        <div class="bonus-meta">
+          <span class="pill val"><i data-lucide="download"></i> Yours to keep</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Free vs VIP -->
+    <div class="compare" style="margin-top:26px">
+      <div class="col free">
+        <h4>Free Ticket</h4>
+        <ul>
+          <li><i data-lucide="check"></i> A seat at the June 17th live training</li>
+          <li class="no"><i data-lucide="x"></i> No replay after it ends</li>
+          <li class="no"><i data-lucide="x"></i> No pre-event course</li>
+          <li class="no"><i data-lucide="x"></i> No anxiety playbook</li>
+        </ul>
+      </div>
+      <div class="col vip">
+        <span class="ribbon">Best value</span>
+        <h4>VIP Ticket — $47</h4>
+        <ul>
+          <li><i data-lucide="check"></i> Everything in the free ticket</li>
+          <li><i data-lucide="check"></i> Full replay — yours to keep</li>
+          <li><i data-lucide="check"></i> "3 Secrets" course (30 min)</li>
+          <li><i data-lucide="check"></i> Anxiety Playbook PDF</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Value stack -->
+    <div class="value">
+      <div class="total">Total value: <s>$197</s> &nbsp;<b>Today only</b></div>
+      <div class="today">Add VIP for just</div>
+      <div class="price"><small>$</small>47</div>
+    </div>
+  </div>
+</section>
+
+<!-- Checkout -->
+<section class="pad" id="checkout">
+  <div class="wrap">
+    <div class="warn">
+      <p><strong>⚠️ This page disappears when you leave.</strong> It won't be in your email. It won't show up again before the training.</p>
+      <p>If you want it, this is the moment.</p>
+    </div>
+
+    <div style="height:24px"></div>
+
+    <div class="checkout">
+      <div class="head">Upgrade to VIP — $47</div>
+      <div class="body">
+        <form id="vip-form" novalidate>
+          <div class="field">
+            <label>Full Name</label>
+            <div class="inwrap">
+              <i data-lucide="user"></i>
+              <input type="text" id="f-name" placeholder="Full name…" autocomplete="name" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Email Address</label>
+            <div class="inwrap">
+              <i data-lucide="mail"></i>
+              <input type="email" id="f-email" placeholder="Email address…" autocomplete="email" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Phone Number</label>
+            <div class="inwrap">
+              <i data-lucide="phone"></i>
+              <input type="tel" id="f-phone" placeholder="Phone number…" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="summary">
+            <div class="row h"><span>Item</span><span class="ta">Qty</span><span class="ta">Amount</span></div>
+            <div class="row item">
+              <span class="nm">VIP Upgrade</span>
+              <span class="ta">1</span>
+              <span class="ta">$47.00</span>
+            </div>
+            <div class="row tot">
+              <span>Order Total</span>
+              <span class="ta"></span>
+              <span class="ta big">$47.00</span>
+            </div>
+          </div>
+
+          <button type="submit" class="cta" id="cta">
+            <i data-lucide="lock"></i>
+            <span id="cta-txt">Add VIP — $47</span>
+          </button>
+          <div class="secure">
+            <i data-lucide="shield-check"></i>
+            100% Secure &amp; Safe Payments
+          </div>
+          <div class="cards">
+            <span>VISA</span>
+            <span>MASTERCARD</span>
+            <span>AMEX</span>
+            <span>APPLE PAY</span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <a class="decline" href="project/Speak Like a CEO Thank You.html">No thanks, I'll just attend the free training →</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="pad">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:30px">
+      <div class="kicker">Quick questions</div>
+      <h2 class="sec">Before You <em>Decide</em></h2>
+    </div>
+    <div class="faq">
+      <details class="qa" open>
+        <summary>
+          Is this a one-time offer?
+          <span class="pl"><i data-lucide="plus"></i></span>
+        </summary>
+        <div class="a">Yes. This page shows up once, right now. It won't be in your email and it won't appear again before the training. If you want the VIP bonuses, this is the moment to add them.</div>
+      </details>
+      <details class="qa">
+        <summary>
+          What if I can't attend live on June 17th?
+          <span class="pl"><i data-lucide="plus"></i></span>
+        </summary>
+        <div class="a">That's exactly what the replay is for. VIP gets you the complete recording to watch — or rewatch — whenever you want. Free registrants don't get this.</div>
+      </details>
+      <details class="qa">
+        <summary>
+          When do I get the course and the playbook?
+          <span class="pl"><i data-lucide="plus"></i></span>
+        </summary>
+        <div class="a">Immediately. The "3 Secrets to World-Class Speech" course and the Anxiety Playbook PDF land in your inbox as soon as you upgrade — so you can watch the course before June 17th and walk in already ahead of the room.</div>
+      </details>
+      <details class="qa">
+        <summary>
+          Is the payment secure?
+          <span class="pl"><i data-lucide="plus"></i></span>
+        </summary>
+        <div class="a">Yes — all payments are processed over a secure, encrypted connection. Your details are never stored on this page.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="project/yasir-vip/assets/logo.png" alt="Speak Like a CEO" />
+  <div class="links">
+    <a href="#">Privacy Policy</a>
+    <span>|</span>
+    <a href="#">Terms of Service</a>
+  </div>
+  <div class="copy">© 2026 Yasir Khan · Speak Like a CEO. All rights reserved.</div>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  // 15-minute countdown — persists across reloads via localStorage
+  (function () {
+    const KEY = 'slc_vip_deadline';
+    const DURATION = 15 * 60 * 1000;
+    let dl = parseInt(localStorage.getItem(KEY) || '0', 10);
+    const now = Date.now();
+    if (!dl || dl - now > DURATION || dl < now) {
+      dl = now + DURATION;
+      localStorage.setItem(KEY, String(dl));
+    }
+    const mEl = document.getElementById('cd-m');
+    const sEl = document.getElementById('cd-s');
+    function tick() {
+      const left = Math.max(0, dl - Date.now());
+      mEl.textContent = String(Math.floor(left / 60000)).padStart(2, '0');
+      sEl.textContent = String(Math.floor((left % 60000) / 1000)).padStart(2, '0');
+      if (left <= 0) clearInterval(timer);
+    }
+    tick();
+    const timer = setInterval(tick, 1000);
+  })();
+
+  // Form validation + submit
+  const form = document.getElementById('vip-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name  = document.getElementById('f-name');
+    const email = document.getElementById('f-email');
+    const phone = document.getElementById('f-phone');
+    let ok = true;
+
+    [name, phone].forEach(function (f) {
+      if (!f.value.trim()) { f.classList.add('bad'); ok = false; }
+      else f.classList.remove('bad');
+    });
+    if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+      email.classList.add('bad'); ok = false;
+    } else {
+      email.classList.remove('bad');
+    }
+
+    if (!ok) { form.querySelector('.bad').focus(); return; }
+
+    const cta = document.getElementById('cta');
+    cta.classList.add('added');
+    cta.innerHTML = '<i data-lucide="check-circle-2"></i> <span>VIP Added — Redirecting…</span>';
+    lucide.createIcons();
+    setTimeout(function () {
+      window.location.href = 'project/Speak Like a CEO Thank You.html';
+    }, 1400);
+  });
+
+  ['f-name', 'f-email', 'f-phone'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function (e) {
+      e.target.classList.remove('bad');
+    });
+  });
+</script>
+</body>
+</html>
