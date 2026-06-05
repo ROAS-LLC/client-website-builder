@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Your VIP Upgrade · Speak Like a CEO</title>
+<link rel="stylesheet" href="/yasir-webinar/styles.css">
+<style>
+  .co{background:var(--dot-light) 0 0 / 26px 26px, var(--mist);min-height:calc(100vh - 74px);padding:48px 0 72px}
+  .co-head{text-align:center;max-width:640px;margin:0 auto 38px}
+  .co-head .eyebrow{margin-bottom:10px}
+  .co-head h1{font-size:clamp(28px,3.6vw,42px);line-height:1.08;letter-spacing:-.022em;margin-bottom:10px}
+  .co-head p{color:var(--muted);font-size:16.5px;line-height:1.5}
+  .co-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;max-width:920px;margin:0 auto;align-items:start}
+  @media(max-width:780px){.co-grid{grid-template-columns:1fr}}
+
+  .co-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-card);padding:30px 30px}
+  .co-card h2{font-size:19px;margin-bottom:18px;letter-spacing:-.01em}
+
+  /* order summary */
+  .order{background:var(--dot-dark) 0 0 / 22px 22px, var(--ink);color:#fff;border:2px solid var(--accent);
+    border-radius:20px;padding:30px;box-shadow:0 30px 70px -30px color-mix(in srgb, var(--accent) 55%, #000)}
+  .order h2{color:#fff}
+  .order-item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line-dark);font-size:14.5px;color:#e4eaf2;line-height:1.45}
+  .order-item .ic{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;background:rgba(75,157,211,.22);color:#bfe0f4;margin-top:1px}
+  .order-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:20px;padding-top:18px;border-top:1px solid var(--line-dark)}
+  .order-total .l{font-size:15px;color:var(--muted-d);font-weight:600}
+  .order-total .v{font-size:34px;font-weight:800;letter-spacing:-.02em}
+  .order-guar{margin-top:16px;font-size:13px;color:var(--muted-d);line-height:1.5;display:flex;gap:8px}
+  .order-guar .s{color:var(--accent);flex-shrink:0}
+
+  /* payment form */
+  .field{margin-bottom:13px}
+  .field label{display:block;font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.02em}
+  .field input{width:100%;font-family:var(--display);font-size:16px;color:var(--text);font-weight:500;
+    padding:15px 16px;border:1.5px solid var(--line);border-radius:11px;background:#fbfcfd;transition:border .15s, box-shadow .15s}
+  .field input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);background:#fff}
+  .field input::placeholder{color:#9aa3b2}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .pay-btn{width:100%;margin-top:8px}
+  .co-secure{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;color:var(--muted);margin-top:14px}
+  .co-decline{display:block;text-align:center;margin:18px auto 0;font-size:14px;color:var(--muted);font-weight:600;background:none;border:none;cursor:pointer;font-family:var(--display)}
+  .co-decline:hover{color:var(--text);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <img src="/yasir-webinar/assets/logo-white.png" alt="Yasir Khan">
+    <div class="when"><span>Step 2 of 2 · <b>Secure checkout</b></span></div>
+  </div>
+</header>
+
+<section class="co" data-screen-label="VIP checkout">
+  <div class="wrap">
+    <div class="co-head">
+      <div class="eyebrow">Almost there</div>
+      <h1 id="co-h1">Complete your VIP upgrade</h1>
+      <p>One last step to lock in your VIP seat and bonuses. Your free seat is already held — this just adds the extras.</p>
+    </div>
+
+    <div class="co-grid">
+      <!-- payment -->
+      <div class="co-card">
+        <h2>Payment details</h2>
+        <form id="pay-form" novalidate>
+          <div class="field">
+            <label for="cname">Name on card</label>
+            <input id="cname" type="text" placeholder="Full name" autocomplete="cc-name" required>
+          </div>
+          <div class="field">
+            <label for="ccnum">Card number</label>
+            <input id="ccnum" type="text" inputmode="numeric" placeholder="1234 1234 1234 1234" autocomplete="cc-number" required>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="ccexp">Expiry</label>
+              <input id="ccexp" type="text" placeholder="MM / YY" autocomplete="cc-exp" required>
+            </div>
+            <div class="field">
+              <label for="cccvc">CVC</label>
+              <input id="cccvc" type="text" inputmode="numeric" placeholder="CVC" autocomplete="cc-csc" required>
+            </div>
+          </div>
+          <button class="btn btn-stack pay-btn" type="submit">
+            <span class="b-main">Pay $47 &amp; confirm my VIP seat <span class="arrow">→</span></span>
+            <span class="b-sub">Instant access + lifetime recording</span>
+          </button>
+          <div class="co-secure">🔒 Secured &amp; encrypted checkout</div>
+        </form>
+        <button class="co-decline" id="co-decline" type="button">No thanks, just confirm my free seat</button>
+      </div>
+
+      <!-- order summary -->
+      <div class="order">
+        <h2>Your VIP order</h2>
+        <div class="order-item"><span class="ic">✓</span><span>Lifetime recording of the live training</span></div>
+        <div class="order-item"><span class="ic">✓</span><span>The 3 Secrets of Professional Speakers</span></div>
+        <div class="order-item"><span class="ic">✓</span><span>VIP action workbook &amp; self-assessment</span></div>
+        <div class="order-item"><span class="ic">✓</span><span>Priority Q&amp;A during the live session</span></div>
+        <div class="order-total"><span class="l">Total due today</span><span class="v">$47</span></div>
+        <div class="order-guar"><span class="s">🛡</span><span>Protected by a 30-day, no-questions-asked money-back guarantee. Don't love it? Full refund, keep your free seat.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="/yasir-webinar/assets/logo-white.png" alt="Yasir Khan">
+    <div class="links">
+      <a href="#">Privacy Policy</a><span class="sep">|</span><a href="#">Terms of Service</a>
+    </div>
+    <p class="disc">This site is not part of or endorsed by any third-party platform. Payments are processed securely. Results are not typical and depend on individual effort. © 2026 Yasir Khan. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var qs = new URLSearchParams(location.search);
+  var name = (qs.get('name') || '').replace(/[<>]/g, '').trim().slice(0, 40);
+  if (name) document.getElementById('co-h1').textContent = name + ', complete your VIP upgrade';
+
+  function go(tier) {
+    var p = new URLSearchParams();
+    if (name) p.set('name', name);
+    p.set('tier', tier);
+    window.location.href = '/yasir-webinar/thank-you?' + p.toString();
+  }
+
+  document.getElementById('pay-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    this.querySelectorAll('input[required]').forEach(function (f) {
+      if (!f.value.trim()) { f.style.borderColor = '#e0556b'; ok = false; } else { f.style.borderColor = ''; }
+    });
+    if (!ok) return;
+    var btn = this.querySelector('.btn');
+    btn.innerHTML = 'Processing payment…';
+    btn.disabled = true;
+    setTimeout(function () { go('vip'); }, 700);
+  });
+  document.getElementById('co-decline').addEventListener('click', function () { go('free'); });
+})();
+</script>
+</body>
+</html>
