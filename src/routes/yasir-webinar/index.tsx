@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import registerHtml from "../../../public/yasir/register.html?raw";
+import registerHtml from "../../../public/yasir-webinar/register.html?raw";
 
 export const Route = createFileRoute("/yasir-webinar/")({
   server: {
