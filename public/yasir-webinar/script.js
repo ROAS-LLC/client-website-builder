@@ -75,7 +75,7 @@
       btn.innerHTML = 'Saving your seat…';
       btn.disabled = true;
       var params = new URLSearchParams({ name: fn.value.trim() });
-      window.location.href = 'VIP Offer.html?' + params.toString();
+      window.location.href = 'vip.html?' + params.toString();
     });
   }
   document.querySelectorAll('.js-reg-form').forEach(attachForm);

@@ -255,8 +255,8 @@
     Object.keys(extra).forEach(function (k) { p.set(k, extra[k]); });
     return '?' + p.toString();
   }
-  function goVip() { window.location.href = 'VIP Checkout.html' + carry({}); }
-  function goFree() { window.location.href = 'Thank You.html' + carry({ tier: 'free' }); }
+  function goVip() { window.location.href = 'checkout.html' + carry({}); }
+  function goFree() { window.location.href = 'thank-you.html' + carry({ tier: 'free' }); }
 
   document.getElementById('vip-btn').addEventListener('click', goVip);
   document.getElementById('vip-btn-2').addEventListener('click', goVip);
