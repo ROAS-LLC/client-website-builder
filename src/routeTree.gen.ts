@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YasirRouteImport } from './routes/yasir'
 import { Route as RoasRouteImport } from './routes/roas'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AosIndexRouteImport } from './routes/aos/index'
 import { Route as AosPageRouteImport } from './routes/aos/$page'
 import { Route as AosV1PageRouteImport } from './routes/aos-v1/$page'
 
+const YasirRoute = YasirRouteImport.update({
+  id: '/yasir',
+  path: '/yasir',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoasRoute = RoasRouteImport.update({
   id: '/roas',
   path: '/roas',
@@ -44,6 +50,7 @@ const AosV1PageRoute = AosV1PageRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
+  '/yasir': typeof YasirRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/aos/': typeof AosIndexRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
+  '/yasir': typeof YasirRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/aos': typeof AosIndexRoute
@@ -59,21 +67,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
+  '/yasir': typeof YasirRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/aos/': typeof AosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/roas' | '/aos-v1/$page' | '/aos/$page' | '/aos/'
+  fullPaths: '/' | '/roas' | '/yasir' | '/aos-v1/$page' | '/aos/$page' | '/aos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/roas' | '/aos-v1/$page' | '/aos/$page' | '/aos'
-  id: '__root__' | '/' | '/roas' | '/aos-v1/$page' | '/aos/$page' | '/aos/'
+  to: '/' | '/roas' | '/yasir' | '/aos-v1/$page' | '/aos/$page' | '/aos'
+  id:
+    | '__root__'
+    | '/'
+    | '/roas'
+    | '/yasir'
+    | '/aos-v1/$page'
+    | '/aos/$page'
+    | '/aos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   RoasRoute: typeof RoasRoute
+  YasirRoute: typeof YasirRoute
   AosV1PageRoute: typeof AosV1PageRoute
   AosPageRoute: typeof AosPageRoute
   AosIndexRoute: typeof AosIndexRoute
@@ -81,6 +98,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yasir': {
+      id: '/yasir'
+      path: '/yasir'
+      fullPath: '/yasir'
+      preLoaderRoute: typeof YasirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/roas': {
       id: '/roas'
       path: '/roas'
@@ -122,6 +146,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   RoasRoute: RoasRoute,
+  YasirRoute: YasirRoute,
   AosV1PageRoute: AosV1PageRoute,
   AosPageRoute: AosPageRoute,
   AosIndexRoute: AosIndexRoute,
