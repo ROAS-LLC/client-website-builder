@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import registerHtml from "../../../public/yasir-webinar/register.html?raw";
-import thankYouHtml from "../../../public/yasir-webinar/thank-you.html?raw";
-import vipHtml from "../../../public/yasir-webinar/vip.html?raw";
-import checkoutHtml from "../../../public/yasir-webinar/checkout.html?raw";
+import registerHtml from "../../../public/yasir/register.html?raw";
+import thankYouHtml from "../../../public/yasir/thank-you.html?raw";
+import vipHtml from "../../../public/yasir/vip.html?raw";
+import checkoutHtml from "../../../public/yasir/checkout.html?raw";
 
 const pages: Record<string, string> = {
   register: registerHtml,
@@ -11,7 +11,7 @@ const pages: Record<string, string> = {
   checkout: checkoutHtml,
 };
 
-export const Route = createFileRoute("/yasir-webinar/$page")({
+export const Route = createFileRoute("/yasir/$page")({
   server: {
     handlers: {
       GET: async ({ params }) => {
