@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wait — Your Seat Isn't Confirmed Yet · Speak Like a CEO</title>
+<link rel="stylesheet" href="/yasir/styles.css">
+<style>
+  /* ---- warning bar ---- */
+  .warnbar{
+    background:#e0473f;color:#fff;text-align:center;
+    padding:13px 20px;font-size:14px;font-weight:800;letter-spacing:.04em;
+    text-transform:uppercase;line-height:1.4;
+  }
+  @keyframes warnpulse{0%,100%{opacity:1}50%{opacity:.78}}
+  .warnbar .flash{animation:warnpulse 1.6s ease-in-out infinite}
+
+  /* ---- vip hero ---- */
+  .vip-hero{background:var(--dot-dark) 0 0 / 26px 26px, var(--ink);color:#fff;padding:54px 0 60px;text-align:center}
+  .vip-hero .eyebrow2{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .vip-hero h1{font-size:clamp(30px,4.4vw,52px);line-height:1.06;max-width:16ch;margin:0 auto 18px;letter-spacing:-.022em}
+  .vip-hero h1 .u{color:var(--accent)}
+  .vip-hero p.sub{font-size:clamp(17px,2vw,20px);color:#cdd6e2;max-width:640px;margin:0 auto;line-height:1.55;font-weight:500}
+  .vip-hero .scroll-cue{margin-top:30px;font-size:14px;color:var(--muted-d);font-weight:700;letter-spacing:.04em}
+  .vip-hero .scroll-cue .arr{display:block;font-size:22px;margin-top:6px;animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  /* ---- ticket selection ---- */
+  .tickets{background:var(--dot-light) 0 0 / 26px 26px, var(--mist);padding:72px 0}
+  .tickets .sec-head{margin-bottom:44px}
+  .ticket-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:920px;margin:0 auto;align-items:stretch}
+  .tk{
+    position:relative;border-radius:22px;padding:36px 34px;display:flex;flex-direction:column;
+    border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow-card);
+  }
+  .tk.free{}
+  .tk.vip{
+    background:var(--dot-dark) 0 0 / 22px 22px, var(--ink);color:#fff;border:2px solid var(--accent);
+    box-shadow:0 30px 70px -28px color-mix(in srgb, var(--accent) 60%, #000);
+  }
+  .tk-tag{
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--accent);color:#fff;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    padding:7px 16px;border-radius:100px;white-space:nowrap;box-shadow:var(--shadow-cta);
+  }
+  .tk-name{font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .tk.vip .tk-name{color:var(--accent)}
+  .tk-price{display:flex;align-items:baseline;gap:8px;margin:8px 0 4px}
+  .tk-price .amt{font-size:54px;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .tk-price .per{font-size:15px;color:var(--muted);font-weight:600}
+  .tk.vip .tk-price .per{color:var(--muted-d)}
+  .tk-sub{font-size:14.5px;color:var(--muted);margin-bottom:22px}
+  .tk.vip .tk-sub{color:var(--muted-d)}
+  .tk-list{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:13px;flex:1}
+  .tk-list li{display:flex;gap:11px;font-size:15px;line-height:1.45;align-items:flex-start}
+  .tk-list .ic{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;margin-top:1px}
+  .tk.free .tk-list .yes{background:var(--accent-soft);color:var(--accent-deep)}
+  .tk.free .tk-list .no{background:#f0f1f3;color:#b3bac6}
+  .tk.free .tk-list .no + span{color:#aab2bf}
+  .tk.vip .tk-list .yes{background:rgba(75,157,211,.2);color:#bfe0f4}
+  .tk.vip .tk-list li{color:#e4eaf2}
+  .tk-btn{
+    width:100%;border:none;border-radius:13px;cursor:pointer;font-family:var(--display);
+    font-weight:800;font-size:16px;padding:17px 20px;transition:transform .15s, background .2s;
+  }
+  .tk.free .tk-btn{background:#eef0f3;color:var(--text)}
+  .tk.free .tk-btn:hover{background:#e4e7ec}
+  .tk.vip .tk-btn{background:var(--accent);color:#fff;box-shadow:var(--shadow-cta)}
+  .tk.vip .tk-btn:hover{background:var(--accent-deep);transform:translateY(-2px)}
+  .tk-fine{font-size:12.5px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.4}
+  .tk.vip .tk-fine{color:var(--muted-d)}
+  @media(max-width:740px){.ticket-grid{grid-template-columns:1fr;gap:32px}}
+
+  /* ---- why upgrade ---- */
+  .why{background:var(--paper);padding:80px 0}
+  .why-card{
+    max-width:860px;margin:0 auto;background:var(--mist);border:1px solid var(--line);
+    border-radius:var(--r-xl);padding:48px 52px;box-shadow:var(--shadow-card);
+  }
+  .why-card h2{font-size:clamp(26px,3.2vw,38px);line-height:1.1;margin-bottom:14px;text-align:center}
+  .why-card .why-lead{text-align:center;color:var(--muted);font-size:17px;line-height:1.55;max-width:60ch;margin:0 auto 30px}
+  .why-video{border-radius:16px;overflow:hidden;margin-bottom:34px}
+  .why-video .hv-frame{min-height:0;aspect-ratio:16/9;border-radius:16px}
+  .bonus{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--line)}
+  .bonus:first-of-type{border-top:none}
+  .bonus .bnum{
+    flex-shrink:0;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+    background:var(--accent-soft);color:var(--accent-deep);font-weight:800;font-size:13px;line-height:1.1;text-align:center;
+  }
+  .bonus .bt{font-size:18px;font-weight:800;letter-spacing:-.01em;margin-bottom:4px}
+  .bonus .bt .val{color:var(--accent-deep);font-size:14px;font-weight:800;margin-left:8px}
+  .bonus .bd{font-size:15px;color:var(--muted);line-height:1.55}
+  .why-cta{text-align:center;margin-top:36px}
+  .why-cta .btn{max-width:440px;margin:0 auto}
+  @media(max-width:560px){.why-card{padding:34px 24px}}
+
+  /* ---- guarantee ---- */
+  .guarantee{background:var(--dot-dark) 0 0 / 26px 26px, var(--ink);color:#fff;text-align:center;padding:72px 0}
+  .guar-badge{
+    width:88px;height:88px;border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;
+    background:rgba(75,157,211,.14);border:1.5px solid rgba(75,157,211,.4);color:var(--accent);font-size:38px;
+  }
+  .guarantee h2{font-size:clamp(26px,3.2vw,40px);margin-bottom:16px}
+  .guarantee p{color:#cdd6e2;max-width:620px;margin:0 auto;line-height:1.6;font-size:17px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <img src="/yasir/assets/logo-white.png" alt="Yasir Khan">
+    <div class="when"><span>Thursday, June 16 · <b>7:30 PM ET</b></span></div>
+  </div>
+</header>
+
+<div class="warnbar"><span class="flash">⚠ Wait — your registration is NOT complete yet.</span> Read below before you close this page.</div>
+
+<!-- VIP HERO -->
+<section class="vip-hero" data-screen-label="VIP offer">
+  <div class="wrap">
+    <div class="eyebrow2">One quick step left</div>
+    <h1 id="vip-h1">Your seat is reserved — but it isn't <span class="u">confirmed</span> yet.</h1>
+    <p class="sub">Before your spot is locked in, give yourself an unfair advantage for the live training. Read below to see exactly why most serious attendees upgrade to VIP, then choose your ticket.</p>
+    <div class="scroll-cue">See your options<span class="arr">↓</span></div>
+  </div>
+</section>
+
+<!-- TICKET SELECTION -->
+<section class="tickets" data-screen-label="Choose your ticket">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Choose your ticket</div>
+      <h2 class="h-lg">Select your seat to confirm</h2>
+    </div>
+    <div class="ticket-grid">
+      <!-- FREE -->
+      <div class="tk free">
+        <div class="tk-name">Free Seat</div>
+        <div class="tk-price"><span class="amt">$0</span><span class="per">/ free</span></div>
+        <div class="tk-sub">Attend the live training at no cost.</div>
+        <ul class="tk-list">
+          <li><span class="ic yes">✓</span><span>Live access to the full training on June 16</span></li>
+          <li><span class="ic yes">✓</span><span>Your private Zoom link &amp; reminders</span></li>
+          <li><span class="ic no">✕</span><span>No recording — once it's over, it's gone</span></li>
+          <li><span class="ic no">✕</span><span>The 3 Secrets of Professional Speakers</span></li>
+          <li><span class="ic no">✕</span><span>VIP bonuses &amp; takeaways</span></li>
+        </ul>
+        <button class="tk-btn" id="free-btn" type="button">No thanks, claim my free seat</button>
+        <p class="tk-fine">You'll confirm your free seat and miss the VIP extras.</p>
+      </div>
+
+      <!-- VIP -->
+      <div class="tk vip">
+        <div class="tk-tag">★ Recommended</div>
+        <div class="tk-name">VIP Seat</div>
+        <div class="tk-price"><span class="amt">$47</span><span class="per">one-time</span></div>
+        <div class="tk-sub">Everything in Free, plus the tools to make it stick.</div>
+        <ul class="tk-list">
+          <li><span class="ic yes">✓</span><span>Everything in the Free Seat</span></li>
+          <li><span class="ic yes">✓</span><span><b>Lifetime recording</b> of the live training to keep &amp; rewatch</span></li>
+          <li><span class="ic yes">✓</span><span><b>The 3 Secrets of Professional Speakers</b> — the 3 components of a professional speaker</span></li>
+          <li><span class="ic yes">✓</span><span>VIP action workbook &amp; speaking self-assessment</span></li>
+          <li><span class="ic yes">✓</span><span>Priority Q&amp;A during the live session</span></li>
+        </ul>
+        <button class="tk-btn" id="vip-btn" type="button">Yes! Upgrade my seat to VIP →</button>
+        <p class="tk-fine">One-time $47. 30-day no-questions-asked guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY UPGRADE -->
+<section class="why" data-screen-label="Why upgrade to VIP">
+  <div class="wrap">
+    <div class="why-card">
+      <div class="eyebrow" style="text-align:center">Why upgrade to VIP</div>
+      <h2>Most people forget half of what they learn</h2>
+      <p class="why-lead">You'll get real value live. But the difference between attendees who actually change how they speak and those who don't comes down to one thing: what they keep afterward. VIP makes sure the framework is still in your hands the night before your next big talk.</p>
+
+      <div class="why-video">
+        <div class="hv-frame" id="why-vframe">
+          <div class="hv-slides" id="hv-slides">
+            <img class="hv-slide is-active" src="/yasir/assets/yasir-tedx.png" alt="Yasir Khan">
+            <img class="hv-slide" src="/yasir/assets/yasir-saudi.png" alt="" aria-hidden="true">
+            <img class="hv-slide" src="/yasir/assets/yasir-coaching-1.png" alt="" aria-hidden="true">
+            <img class="hv-slide" src="/yasir/assets/yasir-hero.png" alt="" aria-hidden="true">
+          </div>
+          <div class="hv-logo"><img src="/yasir/assets/logo-white.png" alt="Yasir Khan"></div>
+          <button class="hv-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>
+        </div>
+      </div>
+
+      <div class="bonus">
+        <div class="bnum">BONUS 1</div>
+        <div>
+          <div class="bt">Lifetime training recording <span class="val">($197 value)</span></div>
+          <div class="bd">Rewatch the entire session as many times as you want. Prep with it before every pitch, keynote, or board meeting for years to come.</div>
+        </div>
+      </div>
+      <div class="bonus">
+        <div class="bnum">BONUS 2</div>
+        <div>
+          <div class="bt">The 3 Secrets of Professional Speakers <span class="val">($97 value)</span></div>
+          <div class="bd">The three components every professional public speaker is built on — broken down into a guide you can apply the moment the training ends.</div>
+        </div>
+      </div>
+      <div class="bonus">
+        <div class="bnum">BONUS 3</div>
+        <div>
+          <div class="bt">VIP workbook &amp; self-assessment <span class="val">($47 value)</span></div>
+          <div class="bd">Score exactly where you stand today and follow a clear plan to close the gaps — so you leave the training with a roadmap, not just notes.</div>
+        </div>
+      </div>
+
+      <div class="why-cta">
+        <button class="btn btn-stack" id="vip-btn-2" type="button">
+          <span class="b-main">Yes! Upgrade my seat to VIP <span class="arrow">→</span></span>
+          <span class="b-sub">Just $47 today · 30-day guarantee</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee" data-screen-label="Guarantee">
+  <div class="wrap-tight">
+    <div class="guar-badge">🛡</div>
+    <h2>No-questions-asked guarantee</h2>
+    <p>Upgrade to VIP, attend the training, and use everything. If you don't feel it was worth far more than $47, email us within 30 days and we'll refund every cent — and you keep your free seat. You truly can't lose.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="/yasir/assets/logo-white.png" alt="Yasir Khan">
+    <div class="links">
+      <a href="#">Privacy Policy</a><span class="sep">|</span><a href="#">Terms of Service</a>
+    </div>
+    <p class="disc">This site is not part of or endorsed by any third-party platform. Company names and logos shown are trademarks of their respective owners and indicate where Yasir has trained leaders; they do not imply endorsement. Results are not typical and depend on individual effort. © 2026 Yasir Khan. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var qs = new URLSearchParams(location.search);
+  var name = (qs.get('name') || '').replace(/[<>]/g, '').trim().slice(0, 40);
+  if (name) {
+    document.getElementById('vip-h1').innerHTML =
+      name + ", your seat is reserved — but it isn't <span class=\"u\">confirmed</span> yet.";
+  }
+  function carry(extra) {
+    var p = new URLSearchParams();
+    if (name) p.set('name', name);
+    Object.keys(extra).forEach(function (k) { p.set(k, extra[k]); });
+    return '?' + p.toString();
+  }
+  function goVip() { window.location.href = '/yasir/checkout' + carry({}); }
+  function goFree() { window.location.href = '/yasir/thank-you' + carry({ tier: 'free' }); }
+
+  document.getElementById('vip-btn').addEventListener('click', goVip);
+  document.getElementById('vip-btn-2').addEventListener('click', goVip);
+  document.getElementById('free-btn').addEventListener('click', goFree);
+
+  // shuffle the why-video photos
+  var slides = document.querySelectorAll('#hv-slides .hv-slide');
+  if (slides.length > 1) {
+    var si = 0;
+    setInterval(function () {
+      slides[si].classList.remove('is-active');
+      si = (si + 1) % slides.length;
+      slides[si].classList.add('is-active');
+    }, 560);
+  }
+})();
+</script>
+</body>
+</html>
