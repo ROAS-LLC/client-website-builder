@@ -12,7 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as YasirRouteImport } from './routes/yasir'
 import { Route as RoasRouteImport } from './routes/roas'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as YasirWebinarIndexRouteImport } from './routes/yasir-webinar/index'
 import { Route as AosIndexRouteImport } from './routes/aos/index'
+import { Route as YasirWebinarPageRouteImport } from './routes/yasir-webinar/$page'
 import { Route as AosPageRouteImport } from './routes/aos/$page'
 import { Route as AosV1PageRouteImport } from './routes/aos-v1/$page'
 
@@ -31,9 +33,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const YasirWebinarIndexRoute = YasirWebinarIndexRouteImport.update({
+  id: '/yasir-webinar/',
+  path: '/yasir-webinar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AosIndexRoute = AosIndexRouteImport.update({
   id: '/aos/',
   path: '/aos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YasirWebinarPageRoute = YasirWebinarPageRouteImport.update({
+  id: '/yasir-webinar/$page',
+  path: '/yasir-webinar/$page',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AosPageRoute = AosPageRouteImport.update({
@@ -53,7 +65,9 @@ export interface FileRoutesByFullPath {
   '/yasir': typeof YasirRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
+  '/yasir-webinar/$page': typeof YasirWebinarPageRoute
   '/aos/': typeof AosIndexRoute
+  '/yasir-webinar/': typeof YasirWebinarIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +75,9 @@ export interface FileRoutesByTo {
   '/yasir': typeof YasirRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
+  '/yasir-webinar/$page': typeof YasirWebinarPageRoute
   '/aos': typeof AosIndexRoute
+  '/yasir-webinar': typeof YasirWebinarIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,13 +86,31 @@ export interface FileRoutesById {
   '/yasir': typeof YasirRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
+  '/yasir-webinar/$page': typeof YasirWebinarPageRoute
   '/aos/': typeof AosIndexRoute
+  '/yasir-webinar/': typeof YasirWebinarIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/roas' | '/yasir' | '/aos-v1/$page' | '/aos/$page' | '/aos/'
+  fullPaths:
+    | '/'
+    | '/roas'
+    | '/yasir'
+    | '/aos-v1/$page'
+    | '/aos/$page'
+    | '/yasir-webinar/$page'
+    | '/aos/'
+    | '/yasir-webinar/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/roas' | '/yasir' | '/aos-v1/$page' | '/aos/$page' | '/aos'
+  to:
+    | '/'
+    | '/roas'
+    | '/yasir'
+    | '/aos-v1/$page'
+    | '/aos/$page'
+    | '/yasir-webinar/$page'
+    | '/aos'
+    | '/yasir-webinar'
   id:
     | '__root__'
     | '/'
@@ -84,7 +118,9 @@ export interface FileRouteTypes {
     | '/yasir'
     | '/aos-v1/$page'
     | '/aos/$page'
+    | '/yasir-webinar/$page'
     | '/aos/'
+    | '/yasir-webinar/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,7 +129,9 @@ export interface RootRouteChildren {
   YasirRoute: typeof YasirRoute
   AosV1PageRoute: typeof AosV1PageRoute
   AosPageRoute: typeof AosPageRoute
+  YasirWebinarPageRoute: typeof YasirWebinarPageRoute
   AosIndexRoute: typeof AosIndexRoute
+  YasirWebinarIndexRoute: typeof YasirWebinarIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -119,11 +157,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/yasir-webinar/': {
+      id: '/yasir-webinar/'
+      path: '/yasir-webinar'
+      fullPath: '/yasir-webinar/'
+      preLoaderRoute: typeof YasirWebinarIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/aos/': {
       id: '/aos/'
       path: '/aos'
       fullPath: '/aos/'
       preLoaderRoute: typeof AosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/yasir-webinar/$page': {
+      id: '/yasir-webinar/$page'
+      path: '/yasir-webinar/$page'
+      fullPath: '/yasir-webinar/$page'
+      preLoaderRoute: typeof YasirWebinarPageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/aos/$page': {
@@ -149,18 +201,10 @@ const rootRouteChildren: RootRouteChildren = {
   YasirRoute: YasirRoute,
   AosV1PageRoute: AosV1PageRoute,
   AosPageRoute: AosPageRoute,
+  YasirWebinarPageRoute: YasirWebinarPageRoute,
   AosIndexRoute: AosIndexRoute,
+  YasirWebinarIndexRoute: YasirWebinarIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
