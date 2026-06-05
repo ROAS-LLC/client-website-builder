@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import vipHtml from "../../public/yasir-vip/index.html?raw";
+import registerHtml from "../../../public/yasir/register.html?raw";
 
-export const Route = createFileRoute("/yasir-vip")({
+export const Route = createFileRoute("/yasir/")({
   server: {
     handlers: {
       GET: async () => {
-        return new Response(vipHtml, {
+        return new Response(registerHtml, {
           headers: { "content-type": "text/html; charset=utf-8" },
         });
       },
