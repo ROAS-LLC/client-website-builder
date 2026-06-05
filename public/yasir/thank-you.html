@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Registered — Speak Like a CEO with Yasir Khan</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ---- confirmation hero ---- */
+  .ty-top{background:var(--dot-dark) 0 0 / 26px 26px, var(--ink);color:#fff;padding:60px 0 70px;text-align:center}
+  .ty-check{
+    width:74px;height:74px;border-radius:50%;margin:0 auto 24px;
+    display:grid;place-items:center;background:rgba(75,224,138,.14);
+    border:1.5px solid rgba(75,224,138,.42);color:#5fe39a;font-size:36px;font-weight:800;
+  }
+  .ty-top .conf{font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#5fe39a;margin-bottom:14px}
+  .ty-top h1{font-size:clamp(36px,5.4vw,62px);line-height:1.02;margin-bottom:16px;letter-spacing:-.022em}
+  .ty-top .accent-sub{
+    font-size:clamp(18px,2.2vw,24px);font-weight:800;color:var(--accent);
+    margin-bottom:8px;letter-spacing:-.01em;
+  }
+  .ty-top p.sub{font-size:clamp(16px,1.9vw,19px);color:#cdd6e2;max-width:600px;margin:0 auto;line-height:1.55;font-weight:500}
+
+  /* next-steps video */
+  .ty-video{max-width:680px;margin:42px auto 0}
+  .ty-video-label{
+    background:#0a0b0d;border:1px solid var(--line-dark);border-bottom:none;
+    border-radius:14px 14px 0 0;padding:13px;text-align:center;
+    font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--white-70);
+  }
+  .ty-video .hv-frame{border-radius:0 0 16px 16px;min-height:0;aspect-ratio:16/9}
+  .ty-video .hv-caption{font-size:15px}
+  .ty-video .hv-play-text{
+    position:absolute;left:0;right:0;top:58%;z-index:2;text-align:center;
+    color:#ffd84a;font-weight:800;font-size:15px;text-shadow:0 2px 10px rgba(0,0,0,.7);letter-spacing:.02em;
+  }
+
+  /* ---- calendar / add-to-calendar card ---- */
+  .cal-section{background:var(--dot-light) 0 0 / 26px 26px, var(--mist);padding:60px 0;text-align:center}
+  .cal-ribbon{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:14px;
+    padding:13px 28px;border-radius:10px;box-shadow:var(--shadow-cta);
+  }
+  .cal-card{
+    display:flex;gap:0;align-items:stretch;text-align:left;
+    max-width:660px;margin:26px auto 0;padding:22px;
+    border:2px dashed var(--accent);border-radius:18px;background:var(--accent-soft);
+  }
+  .cal-tear{
+    flex-shrink:0;width:118px;background:#fff;border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;text-align:center;box-shadow:var(--shadow-card);align-self:center;
+  }
+  .cal-month{background:var(--accent);color:#fff;font-weight:800;font-size:12.5px;padding:8px;text-transform:uppercase;letter-spacing:.05em}
+  .cal-day{font-size:52px;font-weight:800;color:var(--ink);padding:14px 0 16px;line-height:1}
+  .cal-info{flex:1;padding-left:22px;display:flex;flex-direction:column;justify-content:center}
+  .cal-title{background:var(--accent);color:#fff;font-weight:800;font-size:17px;padding:10px 16px;border-radius:8px;margin-bottom:14px;letter-spacing:-.01em}
+  .cal-meta{list-style:none;margin:0 0 14px;padding:0;font-size:15px;color:var(--text);line-height:1.75}
+  .cal-meta b{font-weight:800}
+  .cal-add{display:inline-flex;align-items:center;gap:7px;color:var(--accent-deep);font-weight:800;font-size:14.5px;cursor:pointer}
+  .cal-add:hover{text-decoration:underline}
+  @media(max-width:560px){
+    .cal-card{flex-direction:column;align-items:center;text-align:center}
+    .cal-info{padding-left:0;padding-top:18px;align-items:center}
+    .cal-title{text-align:center}
+  }
+
+  /* ---- what happens next ---- */
+  .upsell{background:var(--paper);padding:74px 0 84px;border-top:1px solid var(--line)}
+  .vip-confirm{display:flex;gap:16px;align-items:center;max-width:680px;margin:0 auto 40px;
+    background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 30%, #fff);
+    border-radius:16px;padding:18px 22px}
+  .vip-confirm .vc-badge{flex-shrink:0;background:var(--accent);color:#fff;font-weight:800;font-size:12px;
+    letter-spacing:.08em;padding:8px 12px;border-radius:100px}
+  .vip-confirm .vc-t{font-size:16px;font-weight:800;letter-spacing:-.01em}
+  .vip-confirm .vc-d{font-size:14px;color:var(--muted);line-height:1.5;margin-top:3px}
+  .next-head{margin-bottom:36px}
+  .next-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
+  .nstep{background:var(--mist);border:1px solid var(--line);border-radius:18px;padding:28px 26px;box-shadow:var(--shadow-card)}
+  .nnum{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:800;font-size:17px;margin-bottom:16px}
+  .nt{font-size:18px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+  .nd{font-size:14.5px;color:var(--muted);line-height:1.55}
+  @media(max-width:680px){.next-steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- top bar -->
+<header class="topbar">
+  <div class="wrap">
+    <img src="assets/logo-white.png" alt="Yasir Khan">
+    <div class="when">
+      <span>Thursday, June 16 · <b>7:30 PM ET</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- confirmation + next-steps video -->
+<section class="ty-top" data-screen-label="Confirmation">
+  <div class="wrap">
+    <div class="ty-check">✓</div>
+    <div class="conf">You're registered</div>
+    <h1>Your Seat Is Confirmed!</h1>
+    <p class="accent-sub" id="ty-accent">Mark your calendars &amp; prepare for the live training</p>
+    <p class="sub">Check your inbox for your private Zoom link. Watch the short video below for your next steps, then add the event to your calendar so you don't miss it.</p>
+
+    <div class="ty-video">
+      <div class="ty-video-label">Watch this video for your next steps…</div>
+      <div class="hv-frame" id="ty-vframe">
+        <div class="hv-slides" id="hv-slides">
+          <img class="hv-slide is-active" src="assets/yasir-hero.png" alt="Yasir Khan">
+          <img class="hv-slide" src="assets/yasir-tedx.png" alt="" aria-hidden="true">
+          <img class="hv-slide" src="assets/yasir-coaching-1.png" alt="" aria-hidden="true">
+          <img class="hv-slide" src="assets/yasir-saudi.png" alt="" aria-hidden="true">
+        </div>
+        <div class="hv-logo"><img src="assets/logo-white.png" alt="Yasir Khan"></div>
+        <button class="hv-play" type="button" aria-label="Play video">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+        </button>
+        <div class="hv-play-text">Click here to play the video</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- add to calendar -->
+<section class="cal-section" data-screen-label="Add to calendar">
+  <div class="wrap">
+    <div class="cal-ribbon">Mark your calendars &amp; be there LIVE!</div>
+    <div class="cal-card">
+      <div class="cal-tear">
+        <div class="cal-month">June 2026</div>
+        <div class="cal-day">16</div>
+      </div>
+      <div class="cal-info">
+        <div class="cal-title">Speak Like a CEO — Free Live Training</div>
+        <ul class="cal-meta">
+          <li><b>Date:</b> Thursday, June 16, 2026</li>
+          <li><b>Time:</b> 7:30 PM ET</li>
+          <li><b>Host:</b> Yasir Khan · Live on Zoom</li>
+        </ul>
+        <span class="cal-add" id="add-cal" role="button" tabindex="0">＋ Add this event to your calendar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- what happens next -->
+<section class="upsell" data-screen-label="What happens next">
+  <div class="wrap-tight">
+    <div id="vip-confirm" class="vip-confirm" hidden>
+      <span class="vc-badge">★ VIP</span>
+      <div>
+        <div class="vc-t">Your VIP upgrade is confirmed.</div>
+        <div class="vc-d">Your lifetime recording, the 3 Secrets of Professional Speakers, and your VIP bonuses are on their way to your inbox.</div>
+      </div>
+    </div>
+    <div class="next-head">
+      <div class="eyebrow" style="text-align:center">What happens next</div>
+      <h2 class="h-md" style="text-align:center;margin-bottom:8px">You're confirmed. Here's your game plan.</h2>
+    </div>
+    <div class="next-steps">
+      <div class="nstep">
+        <div class="nnum">1</div>
+        <div class="nt">Check your email</div>
+        <div class="nd">Your private Zoom link and reminders are on their way. Add us to your contacts so nothing lands in spam.</div>
+      </div>
+      <div class="nstep">
+        <div class="nnum">2</div>
+        <div class="nt">Add it to your calendar</div>
+        <div class="nd">Use the button above so you get a reminder on the day. Thursday, June 16 at 7:30 PM ET.</div>
+      </div>
+      <div class="nstep">
+        <div class="nnum">3</div>
+        <div class="nt">Show up ready</div>
+        <div class="nd">Bring a real talk, pitch, or presentation you have coming up — you'll apply the framework to it live.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <img src="assets/logo-white.png" alt="Yasir Khan">
+    <div class="links">
+      <a href="#">Privacy Policy</a><span class="sep">|</span><a href="#">Terms of Service</a>
+    </div>
+    <p class="disc">This site is not part of or endorsed by any third-party platform. Company names and logos shown are trademarks of their respective owners and indicate where Yasir has trained leaders; they do not imply endorsement. Results are not typical and depend on individual effort. © 2026 Yasir Khan. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Personalize the accent subhead with the registrant's first name.
+  var name = new URLSearchParams(location.search).get('name');
+  if (name) {
+    var clean = name.replace(/[<>]/g, '').trim().slice(0, 40);
+    if (clean) {
+      document.getElementById('ty-accent').textContent =
+        clean + ', mark your calendars & prepare for the live training';
+    }
+  }
+
+  // Next-steps video: fast gif-style photo shuffle.
+  var slides = document.querySelectorAll('#hv-slides .hv-slide');
+  if (slides.length > 1) {
+    var si = 0;
+    setInterval(function () {
+      slides[si].classList.remove('is-active');
+      si = (si + 1) % slides.length;
+      slides[si].classList.add('is-active');
+    }, 520);
+  }
+
+  // Add-to-calendar → download an .ics file.
+  var addCal = document.getElementById('add-cal');
+  if (addCal) {
+    function pad(n){ return (n<10?'0':'')+n; }
+    function ics() {
+      // June 16, 2026 7:30 PM ET (23:30 UTC) for 90 minutes.
+      var start = '20260616T233000Z', end = '20260617T010000Z';
+      var lines = [
+        'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Yasir Khan//Speak Like a CEO//EN',
+        'BEGIN:VEVENT','UID:speaklikeaceo-20260616@yasirkhan',
+        'DTSTAMP:'+start,'DTSTART:'+start,'DTEND:'+end,
+        'SUMMARY:Speak Like a CEO — Free Live Training with Yasir Khan',
+        'DESCRIPTION:Your private Zoom link is in your email. See you live!',
+        'LOCATION:Live on Zoom','END:VEVENT','END:VCALENDAR'
+      ];
+      return lines.join('\r\n');
+    }
+    function download() {
+      var blob = new Blob([ics()], { type: 'text/calendar;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'speak-like-a-ceo.ics';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+    addCal.addEventListener('click', download);
+    addCal.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); download(); }
+    });
+  }
+
+  // Tier handling (vip vs free) — VIP upgrade happens on its own page now.
+  var tier = new URLSearchParams(location.search).get('tier');
+  if (tier === 'vip') {
+    var vc = document.getElementById('vip-confirm');
+    if (vc) vc.hidden = false;
+    var h1 = document.querySelector('.ty-top h1');
+    if (h1) h1.textContent = 'Your VIP Seat Is Confirmed!';
+  }
+})();
+</script>
+</body>
+</html>

@@ -9,7 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as YasirRouteImport } from './routes/yasir'
+import { Route as YasirVipRouteImport } from './routes/yasir-vip'
 import { Route as RoasRouteImport } from './routes/roas'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as YasirWebinarIndexRouteImport } from './routes/yasir-webinar/index'
@@ -18,9 +18,9 @@ import { Route as YasirWebinarPageRouteImport } from './routes/yasir-webinar/$pa
 import { Route as AosPageRouteImport } from './routes/aos/$page'
 import { Route as AosV1PageRouteImport } from './routes/aos-v1/$page'
 
-const YasirRoute = YasirRouteImport.update({
-  id: '/yasir',
-  path: '/yasir',
+const YasirVipRoute = YasirVipRouteImport.update({
+  id: '/yasir-vip',
+  path: '/yasir-vip',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RoasRoute = RoasRouteImport.update({
@@ -62,7 +62,7 @@ const AosV1PageRoute = AosV1PageRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
-  '/yasir': typeof YasirRoute
+  '/yasir-vip': typeof YasirVipRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/yasir-webinar/$page': typeof YasirWebinarPageRoute
@@ -72,7 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
-  '/yasir': typeof YasirRoute
+  '/yasir-vip': typeof YasirVipRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/yasir-webinar/$page': typeof YasirWebinarPageRoute
@@ -83,7 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/roas': typeof RoasRoute
-  '/yasir': typeof YasirRoute
+  '/yasir-vip': typeof YasirVipRoute
   '/aos-v1/$page': typeof AosV1PageRoute
   '/aos/$page': typeof AosPageRoute
   '/yasir-webinar/$page': typeof YasirWebinarPageRoute
@@ -95,7 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/roas'
-    | '/yasir'
+    | '/yasir-vip'
     | '/aos-v1/$page'
     | '/aos/$page'
     | '/yasir-webinar/$page'
@@ -105,7 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/roas'
-    | '/yasir'
+    | '/yasir-vip'
     | '/aos-v1/$page'
     | '/aos/$page'
     | '/yasir-webinar/$page'
@@ -115,7 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/roas'
-    | '/yasir'
+    | '/yasir-vip'
     | '/aos-v1/$page'
     | '/aos/$page'
     | '/yasir-webinar/$page'
@@ -126,7 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   RoasRoute: typeof RoasRoute
-  YasirRoute: typeof YasirRoute
+  YasirVipRoute: typeof YasirVipRoute
   AosV1PageRoute: typeof AosV1PageRoute
   AosPageRoute: typeof AosPageRoute
   YasirWebinarPageRoute: typeof YasirWebinarPageRoute
@@ -136,11 +136,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/yasir': {
-      id: '/yasir'
-      path: '/yasir'
-      fullPath: '/yasir'
-      preLoaderRoute: typeof YasirRouteImport
+    '/yasir-vip': {
+      id: '/yasir-vip'
+      path: '/yasir-vip'
+      fullPath: '/yasir-vip'
+      preLoaderRoute: typeof YasirVipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/roas': {
@@ -198,7 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   RoasRoute: RoasRoute,
-  YasirRoute: YasirRoute,
+  YasirVipRoute: YasirVipRoute,
   AosV1PageRoute: AosV1PageRoute,
   AosPageRoute: AosPageRoute,
   YasirWebinarPageRoute: YasirWebinarPageRoute,
@@ -208,3 +208,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
