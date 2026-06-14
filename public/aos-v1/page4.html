@@ -253,9 +253,9 @@ vw.addEventListener('click',()=>{ if(clip.muted || clip.paused){ clip.muted=fals
 /* calendar links */
 const cText='Authority OS Masterclass: Visibility Beats Ability';
 const cDetail='Your live masterclass with Sam Parham (1DS Collective). Become the most known name in your field.';
-document.getElementById('gcal').href=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(cText)}&dates=20260630T233000Z/20260701T010000Z&details=${encodeURIComponent(cDetail)}`;
-document.getElementById('ocal').href=`https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(cText)}&startdt=2026-06-30T23:30:00Z&enddt=2026-07-01T01:00:00Z&body=${encodeURIComponent(cDetail)}&path=/calendar/action/compose`;
-document.getElementById('ical').href=`data:text/calendar;charset=utf8,${encodeURIComponent(['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','DTSTART:20260630T233000Z','DTEND:20260701T010000Z','SUMMARY:'+cText,'DESCRIPTION:'+cDetail,'END:VEVENT','END:VCALENDAR'].join('\n'))}`;
+document.getElementById('gcal').href=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(cText)}&dates=20260623T230000Z/20260624T003000Z&details=${encodeURIComponent(cDetail)}`;
+document.getElementById('ocal').href=`https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(cText)}&startdt=2026-06-23T23:00:00Z&enddt=2026-06-24T00:30:00Z&body=${encodeURIComponent(cDetail)}&path=/calendar/action/compose`;
+document.getElementById('ical').href=`data:text/calendar;charset=utf8,${encodeURIComponent(['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','DTSTART:20260623T230000Z','DTEND:20260624T003000Z','SUMMARY:'+cText,'DESCRIPTION:'+cDetail,'END:VEVENT','END:VCALENDAR'].join('\n'))}`;
 
 /* copy share message */
 document.getElementById('copyBtn').addEventListener('click',function(){
