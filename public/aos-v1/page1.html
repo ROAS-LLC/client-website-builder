@@ -459,17 +459,19 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 let base = 1323;
 setInterval(()=>{ if(Math.random()>.5){ base += Math.floor(Math.random()*3)+1; const el=document.getElementById('reg-count'); if(el) el.textContent = base.toLocaleString()+' experts registered'; } }, 5200);
 
-/* shared submit -> confirmation */
-function handleReg(form){
-  const email=(form.email.value||'').trim();
-  const phone=(form.phone.value||'').trim();
-  if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ form.email.focus(); form.email.style.borderColor='#e0556b'; return false; }
-  if(!phone){ form.phone.focus(); form.phone.style.borderColor='#e0556b'; return false; }
-  try{ localStorage.setItem('aos_reg_name',(form.name.value||'').trim()); localStorage.setItem('aos_reg_email',email); }catch(_){}
-  window.location.href='/aos-v1/page2'; return true;
-}
-document.getElementById('optinForm').addEventListener('submit',function(e){ e.preventDefault(); handleReg(this); });
-document.getElementById('modalForm').addEventListener('submit',function(e){ e.preventDefault(); handleReg(this); });
+/* shared submit -> confirmation (LeadConnector iframe) */
+window.addEventListener('message', function(e){
+  try{
+    if(!e || !e.data) return;
+    var d = e.data;
+    var s = typeof d === 'string' ? d : JSON.stringify(d);
+    if(s && /O7LRT0LWGdUcpnAogsa0/.test(s) && /(submit|success|complete)/i.test(s)){
+      window.location.href = '/aos-v1/page2';
+    } else if(d && (d.type === 'form-submit' || d.event === 'form:submit' || d.action === 'form_submit')){
+      window.location.href = '/aos-v1/page2';
+    }
+  }catch(_){}
+});
 
 /* event date countdown — Tue, June 23, 2026 7:00 PM ET / 4:00 PM PT (UTC-4 EDT) */
 (function(){
