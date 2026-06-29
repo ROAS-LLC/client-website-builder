@@ -4,16 +4,16 @@
 (function () {
   'use strict';
 
-  /* ---------- Countdown to Thursday, June 16th 7:30 PM ET ----------
-     ET = UTC-4 (EDT in June). 7:30 PM ET = 23:30 UTC.
+  /* ---------- Countdown to Thursday, July 2nd 7:00 PM EST ----------
+     EST = UTC-5. 7:00 PM EST = 00:00 UTC next day.
      Year auto-rolls so it never shows expired in the future demo. */
   function nextTargetDate() {
     var now = new Date();
     var year = now.getUTCFullYear();
-    // June 16, 23:30 UTC (7:30 PM EDT)
-    var t = Date.UTC(year, 5, 16, 23, 30, 0);
+    // July 2, 00:00 UTC July 3 (7:00 PM EST July 2)
+    var t = Date.UTC(year, 6, 3, 0, 0, 0);
     if (t < now.getTime()) {
-      t = Date.UTC(year + 1, 5, 16, 23, 30, 0);
+      t = Date.UTC(year + 1, 6, 3, 0, 0, 0);
     }
     return t;
   }
