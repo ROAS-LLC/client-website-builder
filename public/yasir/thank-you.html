@@ -217,11 +217,11 @@
   if (addCal) {
     function pad(n){ return (n<10?'0':'')+n; }
     function ics() {
-      // June 16, 2026 7:30 PM ET (23:30 UTC) for 90 minutes.
-      var start = '20260616T233000Z', end = '20260617T010000Z';
+      // July 2, 2026 7:00 PM EST (00:00 UTC July 3) for 90 minutes.
+      var start = '20260703T000000Z', end = '20260703T013000Z';
       var lines = [
         'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Yasir Khan//Speak Like a CEO//EN',
-        'BEGIN:VEVENT','UID:speaklikeaceo-20260616@yasirkhan',
+        'BEGIN:VEVENT','UID:speaklikeaceo-20260702@yasirkhan',
         'DTSTAMP:'+start,'DTSTART:'+start,'DTEND:'+end,
         'SUMMARY:Speak Like a CEO — Free Live Training with Yasir Khan',
         'DESCRIPTION:Your private Zoom link is in your email. See you live!',
