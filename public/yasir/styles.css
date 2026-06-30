@@ -516,7 +516,8 @@ body.modal-open{overflow:hidden}
 /* ============================================================
    LeadConnector iframe: skeleton + flush sizing
    ============================================================ */
-.lc-form-wrap{position:relative;min-height:630px}
+.lc-form-wrap{position:relative;min-height:630px;height:630px}
+.lc-form-wrap iframe{height:100% !important}
 .lc-form-wrap iframe{display:block;opacity:0;transition:opacity .25s ease}
 .lc-form-wrap iframe.is-loaded{opacity:1}
 .lc-skeleton{
