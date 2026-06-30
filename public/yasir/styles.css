@@ -557,5 +557,16 @@ body.modal-open{overflow:hidden}
   .section{padding:48px 0}
   .final{padding:64px 0}
   /* skeleton fits mobile too */
-  .lc-form-wrap{min-height:600px}
+  .lc-form-wrap{min-height:600px;height:600px}
+  /* CTA button: keep on a single line */
+  .btn{
+    white-space:nowrap;
+    font-size:15px;
+    padding:18px 18px;
+    gap:8px;
+    letter-spacing:0;
+  }
+  .btn .arrow{font-size:18px}
+  /* tighter video on mobile */
+  .hv-frame{aspect-ratio:4/5;min-height:0}
 }
