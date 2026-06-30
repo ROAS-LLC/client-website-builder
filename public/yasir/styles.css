@@ -62,8 +62,8 @@ p{margin:0}
 /* ---------- layout helpers ---------- */
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 .wrap-tight{max-width:980px;margin:0 auto;padding:0 28px}
-.section{padding:96px 0;background-image:var(--dot-light);background-size:26px 26px}
-.section-sm{padding:64px 0}
+.section{padding:64px 0;background-image:var(--dot-light);background-size:26px 26px}
+.section-sm{padding:48px 0}
 
 .eyebrow{
   font-family:var(--display);
