@@ -222,8 +222,11 @@ p{margin:0}
   color:#fff;font-size:15px;font-weight:700;padding:0 20px;
   text-shadow:0 2px 12px rgba(0,0,0,.7);
 }
-.hero-form-col{display:flex}
-.hero-form-col .reg-card{flex:1;align-self:stretch}
+.hero-form-col{display:flex;align-items:flex-start}
+.hero-form-col .reg-card{flex:1;align-self:flex-start}
+.hero-row{align-items:start}
+.hero-video{align-items:flex-start}
+.hv-frame{align-self:flex-start;aspect-ratio:4/5;min-height:0;max-height:760px}
 .value-card p{font-size:clamp(19px,2.2vw,24px);font-weight:700;line-height:1.28;color:#fff;letter-spacing:-.01em}
 
 /* hero photo */
@@ -513,7 +516,8 @@ body.modal-open{overflow:hidden}
 /* ============================================================
    LeadConnector iframe: skeleton + flush sizing
    ============================================================ */
-.lc-form-wrap{position:relative;min-height:630px}
+.lc-form-wrap{position:relative;min-height:630px;height:630px}
+.lc-form-wrap iframe{height:100% !important}
 .lc-form-wrap iframe{display:block;opacity:0;transition:opacity .25s ease}
 .lc-form-wrap iframe.is-loaded{opacity:1}
 .lc-skeleton{
@@ -553,5 +557,16 @@ body.modal-open{overflow:hidden}
   .section{padding:48px 0}
   .final{padding:64px 0}
   /* skeleton fits mobile too */
-  .lc-form-wrap{min-height:600px}
+  .lc-form-wrap{min-height:600px;height:600px}
+  /* CTA button: keep on a single line */
+  .btn{
+    white-space:nowrap;
+    font-size:15px;
+    padding:18px 18px;
+    gap:8px;
+    letter-spacing:0;
+  }
+  .btn .arrow{font-size:18px}
+  /* tighter video on mobile */
+  .hv-frame{aspect-ratio:4/5;min-height:0}
 }
