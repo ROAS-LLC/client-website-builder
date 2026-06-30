@@ -558,6 +558,7 @@ body.modal-open{overflow:hidden}
   .final{padding:64px 0}
   /* skeleton fits mobile too */
   .lc-form-wrap{min-height:0}
+  .lc-form-wrap iframe{height:524px}
   /* CTA button: keep on a single line */
   .btn{
     white-space:nowrap;
