@@ -556,9 +556,7 @@ body.modal-open{overflow:hidden}
   /* reduce section spacing on mobile */
   .section{padding:48px 0}
   .final{padding:64px 0}
-  /* trim the mobile-only blank space GHL adds below the form content */
-  .hero-form-col .lc-form-wrap{min-height:510px}
-  .hero-form-col .lc-form-wrap iframe{height:510px !important;overflow:hidden !important}
+   /* iframe height managed dynamically via postMessage from the form */
   /* CTA button: keep on a single line */
   .btn{
     white-space:nowrap;
@@ -573,6 +571,6 @@ body.modal-open{overflow:hidden}
 }
 
 @media(max-width:340px){
-  .hero-form-col .lc-form-wrap{min-height:570px}
-  .hero-form-col .lc-form-wrap iframe{height:570px !important}
+  /* iframe height managed dynamically via postMessage from the form */
+}
 }
