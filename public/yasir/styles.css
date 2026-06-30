@@ -266,6 +266,7 @@ p{margin:0}
   border:1px solid rgba(16,18,22,.06);
 }
 .reg-card.in-hero{margin-top:0}
+.reg-card.in-hero{padding-bottom:14px}
 .reg-head{text-align:center;margin-bottom:22px}
 .reg-head .t{font-size:25px;font-weight:800;letter-spacing:-.02em}
 .reg-head .s{font-size:14.5px;color:var(--muted);margin-top:8px;line-height:1.45}
