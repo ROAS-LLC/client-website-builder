@@ -222,11 +222,11 @@ p{margin:0}
   color:#fff;font-size:15px;font-weight:700;padding:0 20px;
   text-shadow:0 2px 12px rgba(0,0,0,.7);
 }
-.hero-form-col{display:flex;align-items:flex-start}
-.hero-form-col .reg-card{flex:1;align-self:flex-start}
-.hero-row{align-items:start}
-.hero-video{align-items:flex-start}
-.hv-frame{align-self:flex-start;aspect-ratio:4/5;min-height:0;max-height:760px}
+.hero-form-col{display:flex;align-items:stretch}
+.hero-form-col .reg-card{flex:1;display:flex;flex-direction:column}
+.hero-row{align-items:stretch}
+.hero-video{align-items:stretch}
+.hv-frame{align-self:stretch;min-height:0;max-height:none;aspect-ratio:auto}
 .value-card p{font-size:clamp(19px,2.2vw,24px);font-weight:700;line-height:1.28;color:#fff;letter-spacing:-.01em}
 
 /* hero photo */
