@@ -57,11 +57,19 @@
             <div class="t">Save Your Free Seat</div>
             <div class="s">Enter your details to get your private Zoom link for the live training.</div>
           </div>
-          <div class="lc-form-wrap" style="min-height:630px">
+          <div class="lc-form-wrap">
+            <div class="lc-skeleton" aria-hidden="true">
+              <div class="sk-field"></div>
+              <div class="sk-field"></div>
+              <div class="sk-field"></div>
+              <div class="sk-field"></div>
+              <div class="sk-btn"></div>
+            </div>
             <iframe
                 src="https://api.leadconnectorhq.com/widget/form/TYQ3GMTTmh1tsgK2YASb"
-                style="width:100%;height:100%;border:none;border-radius:3px"
-                id="inline-TYQ3GMTTmh1tsgK2YASb" 
+                style="width:100%;height:630px;border:none;border-radius:3px;position:relative;z-index:1"
+                id="inline-TYQ3GMTTmh1tsgK2YASb"
+                loading="eager"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
                 data-trigger-value=""
@@ -74,6 +82,7 @@
                 data-layout-iframe-id="inline-TYQ3GMTTmh1tsgK2YASb"
                 data-form-id="TYQ3GMTTmh1tsgK2YASb"
                 title="Leader Transformation Form"
+                onload="this.classList.add('is-loaded')"
             >
             </iframe>
           </div>
