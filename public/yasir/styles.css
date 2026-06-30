@@ -266,6 +266,7 @@ p{margin:0}
   border:1px solid rgba(16,18,22,.06);
 }
 .reg-card.in-hero{margin-top:0}
+.reg-card.in-hero{padding-bottom:14px}
 .reg-head{text-align:center;margin-bottom:22px}
 .reg-head .t{font-size:25px;font-weight:800;letter-spacing:-.02em}
 .reg-head .s{font-size:14.5px;color:var(--muted);margin-top:8px;line-height:1.45}
@@ -516,8 +517,8 @@ body.modal-open{overflow:hidden}
 /* ============================================================
    LeadConnector iframe: skeleton + flush sizing
    ============================================================ */
-.lc-form-wrap{position:relative;min-height:620px}
-.lc-form-wrap iframe{display:block;width:100%;height:620px;border:0;opacity:0;transition:opacity .25s ease;overflow:hidden}
+.lc-form-wrap{position:relative;min-height:0;line-height:0}
+.lc-form-wrap iframe{display:block;width:100%;height:466px !important;border:0;opacity:0;transition:opacity .25s ease;overflow:hidden}
 .lc-form-wrap iframe.is-loaded{opacity:1}
 .lc-skeleton{
   position:absolute;inset:0;display:flex;flex-direction:column;gap:14px;
@@ -556,8 +557,7 @@ body.modal-open{overflow:hidden}
   .section{padding:48px 0}
   .final{padding:64px 0}
   /* skeleton fits mobile too */
-  .lc-form-wrap{min-height:640px}
-  .lc-form-wrap iframe{height:640px}
+  .lc-form-wrap{min-height:0}
   /* CTA button: keep on a single line */
   .btn{
     white-space:nowrap;
