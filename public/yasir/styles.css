@@ -571,6 +571,6 @@ body.modal-open{overflow:hidden}
 }
 
 @media(max-width:340px){
-  .hero-form-col .lc-form-wrap{min-height:570px}
-  .hero-form-col .lc-form-wrap iframe{height:570px !important}
+  /* iframe height managed dynamically via postMessage from the form */
+}
 }
