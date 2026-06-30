@@ -340,6 +340,22 @@
 <!-- Tweaks panel mount -->
 <div id="tweaks-root"></div>
 
+<script>
+  // Auto-resize the LeadConnector iframe based on its internal content height.
+  // The embedded form posts { ykembedHeight: <px> } whenever it renders/resizes.
+  (function(){
+    var iframe = document.getElementById('inline-TYQ3GMTTmh1tsgK2YASb');
+    if(!iframe) return;
+    window.addEventListener('message', function(e){
+      var d = e && e.data;
+      if(!d || typeof d.ykembedHeight !== 'number') return;
+      var h = Math.max(320, Math.ceil(d.ykembedHeight));
+      iframe.style.height = h + 'px';
+      var wrap = iframe.closest('.lc-form-wrap');
+      if(wrap) wrap.style.minHeight = h + 'px';
+    });
+  })();
+</script>
 <script src="/yasir/script.js"></script>
 
 <!-- React (for Tweaks panel only) -->
