@@ -556,8 +556,9 @@ body.modal-open{overflow:hidden}
   /* reduce section spacing on mobile */
   .section{padding:48px 0}
   .final{padding:64px 0}
-  /* skeleton fits mobile too */
-  .lc-form-wrap{min-height:466px}
+  /* trim the mobile-only blank space GHL adds below the form content */
+  .hero-form-col .lc-form-wrap{min-height:510px}
+  .hero-form-col .lc-form-wrap iframe{height:510px !important;overflow:hidden !important}
   /* CTA button: keep on a single line */
   .btn{
     white-space:nowrap;
@@ -569,4 +570,9 @@ body.modal-open{overflow:hidden}
   .btn .arrow{font-size:18px}
   /* tighter video on mobile */
   .hv-frame{aspect-ratio:4/5;min-height:0}
+}
+
+@media(max-width:340px){
+  .hero-form-col .lc-form-wrap{min-height:570px}
+  .hero-form-col .lc-form-wrap iframe{height:570px !important}
 }
