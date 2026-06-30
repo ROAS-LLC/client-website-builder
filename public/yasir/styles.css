@@ -222,8 +222,11 @@ p{margin:0}
   color:#fff;font-size:15px;font-weight:700;padding:0 20px;
   text-shadow:0 2px 12px rgba(0,0,0,.7);
 }
-.hero-form-col{display:flex}
-.hero-form-col .reg-card{flex:1;align-self:stretch}
+.hero-form-col{display:flex;align-items:flex-start}
+.hero-form-col .reg-card{flex:1;align-self:flex-start}
+.hero-row{align-items:start}
+.hero-video{align-items:flex-start}
+.hv-frame{align-self:flex-start;aspect-ratio:4/5;min-height:0;max-height:760px}
 .value-card p{font-size:clamp(19px,2.2vw,24px);font-weight:700;line-height:1.28;color:#fff;letter-spacing:-.01em}
 
 /* hero photo */
