@@ -34,8 +34,8 @@
 
     <!-- VIDEO centered -->
     <div id="vidWrap" style="max-width:880px; margin:34px auto 0; aspect-ratio:16/9; border-radius:18px; overflow:hidden; position:relative; cursor:pointer; box-shadow:0 50px 100px -34px rgba(0,0,0,.85); border:1px solid var(--ink-line); background:#0b0610;">
-      <video class="vbg" src="assets/1ds-clip.mp4" autoplay muted loop playsinline></video>
-      <video id="clip" src="assets/1ds-clip.mp4" autoplay muted loop playsinline></video>
+      <img class="vbg" src="assets/replay-poster.png" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+      <video id="clip" src="assets/1ds-clip.mp4" poster="assets/replay-poster.png" preload="none" playsinline style="position:relative;z-index:1;"></video>
       <div id="vidOverlay" style="position:absolute; inset:0; z-index:2; display:grid; place-items:center; background:linear-gradient(180deg, rgba(11,6,16,.2) 0%, rgba(11,6,16,.04) 45%, rgba(11,6,16,.5));">
         <div style="width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;backdrop-filter:blur(6px);">
           <svg width="28" height="32" viewBox="0 0 30 34" fill="#fff"><path d="M30 17 0 34V0z"/></svg>
