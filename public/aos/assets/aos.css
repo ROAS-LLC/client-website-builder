@@ -131,9 +131,11 @@ h1, h2, h3, h4 {
 
 /* ---------- Logo lockup ---------- */
 .brandmark { display:flex; align-items:center; gap:12px; }
-.brandmark img { width: 42px; height: 42px; }
-.brandmark .wm { font-family:'Outfit',sans-serif; font-weight:800; font-size:20px; letter-spacing:.04em; color:#fff; }
-.brandmark .wm small { display:block; font-size:9.5px; font-weight:600; letter-spacing:.34em; color:var(--violet-soft); margin-top:1px; }
+.brandmark img { width:auto; height: 40px; display:block; }
+.brandmark .wm { display:none !important; }
+/* Force white logo on dark topbar/footer */
+.topbar .brandmark img,
+.foot .brandmark img { content: url('/aos/assets/aos-logo-white.png'); height:40px; width:auto; }
 
 /* ---------- Trust logo strip ---------- */
 .trust-strip { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap: 46px; }
