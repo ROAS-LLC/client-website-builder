@@ -168,10 +168,14 @@
   </div>
 </footer>
 
-<div id="vipModal" role="dialog" aria-modal="true" aria-label="VIP Checkout" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,8,20,.72);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:16px;">
-  <div style="position:relative;width:100%;max-width:640px;height:min(88vh,720px);background:#fff;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden;">
-    <button type="button" onclick="closeVip()" aria-label="Close" style="position:absolute;top:8px;right:10px;z-index:2;background:rgba(0,0,0,.55);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer;">×</button>
-    <iframe id="vipCheckoutFrame" src="about:blank" data-src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx" style="width:100%;height:100%;border:none;display:block;" title="VIP CHECKOUT"></iframe>
+<div id="vipModal" class="checkout-modal" role="dialog" aria-modal="true" aria-label="VIP Checkout">
+  <div class="checkout-shell">
+    <button type="button" class="checkout-close" onclick="closeVip()" aria-label="Close">×</button>
+    <div class="checkout-head">
+      <span>One-Time VIP Upgrade</span>
+      <h2>Complete Your VIP Upgrade for $97</h2>
+    </div>
+    <iframe id="vipCheckoutFrame" src="about:blank" data-src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx" allow="payment *; publickey-credentials-get *" title="VIP CHECKOUT"></iframe>
   </div>
 </div>
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
