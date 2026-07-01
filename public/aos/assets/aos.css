@@ -135,7 +135,9 @@ h1, h2, h3, h4 {
 .brandmark .wm { display:none !important; }
 /* Force white logo on dark topbar/footer */
 .topbar .brandmark img,
-.foot .brandmark img { content: url('/aos/assets/aos-logo-white.png'); height:40px; width:auto; }
+.foot .brandmark img { content: url('/aos/assets/aos-logo-white.png'); width:auto !important; }
+.topbar .brandmark img { height:44px !important; }
+.foot .brandmark img { height:64px !important; }
 
 /* ---------- Trust logo strip ---------- */
 .trust-strip { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap: 46px; }
