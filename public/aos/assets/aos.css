@@ -386,6 +386,7 @@ h1, h2, h3, h4 {
 .why-card h4 { font-family:'Outfit',sans-serif; font-size:19px; color:#fff; margin:5px 0 0; }
 .why-card p { color:var(--t-light-dim); font-size:14.5px; margin:10px 0 14px; line-height:1.55; }
 .why-card .val { display:inline-block; background:rgba(162,75,201,.16); border:1px solid rgba(162,75,201,.4); color:var(--violet-soft); font-family:'Outfit',sans-serif; font-weight:700; font-size:12px; padding:4px 12px; border-radius:999px; }
+.why-card:last-child:nth-child(odd){ grid-column:1 / -1; justify-self:center; max-width:calc(50% - 9px); }
 
 /* ---------- Confirmation: steps / share / confetti ---------- */
 .step-card { background:rgba(255,255,255,.03); border:1px solid var(--ink-line); border-radius:18px; padding:32px 34px; text-align:center; }
