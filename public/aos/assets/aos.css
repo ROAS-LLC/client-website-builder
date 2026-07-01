@@ -458,6 +458,7 @@ h1, h2, h3, h4 {
   .wrap{padding:0 18px;}
   .stat .num{font-size:52px;}
   .vault-grid{grid-template-columns:1fr 1fr;}
+  .vault-grid > .vault-item:last-child:nth-child(odd){ grid-column:1 / -1; justify-self:center; max-width:calc(50% - 9px); }
   .proof-grid{grid-template-columns:1fr 1fr; gap:12px;}
   .proof-grid > .proof{grid-column:auto !important;}
   .proof-grid > .proof-wide{grid-column:1 / -1 !important; grid-template-columns:1fr !important;}
