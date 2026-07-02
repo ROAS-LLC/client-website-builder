@@ -177,71 +177,18 @@
     </div>
     <iframe
       id="inline-IF7dObUldsA59NDXxeMx"
-      name="inline-IF7dObUldsA59NDXxeMx"
       src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx"
-      data-layout='{"id":"INLINE"}'
-      data-trigger-type="alwaysShow"
-      data-trigger-value=""
-      data-activation-type="alwaysActivated"
-      data-activation-value=""
-      data-deactivation-type="neverDeactivate"
-      data-deactivation-value=""
-      data-form-name="VIP Upsell Form"
-      data-height="600"
-      data-layout-iframe-id="inline-IF7dObUldsA59NDXxeMx"
+      data-layout="{'id':'INLINE'}"
       data-form-id="IF7dObUldsA59NDXxeMx"
-      allow="payment *; publickey-credentials-get *; storage-access *"
+      data-layout-iframe-id="inline-IF7dObUldsA59NDXxeMx"
+      data-form-name="VIP Upsell Form"
+      allow="payment *; publickey-credentials-get *"
       title="VIP CHECKOUT"></iframe>
   </div>
 </div>
 <script>
 (() => {
   const SRC = "https://link.msgsndr.com/js/form_embed.js";
-  const IFRAME_ID = "inline-IF7dObUldsA59NDXxeMx";
-  const FORM_ID = "IF7dObUldsA59NDXxeMx";
-
-  const uuid = () => {
-    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
-    return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
-      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-    );
-  };
-
-  const ensureTrackingId = () => {
-    const found = document.cookie.split("; ").find(row => row.startsWith("tr="));
-    if (found) return decodeURIComponent(found.split("=").slice(1).join("="));
-    const id = uuid();
-    document.cookie = `tr=${encodeURIComponent(id)}; Max-Age=900; Path=/; SameSite=Lax`;
-    return id;
-  };
-
-  const appendTrackingParam = iframe => {
-    const tr = ensureTrackingId();
-    const url = new URL(iframe.src);
-    if (!url.searchParams.get("tr")) url.searchParams.set("tr", tr);
-    if (iframe.src !== url.toString()) iframe.src = url.toString();
-  };
-
-  window.addEventListener("message", event => {
-    const iframe = document.getElementById(IFRAME_ID);
-    if (!iframe || event.source !== iframe.contentWindow || !Array.isArray(event.data)) return;
-    const [action] = event.data;
-    if (action === "fetch-query-params") {
-      const params = Object.fromEntries(new URLSearchParams(window.location.search));
-      params.tr = ensureTrackingId();
-      const iframeParams = Object.fromEntries(new URL(iframe.src).searchParams);
-      iframe.contentWindow.postMessage([
-        "query-params",
-        { ...params, ...iframeParams },
-        window.location.href,
-        document.referrer || "",
-        iframe.dataset.layoutIframeId || iframe.id || `inline-${FORM_ID}`
-      ], "*");
-    }
-    if (action === "fetch-sticky-contacts") {
-      iframe.contentWindow.postMessage(["sticky-contacts", null, null], "*");
-    }
-  });
 
   const loadEmbedScript = () => {
     const existing = document.querySelector(`script[src="${SRC}"]`);
@@ -249,23 +196,16 @@
     const s = document.createElement("script");
     s.src = SRC;
     s.async = true;
-    s.onload = () => {
-      const iframe = document.getElementById(IFRAME_ID);
-      if (iframe) appendTrackingParam(iframe);
-    };
     document.body.appendChild(s);
   };
 
-  const iframe = document.getElementById(IFRAME_ID);
+  const iframe = document.getElementById("inline-IF7dObUldsA59NDXxeMx");
   if (iframe) {
-    appendTrackingParam(iframe);
     loadEmbedScript();
   } else {
     const observer = new MutationObserver(() => {
-      const iframe = document.getElementById(IFRAME_ID);
-      if (iframe) {
+      if (document.getElementById("inline-IF7dObUldsA59NDXxeMx")) {
         observer.disconnect();
-        appendTrackingParam(iframe);
         loadEmbedScript();
       }
     });
