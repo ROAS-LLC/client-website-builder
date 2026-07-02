@@ -6,6 +6,38 @@
 <title>One-Time VIP Upgrade | Authority OS</title>
 <link rel="icon" href="/aos/assets/aos-logo.png">
 <link rel="stylesheet" href="/aos/assets/aos.css">
+<style>
+  /* VIP checkout modal — kept fully rendered so Stripe initializes.
+     Hidden only by moving off-screen with transform. */
+  #vipModal.checkout-modal{
+    position:fixed; inset:0;
+    display:flex !important; align-items:center; justify-content:center;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(4px);
+    z-index:9999;
+    opacity:1 !important; visibility:visible !important;
+    transform: translateX(-150vw);
+    transition: transform .28s ease;
+    padding:0;
+    overflow:visible;
+  }
+  #vipModal.checkout-modal.is-open{ transform: translateX(0); }
+  #vipModal .checkout-shell{
+    position:relative;
+    width:480px; max-width:94vw;
+    height:720px; max-height:90vh;
+    background:#fff; border-radius:14px; overflow:hidden;
+    min-height:0;
+    box-shadow:0 30px 80px rgba(0,0,0,.5);
+  }
+  #vipModal .checkout-shell iframe{ width:100%; height:100%; border:0; display:block; }
+  #vipModal .checkout-close{
+    position:absolute; top:10px; right:14px; z-index:2;
+    background:#fff; color:#111; border:none; border-radius:50%;
+    width:32px; height:32px; font-size:20px; line-height:1; cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+  }
+</style>
 </head>
 <body data-screen-label="VIP Upsell Page">
 
@@ -168,28 +200,36 @@
   </div>
 </footer>
 
+<!-- VIP CHECKOUT MODAL (mounted once, statically, at page load) -->
+<div id="vipModal" class="checkout-modal" role="dialog" aria-modal="true">
+  <div class="checkout-shell">
+    <button type="button" class="checkout-close" onclick="closeVip()" aria-label="Close">×</button>
+    <iframe
+      id="inline-IF7dObUldsA59NDXxeMx"
+      src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx"
+      data-layout="{'id':'INLINE'}"
+      data-form-id="IF7dObUldsA59NDXxeMx"
+      data-layout-iframe-id="inline-IF7dObUldsA59NDXxeMx"
+      data-form-name="VIP Upsell Form"
+      allow="payment *; publickey-credentials-get *"
+      title="VIP CHECKOUT"></iframe>
+  </div>
+</div>
+
+<script src="https://link.msgsndr.com/js/form_embed.js" async></script>
+
 <script>
 const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-const VIP_CHECKOUT_URL = 'https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx';
-
 function claimVip(){
   try{ localStorage.setItem('aos_order','vip'); }catch(_){}
-  const width = Math.min(720, Math.max(360, window.screen.availWidth - 48));
-  const height = Math.min(900, Math.max(620, window.screen.availHeight - 48));
-  const left = Math.max(0, Math.round((window.screen.availWidth - width) / 2));
-  const top = Math.max(0, Math.round((window.screen.availHeight - height) / 2));
-  const popup = window.open(
-    VIP_CHECKOUT_URL,
-    'AuthorityOSVIPCheckout',
-    `popup=yes,width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
-  );
-  if (popup) {
-    popup.focus();
-  } else {
-    window.location.href = VIP_CHECKOUT_URL;
-  }
+  document.getElementById('vipModal').classList.add('is-open');
+  document.body.style.overflow='hidden';
+}
+function closeVip(){
+  document.getElementById('vipModal').classList.remove('is-open');
+  document.body.style.overflow='';
 }
 </script>
 </body>
