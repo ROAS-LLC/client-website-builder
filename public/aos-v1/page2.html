@@ -177,7 +177,8 @@
     </div>
     <iframe
       id="inline-IF7dObUldsA59NDXxeMx"
-      src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx"
+      src="about:blank"
+      data-src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx"
       data-layout="{'id':'INLINE'}"
       data-form-id="IF7dObUldsA59NDXxeMx"
       data-layout-iframe-id="inline-IF7dObUldsA59NDXxeMx"
@@ -186,37 +187,16 @@
       title="VIP CHECKOUT"></iframe>
   </div>
 </div>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script>
-(() => {
-  const SRC = "https://link.msgsndr.com/js/form_embed.js";
-
-  const loadEmbedScript = () => {
-    const existing = document.querySelector(`script[src="${SRC}"]`);
-    if (existing) existing.remove();
-    const s = document.createElement("script");
-    s.src = SRC;
-    s.async = true;
-    document.body.appendChild(s);
-  };
-
-  const iframe = document.getElementById("inline-IF7dObUldsA59NDXxeMx");
-  if (iframe) {
-    loadEmbedScript();
-  } else {
-    const observer = new MutationObserver(() => {
-      if (document.getElementById("inline-IF7dObUldsA59NDXxeMx")) {
-        observer.disconnect();
-        loadEmbedScript();
-      }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-  }
-})();
 const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 function claimVip(){
   try{ localStorage.setItem('aos_order','vip'); }catch(_){}
-  document.getElementById('vipModal').classList.add('is-open');
+  const modal = document.getElementById('vipModal');
+  const iframe = document.getElementById('inline-IF7dObUldsA59NDXxeMx');
+  if (iframe && iframe.dataset.src && iframe.getAttribute('src') !== iframe.dataset.src) iframe.setAttribute('src', iframe.dataset.src);
+  modal.classList.add('is-open');
   document.body.style.overflow = 'hidden';
 }
 function closeVip(){

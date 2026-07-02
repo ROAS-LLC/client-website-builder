@@ -132,7 +132,8 @@
     </div>
     <iframe
       id="inline-InTqvZZKJdEPT6gMLHSO"
-      src="https://api.leadconnectorhq.com/widget/form/InTqvZZKJdEPT6gMLHSO"
+      src="about:blank"
+      data-src="https://api.leadconnectorhq.com/widget/form/InTqvZZKJdEPT6gMLHSO"
       data-layout="{'id':'INLINE'}"
       data-form-id="InTqvZZKJdEPT6gMLHSO"
       data-layout-iframe-id="inline-InTqvZZKJdEPT6gMLHSO"
@@ -141,37 +142,15 @@
       title="downsell CHECKOUT"></iframe>
   </div>
 </div>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script>
-(() => {
-  const SRC = "https://link.msgsndr.com/js/form_embed.js";
-
-  const loadEmbedScript = () => {
-    const existing = document.querySelector(`script[src="${SRC}"]`);
-    if (existing) existing.remove();
-    const s = document.createElement("script");
-    s.src = SRC;
-    s.async = true;
-    document.body.appendChild(s);
-  };
-
-  const iframe = document.getElementById("inline-InTqvZZKJdEPT6gMLHSO");
-  if (iframe) {
-    loadEmbedScript();
-  } else {
-    const observer = new MutationObserver(() => {
-      if (document.getElementById("inline-InTqvZZKJdEPT6gMLHSO")) {
-        observer.disconnect();
-        loadEmbedScript();
-      }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-  }
-})();
 const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 function claimDown(){
   try{ localStorage.setItem('aos_order','starter'); }catch(_){}
   const modal = document.getElementById('downModal');
+  const iframe = document.getElementById('inline-InTqvZZKJdEPT6gMLHSO');
+  if (iframe && iframe.dataset.src && iframe.getAttribute('src') !== iframe.dataset.src) iframe.setAttribute('src', iframe.dataset.src);
   modal.classList.add('is-open');
   document.body.style.overflow = 'hidden';
 }
