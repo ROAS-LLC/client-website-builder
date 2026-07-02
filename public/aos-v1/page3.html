@@ -130,18 +130,69 @@
       <span>Last Chance Add-On</span>
       <h2>Add the Recording for $27</h2>
     </div>
-    <iframe id="downCheckoutFrame" src="about:blank" data-src="https://api.leadconnectorhq.com/widget/form/InTqvZZKJdEPT6gMLHSO" allow="payment *; publickey-credentials-get *" title="downsell CHECKOUT"></iframe>
+    <iframe
+      id="inline-InTqvZZKJdEPT6gMLHSO"
+      name="inline-InTqvZZKJdEPT6gMLHSO"
+      src="https://api.leadconnectorhq.com/widget/form/InTqvZZKJdEPT6gMLHSO"
+      data-layout='{"id":"INLINE"}'
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Downsell Checkout Form"
+      data-height="600"
+      data-layout-iframe-id="inline-InTqvZZKJdEPT6gMLHSO"
+      data-form-id="InTqvZZKJdEPT6gMLHSO"
+      allow="payment *; publickey-credentials-get *; storage-access *"
+      title="downsell CHECKOUT"></iframe>
   </div>
 </div>
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script>
+(() => {
+  const SRC = "https://link.msgsndr.com/js/form_embed.js";
+  const IFRAME_ID = "inline-InTqvZZKJdEPT6gMLHSO";
+  const FORM_ID = "InTqvZZKJdEPT6gMLHSO";
+  const uuid = () => window.crypto && crypto.randomUUID ? crypto.randomUUID() : "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+  const ensureTrackingId = () => {
+    const found = document.cookie.split("; ").find(row => row.startsWith("tr="));
+    if (found) return decodeURIComponent(found.split("=").slice(1).join("="));
+    const id = uuid();
+    document.cookie = `tr=${encodeURIComponent(id)}; Max-Age=900; Path=/; SameSite=Lax`;
+    return id;
+  };
+  const appendTrackingParam = iframe => {
+    const url = new URL(iframe.src);
+    if (!url.searchParams.get("tr")) url.searchParams.set("tr", ensureTrackingId());
+    if (iframe.src !== url.toString()) iframe.src = url.toString();
+  };
+  window.addEventListener("message", event => {
+    const iframe = document.getElementById(IFRAME_ID);
+    if (!iframe || event.source !== iframe.contentWindow || !Array.isArray(event.data)) return;
+    if (event.data[0] === "fetch-query-params") {
+      const params = Object.fromEntries(new URLSearchParams(window.location.search));
+      params.tr = ensureTrackingId();
+      const iframeParams = Object.fromEntries(new URL(iframe.src).searchParams);
+      iframe.contentWindow.postMessage(["query-params", { ...params, ...iframeParams }, window.location.href, document.referrer || "", iframe.dataset.layoutIframeId || iframe.id || `inline-${FORM_ID}`], "*");
+    }
+    if (event.data[0] === "fetch-sticky-contacts") iframe.contentWindow.postMessage(["sticky-contacts", null, null], "*");
+  });
+  const iframe = document.getElementById(IFRAME_ID);
+  if (iframe) appendTrackingParam(iframe);
+  const existing = document.querySelector(`script[src="${SRC}"]`);
+  if (existing) existing.remove();
+  const s = document.createElement("script");
+  s.src = SRC;
+  s.async = true;
+  s.onload = () => { const frame = document.getElementById(IFRAME_ID); if (frame) appendTrackingParam(frame); };
+  document.body.appendChild(s);
+})();
 const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 function claimDown(){
   try{ localStorage.setItem('aos_order','starter'); }catch(_){}
   const modal = document.getElementById('downModal');
-  const frame = document.getElementById('downCheckoutFrame');
-  if(frame && frame.src === 'about:blank'){ frame.src = frame.dataset.src; }
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
