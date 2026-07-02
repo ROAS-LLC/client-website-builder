@@ -168,59 +168,29 @@
   </div>
 </footer>
 
-<div id="vipModal" class="checkout-modal" role="dialog" aria-modal="true" aria-label="VIP Checkout">
-  <div class="checkout-shell">
-    <button type="button" class="checkout-close" onclick="closeVip()" aria-label="Close">×</button>
-    <div class="checkout-head">
-      <span>One-Time VIP Upgrade</span>
-      <h2>Complete Your VIP Upgrade for $97</h2>
-    </div>
-    <iframe
-      id="inline-IF7dObUldsA59NDXxeMx"
-      src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx"
-      data-layout="{'id':'INLINE'}"
-      data-form-id="IF7dObUldsA59NDXxeMx"
-      data-layout-iframe-id="inline-IF7dObUldsA59NDXxeMx"
-      data-form-name="VIP Upsell Form"
-      allow="payment *; publickey-credentials-get *"
-      title="VIP CHECKOUT"></iframe>
-  </div>
-</div>
-
 <script>
 const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}})},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+const VIP_CHECKOUT_URL = 'https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx';
+
 function claimVip(){
   try{ localStorage.setItem('aos_order','vip'); }catch(_){}
-  document.getElementById('vipModal').classList.add('is-open');
-  document.body.style.overflow = 'hidden';
+  const width = Math.min(720, Math.max(360, window.screen.availWidth - 48));
+  const height = Math.min(900, Math.max(620, window.screen.availHeight - 48));
+  const left = Math.max(0, Math.round((window.screen.availWidth - width) / 2));
+  const top = Math.max(0, Math.round((window.screen.availHeight - height) / 2));
+  const popup = window.open(
+    VIP_CHECKOUT_URL,
+    'AuthorityOSVIPCheckout',
+    `popup=yes,width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
+  );
+  if (popup) {
+    popup.focus();
+  } else {
+    window.location.href = VIP_CHECKOUT_URL;
+  }
 }
-function closeVip(){
-  document.getElementById('vipModal').classList.remove('is-open');
-  document.body.style.overflow = '';
-}
-document.getElementById('vipModal').addEventListener('click', function(e){ if(e.target === this) closeVip(); });
-document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeVip(); });
-
-(function(){
-  var SRC = "https://link.msgsndr.com/js/form_embed.js";
-  var s = document.createElement("script");
-  s.src = SRC; s.async = true;
-  document.body.appendChild(s);
-
-  var CONFIRMATION_URL = "https://go.authorityos.io/confirmation-page";
-
-  window.addEventListener("message", function(e){
-    var data = e.data;
-    var isSubmit =
-      (typeof data === "string" && data.toLowerCase().indexOf("submit") !== -1) ||
-      (data && (data.type === "form-submitted" || data.event === "form:submitted" || data.eventName === "onFormSubmitted"));
-    if (isSubmit) {
-      window.top.location.href = CONFIRMATION_URL;
-    }
-  });
-})();
 </script>
 </body>
 </html>
