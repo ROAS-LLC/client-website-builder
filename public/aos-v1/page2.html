@@ -229,6 +229,23 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 function claimVip(){
   try{ localStorage.setItem('aos_order','vip'); }catch(_){}
+  document.getElementById('vipModal').classList.add('is-open');
+  document.body.style.overflow='hidden';
+}
+function closeVip(){
+  document.getElementById('vipModal').classList.remove('is-open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeVip(); });
+window.addEventListener('message',(e)=>{
+  const d=e.data; if(!d) return;
+  const t=typeof d==='string'?d:(d.type||d.event||'');
+  if(/form.*submit|submitt?ed|success/i.test(String(t))){
+    window.location.href='https://go.authorityos.io/confirmation-page';
+  }
+});
+</script>
+  try{ localStorage.setItem('aos_order','vip'); }catch(_){}
   const el = document.getElementById('vipCheckout');
   if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
 }
