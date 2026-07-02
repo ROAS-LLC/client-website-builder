@@ -164,27 +164,21 @@
   </div>
 </section>
 
-<!-- ============ INLINE VIP CHECKOUT ============ -->
-<section id="vipCheckout" data-screen-label="VIP checkout form">
-  <div class="wrap">
-    <div class="checkout-head">
-      <h2>CLAIM YOUR VIP UPGRADE — $97</h2>
-      <p>Enter your details below to lock in the recording, the eBook, and the hardcover shipped to your door.</p>
-    </div>
-    <div class="checkout-shell">
-      <iframe
-        id="inline-IF7dObUldsA59NDXxeMx"
-        src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx"
-        data-layout="{'id':'INLINE'}"
-        data-form-id="IF7dObUldsA59NDXxeMx"
-        data-layout-iframe-id="inline-IF7dObUldsA59NDXxeMx"
-        data-form-name="VIP Upsell Form"
-        allow="payment *; publickey-credentials-get *"
-        title="VIP CHECKOUT"></iframe>
-    </div>
-    <p class="trust">🔒 Secure checkout · 30-day money-back guarantee · One-time payment</p>
+<!-- ============ VIP CHECKOUT MODAL (parked off-screen, always mounted) ============ -->
+<div id="vipModal" class="checkout-modal" role="dialog" aria-modal="true" aria-label="VIP Checkout">
+  <div class="checkout-shell">
+    <button type="button" class="checkout-close" aria-label="Close" onclick="closeVip()">×</button>
+    <iframe
+      id="inline-IF7dObUldsA59NDXxeMx"
+      src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx"
+      data-layout="{'id':'INLINE'}"
+      data-form-id="IF7dObUldsA59NDXxeMx"
+      data-layout-iframe-id="inline-IF7dObUldsA59NDXxeMx"
+      data-form-name="VIP Upsell Form"
+      allow="payment *; publickey-credentials-get *"
+      title="VIP CHECKOUT"></iframe>
   </div>
-</section>
+</div>
 
 <!-- ============ GUARANTEE ============ -->
 <section class="section tight" data-screen-label="Guarantee" style="background:var(--ink);">
