@@ -175,7 +175,15 @@
       <span>One-Time VIP Upgrade</span>
       <h2>Complete Your VIP Upgrade for $97</h2>
     </div>
-    <iframe id="vipCheckoutFrame" src="about:blank" data-src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx" allow="payment *; publickey-credentials-get *" title="VIP CHECKOUT"></iframe>
+    <iframe
+      id="inline-IF7dObUldsA59NDXxeMx"
+      src="https://api.leadconnectorhq.com/widget/form/IF7dObUldsA59NDXxeMx"
+      data-layout="{'id':'INLINE'}"
+      data-form-id="IF7dObUldsA59NDXxeMx"
+      data-layout-iframe-id="inline-IF7dObUldsA59NDXxeMx"
+      data-form-name="VIP Upsell Form"
+      allow="payment *; publickey-credentials-get *"
+      title="VIP CHECKOUT"></iframe>
   </div>
 </div>
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
@@ -184,10 +192,7 @@ const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 function claimVip(){
   try{ localStorage.setItem('aos_order','vip'); }catch(_){}
-  const modal = document.getElementById('vipModal');
-  const frame = document.getElementById('vipCheckoutFrame');
-  if(frame && frame.src === 'about:blank'){ frame.src = frame.dataset.src; }
-  modal.style.display = 'flex';
+  document.getElementById('vipModal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
 function closeVip(){
