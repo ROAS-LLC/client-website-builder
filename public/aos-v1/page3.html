@@ -172,11 +172,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 function claimDown(){
   try{ localStorage.setItem('aos_order','starter'); }catch(_){}
   const modal = document.getElementById('downModal');
-  modal.style.display = 'flex';
+  modal.classList.add('is-open');
   document.body.style.overflow = 'hidden';
 }
 function closeDown(){
-  document.getElementById('downModal').style.display = 'none';
+  document.getElementById('downModal').classList.remove('is-open');
   document.body.style.overflow = '';
 }
 document.getElementById('downModal').addEventListener('click', function(e){ if(e.target === this) closeDown(); });
