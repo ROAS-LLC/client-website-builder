@@ -216,11 +216,11 @@ const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 function claimVip(){
   try{ localStorage.setItem('aos_order','vip'); }catch(_){}
-  document.getElementById('vipModal').style.display = 'flex';
+  document.getElementById('vipModal').classList.add('is-open');
   document.body.style.overflow = 'hidden';
 }
 function closeVip(){
-  document.getElementById('vipModal').style.display = 'none';
+  document.getElementById('vipModal').classList.remove('is-open');
   document.body.style.overflow = '';
 }
 document.getElementById('vipModal').addEventListener('click', function(e){ if(e.target === this) closeVip(); });
