@@ -348,21 +348,15 @@ h1, h2, h3, h4 {
   z-index:9999;
   background:rgba(10,8,20,.78);
   backdrop-filter:blur(4px);
-  display:flex;
+  display:none;
   align-items:flex-start;
   justify-content:center;
   padding:24px 16px;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
-  visibility:hidden;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .2s ease;
 }
 .checkout-modal.is-open{
-  visibility:visible;
-  opacity:1;
-  pointer-events:auto;
+  display:flex;
 }
 .checkout-shell{
   position:relative;
