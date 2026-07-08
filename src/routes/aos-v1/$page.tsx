@@ -3,12 +3,14 @@ import page1Html from "../../../public/aos-v1/page1.html?raw";
 import page2Html from "../../../public/aos-v1/page2.html?raw";
 import page3Html from "../../../public/aos-v1/page3.html?raw";
 import page4Html from "../../../public/aos-v1/page4.html?raw";
+import page5Html from "../../../public/aos-v1/page5.html?raw";
 
 const pages: Record<string, string> = {
   page1: page1Html,
   page2: page2Html,
   page3: page3Html,
   page4: page4Html,
+  page5: page5Html,
 };
 
 export const Route = createFileRoute("/aos-v1/$page")({
