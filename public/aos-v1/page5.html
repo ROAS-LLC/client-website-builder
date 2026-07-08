@@ -371,6 +371,38 @@
   }
   tick(); setInterval(tick,1000);
 })();
+
+(function(){
+  var modal=document.getElementById('coModal');
+  var body=document.getElementById('coModalBody');
+  var loaded=false;
+  var FORM_SRC='https://api.leadconnectorhq.com/widget/form/1Ae5cEi9hw7rKnKI0GST';
+  function open(){
+    if(!loaded){
+      var f=document.createElement('iframe');
+      f.src=FORM_SRC;
+      f.title='webinar purchase';
+      f.setAttribute('loading','lazy');
+      body.appendChild(f);
+      loaded=true;
+    }
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('co-modal-open');
+  }
+  function close(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('co-modal-open');
+  }
+  document.querySelectorAll('.js-open-checkout').forEach(function(el){
+    el.addEventListener('click',function(e){e.preventDefault();open();});
+  });
+  modal.querySelectorAll('[data-close-modal]').forEach(function(el){
+    el.addEventListener('click',close);
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
 </script>
 </body>
 </html>
