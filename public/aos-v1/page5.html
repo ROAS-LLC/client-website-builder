@@ -7,284 +7,104 @@
 <link rel="icon" href="/aos/assets/aos-logo.png">
 <link rel="stylesheet" href="/aos/assets/aos.css">
 <style>
-  .co-eyebrow{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-soft);margin-bottom:14px;}
-  .co-timer{display:flex;justify-content:center;gap:10px;margin:26px auto 0;}
-  .co-timer .unit{background:rgba(0,0,0,.35);border:1px solid var(--ink-line);border-radius:10px;padding:10px 14px;min-width:66px;text-align:center;}
-  .co-timer .num{font-family:'Outfit',sans-serif;font-weight:900;font-size:26px;color:#fff;letter-spacing:-.02em;line-height:1;}
-  .co-timer .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t-light-dim);margin-top:6px;}
-  .stack-cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:32px;}
-  .stack-cta .sub-note{color:var(--t-light-dim);font-size:13.5px;font-weight:600;}
-
-  .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:960px;margin:40px auto 0;}
-  @media(max-width:720px){.offer-grid{grid-template-columns:1fr;}}
-  .offer-card{background:#fff;border:1px solid var(--paper-line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow-card);}
-  .offer-card .oc-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px;}
-  .offer-card h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--t-dark);margin:0;letter-spacing:-.01em;}
-  .offer-card .oc-val{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;color:var(--grape-600);white-space:nowrap;}
-  .offer-card p{color:var(--t-dark-dim);font-size:15px;line-height:1.55;margin:0;}
-  .value-total{text-align:center;margin-top:26px;font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;color:var(--t-dark);}
-  .value-total span{color:var(--grape);}
-
-  .price-card{max-width:640px;margin:36px auto 0;background:linear-gradient(180deg,rgba(126,39,164,.16),rgba(255,255,255,.02));border:1px solid rgba(162,75,201,.4);border-radius:20px;padding:34px 30px;text-align:center;box-shadow:0 40px 90px -34px rgba(0,0,0,.75);}
-  .price-row{display:flex;align-items:baseline;justify-content:center;gap:16px;margin-top:10px;}
-  .price-row .was{color:#b09dc2;text-decoration:line-through;font-family:'Outfit',sans-serif;font-weight:700;font-size:26px;}
-  .price-row .now{font-family:'Outfit',sans-serif;font-weight:900;font-size:56px;color:#fff;letter-spacing:-.03em;line-height:1;}
-  .price-terms{margin-top:14px;color:var(--t-light-dim);font-size:15px;line-height:1.55;}
-
-  .who-box{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--paper-line);border-radius:18px;padding:34px 36px;box-shadow:var(--shadow-card);color:var(--t-dark);font-size:16.5px;line-height:1.6;}
-  .who-box .no{margin-top:18px;padding-top:18px;border-top:1px solid var(--paper-line);color:var(--t-dark-dim);font-size:15px;}
-
-  .proof-line{max-width:820px;margin:0 auto;color:var(--t-light-dim);font-size:17px;line-height:1.6;text-align:center;}
-  .proof-line b{color:#fff;}
-
-  .guarantee-card{max-width:720px;margin:0 auto;background:#fff;border:2px solid var(--gold);border-radius:20px;padding:34px 32px;text-align:center;box-shadow:0 30px 60px -28px rgba(184,132,42,.4);}
-  .guarantee-card .seal{display:inline-block;background:linear-gradient(135deg,#E7B24B,#F0CA6E);color:#3a2a08;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:8px 18px;border-radius:999px;margin-bottom:16px;}
-  .guarantee-card h3{font-family:'Outfit',sans-serif;font-weight:900;font-size:26px;color:var(--t-dark);margin:0 0 12px;letter-spacing:-.01em;}
-  .guarantee-card p{color:var(--t-dark-dim);font-size:16px;line-height:1.6;margin:0;}
-
-  .faq{max-width:820px;margin:0 auto;}
-  .faq details{background:#fff;border:1px solid var(--paper-line);border-radius:14px;padding:18px 24px;margin-bottom:12px;box-shadow:0 8px 20px -14px rgba(40,8,60,.2);}
-  .faq details[open]{border-color:var(--violet);}
-  .faq summary{font-family:'Outfit',sans-serif;font-weight:700;font-size:16.5px;color:var(--t-dark);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
-  .faq summary::-webkit-details-marker{display:none;}
-  .faq summary::after{content:'+';font-size:22px;color:var(--grape-600);font-weight:400;}
-  .faq details[open] summary::after{content:'–';}
-  .faq details p{color:var(--t-dark-dim);font-size:15.5px;line-height:1.6;margin:12px 0 0;}
-
-  .reassure{text-align:center;color:var(--t-light-dim);font-size:14.5px;margin-top:22px;}
+.co-eyebrow{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-soft);margin-bottom:14px;}
+.co-timer{display:flex;justify-content:center;gap:10px;margin:26px auto 0;}
+.co-timer .unit{background:rgba(0,0,0,.35);border:1px solid var(--ink-line);border-radius:10px;padding:10px 14px;min-width:66px;text-align:center;}
+.co-timer .num{font-family:'Outfit',sans-serif;font-weight:900;font-size:26px;color:#fff;letter-spacing:-.02em;line-height:1;}
+.co-timer .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t-light-dim);margin-top:6px;}
+.stack-cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:32px;}
+.stack-cta .sub-note{color:var(--t-light-dim);font-size:13.5px;font-weight:600;}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:960px;margin:40px auto 0;}
+.offer-card{background:#fff;border:1px solid var(--paper-line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow-card);}
+.offer-card .oc-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px;}
+.offer-card h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--t-dark);margin:0;letter-spacing:-.01em;}
+.offer-card .oc-val{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;color:var(--grape-600);white-space:nowrap;}
+.offer-card p{color:var(--t-dark-dim);font-size:15px;line-height:1.55;margin:0;}
+.value-total{text-align:center;margin-top:26px;font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;color:var(--t-dark);}
+.value-total span{color:var(--grape);}
+.price-card{max-width:640px;margin:36px auto 0;background:linear-gradient(180deg,rgba(126,39,164,.16),rgba(255,255,255,.02));border:1px solid rgba(162,75,201,.4);border-radius:20px;padding:34px 30px;text-align:center;box-shadow:0 40px 90px -34px rgba(0,0,0,.75);}
+.price-row{display:flex;align-items:baseline;justify-content:center;gap:16px;margin-top:10px;}
+.price-row .was{color:#b09dc2;text-decoration:line-through;font-family:'Outfit',sans-serif;font-weight:700;font-size:26px;}
+.price-row .now{font-family:'Outfit',sans-serif;font-weight:900;font-size:56px;color:#fff;letter-spacing:-.03em;line-height:1;}
+.price-terms{margin-top:14px;color:var(--t-light-dim);font-size:15px;line-height:1.55;}
+.who-box{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--paper-line);border-radius:18px;padding:34px 36px;box-shadow:var(--shadow-card);color:var(--t-dark);font-size:16.5px;line-height:1.6;}
+.who-box .no{margin-top:18px;padding-top:18px;border-top:1px solid var(--paper-line);color:var(--t-dark-dim);font-size:15px;}
+.proof-line{max-width:820px;margin:0 auto;color:var(--t-light-dim);font-size:17px;line-height:1.6;text-align:center;}
+.proof-line b{color:#fff;}
+.guarantee-card{max-width:720px;margin:0 auto;background:#fff;border:2px solid var(--gold);border-radius:20px;padding:34px 32px;text-align:center;box-shadow:0 30px 60px -28px rgba(184,132,42,.4);}
+.guarantee-card .seal{display:inline-block;background:linear-gradient(135deg,#E7B24B,#F0CA6E);color:#3a2a08;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:8px 18px;border-radius:999px;margin-bottom:16px;}
+.guarantee-card h3{font-family:'Outfit',sans-serif;font-weight:900;font-size:26px;color:var(--t-dark);margin:0 0 12px;letter-spacing:-.01em;}
+.guarantee-card p{color:var(--t-dark-dim);font-size:16px;line-height:1.6;margin:0;}
+.faq{max-width:820px;margin:0 auto;}
+.faq details{background:#fff;border:1px solid var(--paper-line);border-radius:14px;padding:18px 24px;margin-bottom:12px;box-shadow:0 8px 20px -14px rgba(40,8,60,.2);}
+.faq details[open]{border-color:var(--violet);}
+.faq summary{font-family:'Outfit',sans-serif;font-weight:700;font-size:16.5px;color:var(--t-dark);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'+';font-size:22px;color:var(--grape-600);font-weight:400;}
+.faq details[open] summary::after{content:'–';}
+.faq details p{color:var(--t-dark-dim);font-size:15.5px;line-height:1.6;margin:12px 0 0;}
+.reassure{text-align:center;color:var(--t-light-dim);font-size:14.5px;margin-top:22px;}
+@media(max-width:720px){
+.offer-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+.co-eyebrow{font-size:11px;margin-bottom:10px;}
+.co-timer{gap:6px;margin-top:18px;}
+.co-timer .unit{padding:8px 10px;min-width:54px;border-radius:8px;}
+.co-timer .num{font-size:22px;}
+.co-timer .lbl{font-size:9px;margin-top:4px;}
+.stack-cta{margin-top:20px;}
+.stack-cta .sub-note{font-size:12px;}
+.offer-card{padding:18px 20px;border-radius:14px;}
+.offer-card h3{font-size:16px;}
+.offer-card .oc-val{font-size:12px;}
+.offer-card p{font-size:14px;line-height:1.5;}
+.value-total{margin-top:18px;font-size:17px;}
+.price-card{padding:24px 20px;margin-top:24px;border-radius:16px;}
+.price-row .was{font-size:20px;}
+.price-row .now{font-size:42px;}
+.price-terms{font-size:14px;margin-top:10px;}
+.who-box{padding:22px 20px;border-radius:14px;font-size:15px;}
+.who-box .no{margin-top:14px;padding-top:14px;font-size:14px;}
+.proof-line{font-size:15px;line-height:1.55;}
+.guarantee-card{padding:24px 20px;border-radius:16px;}
+.guarantee-card .seal{font-size:11px;padding:6px 14px;margin-bottom:12px;}
+.guarantee-card h3{font-size:20px;}
+.guarantee-card p{font-size:14.5px;}
+.faq details{padding:14px 18px;margin-bottom:10px;border-radius:12px;}
+.faq summary{font-size:15px;}
+.faq summary::after{font-size:18px;}
+.faq details p{font-size:14px;margin-top:8px;}
+.reassure{font-size:13px;margin-top:16px;}
+}
 </style>
 </head>
 <body data-screen-label="AuthorityOS Founding Checkout">
-
-<!-- ============ TOP BAR ============ -->
-<div class="topbar">
-  <div class="row">
-    <a class="brandmark" href="/aos-v1/page1">
-      <img src="/aos/assets/aos-logo-dark.png" alt="AuthorityOS">
-      <span class="wm">AUTHORITY<small>OPERATING SYSTEM</small></span>
-    </a>
-    <span class="seen" style="color:var(--t-light-dim); font-size:13px;">Founding Member Enrollment</span>
-  </div>
-</div>
-
-<!-- ============ SECTION 1: HERO ============ -->
-<header class="dark grain" data-screen-label="Hero" style="padding:60px 0 80px; overflow:hidden;">
-  <div class="wrap" style="max-width:960px;">
-    <span class="co-eyebrow">For the experts who watched the AuthorityOS Masterclass</span>
-    <h1 class="center" style="font-size:clamp(34px,5.4vw,64px); font-weight:900; letter-spacing:-.03em; line-height:1.05; margin-top:6px;">
-      BUILD THE KIND OF AUTHORITY THAT MAKES YOU THE OBVIOUS CHOICE
-    </h1>
-    <p class="center" style="margin:22px auto 0; max-width:720px; font-size:clamp(16px,2vw,20px); color:var(--t-light-dim); line-height:1.55;">
-      The complete AuthorityOS system. The same positioning framework 1DS used to build Liver King to 2.5 million followers in 5 months, handed to you as a 4-week fast track.
-    </p>
-
-    <div class="co-timer" id="coTimer" aria-label="Founding pricing countdown">
-      <div class="unit"><div class="num" id="tHrs">72</div><div class="lbl">Hours</div></div>
-      <div class="unit"><div class="num" id="tMin">00</div><div class="lbl">Mins</div></div>
-      <div class="unit"><div class="num" id="tSec">00</div><div class="lbl">Secs</div></div>
-    </div>
-
-    <div class="stack-cta">
-      <a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a>
-      <span class="sub-note">Founding member pricing ends when the timer hits zero</span>
-    </div>
-  </div>
-</header>
-
-<!-- ============ SECTION 2: THE SHIFT ============ -->
-<section class="section tight" data-screen-label="The shift" style="background:var(--paper);">
-  <div class="wrap" style="max-width:820px;">
-    <div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>The Shift</span></div>
-    <p style="font-size:20px; line-height:1.6; color:var(--t-dark); text-align:center; margin:0 0 20px;">
-      You already know how to do the work. That was never the problem.
-    </p>
-    <p style="font-size:17px; line-height:1.7; color:var(--t-dark-dim); text-align:center; margin:0 0 20px;">
-      The problem is the game changed. The old game rewarded whoever posted the most. The new game rewards whoever is positioned the best. Visibility beats ability, and the people winning right now are not better than you. They just figured out the signal part before you did.
-    </p>
-    <p style="font-size:19px; line-height:1.55; color:var(--t-dark); text-align:center; font-weight:600; margin:0 0 32px;">
-      AuthorityOS is the operating system for the new game.
-    </p>
-    <div class="center">
-      <a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 3: WHAT YOU GET ============ -->
-<section class="section" data-screen-label="What you get" style="background:var(--paper-2);">
-  <div class="wrap">
-    <div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>Everything included</span></div>
-    <h2 class="center" style="font-size:clamp(28px,4vw,44px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark);">EVERYTHING INSIDE AUTHORITYOS</h2>
-
-    <div class="offer-grid">
-      <div class="offer-card">
-        <div class="oc-head"><h3>The Full AuthorityOS Course</h3><span class="oc-val">$1,997 value</span></div>
-        <p>Every module, filmed and complete. The Signal Space Framework from first principles: positioning, brand architecture, and the content system 1DS runs for clients who pay them 5 figures a month. This is the agency playbook, codified.</p>
-      </div>
-      <div class="offer-card">
-        <div class="oc-head"><h3>AuthorityOS Community on Skool</h3><span class="oc-val">$1,164/yr value</span></div>
-        <p>Your access starts the minute you join. This is where the fast track happens, where your questions get answered, and where the first 200 founding members build alongside each other. You are not doing this alone in a course portal.</p>
-      </div>
-      <div class="offer-card">
-        <div class="oc-head"><h3>Bi-Weekly Live Group Calls</h3><span class="oc-val">$2,400/yr value</span></div>
-        <p>Live coaching with the 1DS team every two weeks. Bring your positioning, your content, your sticking points. Get direct feedback from the people who do this for major brands every day.</p>
-      </div>
-      <div class="offer-card">
-        <div class="oc-head"><h3>The AuthorityOS Book, Hardcover</h3><span class="oc-val">$39 value</span></div>
-        <p>The complete system in print, shipped to your door in August. The digital edition hits your inbox tonight so you can start before the box arrives.</p>
-      </div>
-      <div class="offer-card" style="grid-column:1/-1;">
-        <div class="oc-head"><h3>The AI Knowledge Base Files</h3><span class="oc-val">$497 value</span></div>
-        <p>The entire AuthorityOS system packaged as ready-to-load knowledge files for Claude, ChatGPT, or Gemini. Load them in and your AI already knows the framework, your positioning, and how to build content that sounds like you instead of everyone else.</p>
-      </div>
-    </div>
-
-    <div class="value-total">Total value: <span>$6,097</span></div>
-
-    <div class="stack-cta">
-      <a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 4: THE PRICE ============ -->
-<section class="section" data-screen-label="Founding pricing" style="background:var(--ink); color:var(--t-light);" id="checkout">
-  <div class="wrap" style="max-width:820px;">
-    <div class="eyebrow-row"><span class="kicker"><span class="dot"></span>Founding Member Pricing</span></div>
-    <h2 class="center" style="font-size:clamp(28px,4vw,46px); font-weight:900; letter-spacing:-.02em; color:#fff;">FOUNDING MEMBER PRICING</h2>
-
-    <p class="center" style="margin:18px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.6;">
-      AuthorityOS retails at $2,997. That is the price the next wave pays.
-    </p>
-    <p class="center" style="margin:14px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.6;">
-      As a founding member from tonight's masterclass, you join for a one-time payment of $997. That covers your 4-week fast track, your book, your AI files, and your first month inside the community.
-    </p>
-    <p class="center" style="margin:14px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.6;">
-      After your fast track, membership continues at $199/mo so you keep the community, the bi-weekly calls, and every update we ship. Cancel anytime with one email. No contracts, no games.
-    </p>
-
-    <div class="price-card">
-      <div class="price-row">
-        <span class="was">$2,997</span>
-        <span class="now">$997</span>
-      </div>
-      <div class="price-terms">today, then <b style="color:#fff;">$199/mo</b> after your 4-week fast track. Cancel anytime.</div>
-    </div>
-
-    <div class="stack-cta">
-      <a class="btn" href="#pay">CLAIM MY FOUNDING MEMBER SPOT</a>
-      <span class="sub-note">Secure checkout. Instant access.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 5: WHO THIS IS FOR ============ -->
-<section class="section tight" data-screen-label="Who this is for" style="background:var(--paper);">
-  <div class="wrap">
-    <div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>Who this is for</span></div>
-    <h2 class="center" style="font-size:clamp(26px,3.6vw,40px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); margin-bottom:26px;">THIS WAS BUILT FOR A SPECIFIC PERSON</h2>
-    <div class="who-box">
-      <p style="margin:0;">You are established. A founder, a doctor, a clinic owner, an operator with real results behind you. You may already be spending real money on content every month and watching people with half your ability get twice your attention.</p>
-      <p style="margin:14px 0 0; font-weight:600; color:var(--t-dark);">If that is you, this room was built for you.</p>
-      <p class="no">If you are brand new, still figuring out what you sell, or looking for a posting-hacks course, this is not that. AuthorityOS fixes positioning, and positioning only matters once you have something worth positioning.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 6: PROOF ============ -->
-<section class="section tight" data-screen-label="Proof" style="background:var(--ink); color:var(--t-light);">
-  <div class="wrap">
-    <div class="eyebrow-row"><span class="kicker"><span class="dot"></span>Proof</span></div>
-    <h2 class="center" style="font-size:clamp(26px,3.8vw,42px); font-weight:900; letter-spacing:-.02em; color:#fff; margin-bottom:26px; max-width:820px; margin-left:auto; margin-right:auto;">
-      THE SAME SYSTEM BEHIND THE BRANDS YOU ALREADY KNOW
-    </h2>
-    <p class="proof-line">
-      <b>1DS</b> is the agency behind Liver King's run to 2.5 million followers in 5 months, behind Miesha Tate's brand, behind Chef Rush and his 8 million on TikTok. Not theory from a course creator. The working playbook from a team that manages <b>170+ creators</b> and builds brands for a living.
-    </p>
-    <p class="proof-line" style="margin-top:18px;">
-      AuthorityOS is that playbook, packaged so you can run it yourself.
-    </p>
-  </div>
-</section>
-
-<!-- ============ SECTION 7: GUARANTEE ============ -->
-<section class="section tight" data-screen-label="Guarantee" style="background:var(--paper-2);">
-  <div class="wrap">
-    <div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>The Guarantee</span></div>
-    <h2 class="center" style="font-size:clamp(26px,3.6vw,40px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); margin-bottom:26px;">THE RISK STAYS ON US</h2>
-    <div class="guarantee-card">
-      <span class="seal">30-Day Guarantee</span>
-      <h3>One email. No hoops. No hard feelings.</h3>
-      <p>Join, go through the fast track, show up to a call, put the framework to work. If after 30 days you do not have a clearer, sharper position in your market than you have ever had, email us and we refund the $997.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 8: FAQ ============ -->
-<section class="section tight" data-screen-label="FAQ" style="background:var(--paper);">
-  <div class="wrap">
-    <div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>FAQ</span></div>
-    <h2 class="center" style="font-size:clamp(26px,3.6vw,40px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); margin-bottom:32px;">QUESTIONS, ANSWERED</h2>
-
-    <div class="faq">
-      <details>
-        <summary>When do I get access?</summary>
-        <p>Immediately. Your Skool invite lands in your inbox within minutes of checkout. The digital book arrives tonight. The hardcover ships in August.</p>
-      </details>
-      <details>
-        <summary>What does $199/mo get me after the fast track?</summary>
-        <p>Continued community access, the bi-weekly live calls, and every new framework, template, and AI file we add. You can cancel anytime from inside your account or with one email.</p>
-      </details>
-      <details>
-        <summary>How much time does this take?</summary>
-        <p>The fast track is built for operators with full calendars. Plan on 2-3 hours a week for the first 4 weeks. After that, the system runs inside the content work you are already doing.</p>
-      </details>
-      <details>
-        <summary>I run a clinic / firm / brand in a niche you did not mention. Does this work for me?</summary>
-        <p>The framework is niche-agnostic. Positioning works the same whether you are a surgeon, a founder, or a firm owner. The examples change, the system does not.</p>
-      </details>
-      <details>
-        <summary>What if I already have a content team?</summary>
-        <p>Even better. AuthorityOS gives your team the positioning layer they have been missing. Most content teams are great at output and blind on signal. This fixes the blind spot.</p>
-      </details>
-    </div>
-
-    <div class="stack-cta">
-      <a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 9: FOOTER ============ -->
-<footer class="foot" style="background:var(--ink); color:var(--t-light-dim); padding:44px 0 36px; text-align:center;">
-  <div class="wrap">
-    <p class="reassure">Secure checkout. 30-day guarantee. Skool access within minutes.</p>
-    <div class="links" style="margin:22px 0;">
-      <span>1DS Collective LLC</span>
-      <span>|</span>
-      <a href="#" style="color:var(--t-light-dim);">Privacy</a>
-      <span>|</span>
-      <a href="#" style="color:var(--t-light-dim);">Terms</a>
-    </div>
-  </div>
-</footer>
-
+<div class="topbar"><div class="row"><a class="brandmark" href="/aos-v1/page1"><img src="/aos/assets/aos-logo-dark.png" alt="AuthorityOS"><span class="wm">AUTHORITY<small>OPERATING SYSTEM</small></span></a><span class="seen" style="color:var(--t-light-dim);font-size:13px;">Founding Member Enrollment</span></div></div>
+<header class="dark grain" data-screen-label="Hero" style="padding:60px 0 80px;overflow:hidden;"><div class="wrap" style="max-width:960px;"><span class="co-eyebrow">For the experts who watched the AuthorityOS Masterclass</span><h1 class="center" style="font-size:clamp(34px,5.4vw,64px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-top:6px;">BUILD THE KIND OF AUTHORITY THAT MAKES YOU THE OBVIOUS CHOICE</h1><p class="center" style="margin:22px auto 0;max-width:720px;font-size:clamp(16px,2vw,20px);color:var(--t-light-dim);line-height:1.55;">The complete AuthorityOS system. The same positioning framework 1DS used to build Liver King to 2.5 million followers in 5 months, handed to you as a 4-week fast track.</p><div class="co-timer" id="coTimer" aria-label="Founding pricing countdown"><div class="unit"><div class="num" id="tHrs">72</div><div class="lbl">Hours</div></div><div class="unit"><div class="num" id="tMin">00</div><div class="lbl">Mins</div></div><div class="unit"><div class="num" id="tSec">00</div><div class="lbl">Secs</div></div></div><div class="stack-cta"><a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a><span class="sub-note">Founding member pricing ends when the timer hits zero</span></div></div></header>
+<section class="section tight" data-screen-label="The shift" style="background:var(--paper);"><div class="wrap" style="max-width:820px;"><div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>The Shift</span></div><p style="font-size:20px;line-height:1.6;color:var(--t-dark);text-align:center;margin:0 0 20px;">You already know how to do the work. That was never the problem.</p><p style="font-size:17px;line-height:1.7;color:var(--t-dark-dim);text-align:center;margin:0 0 20px;">The problem is the game changed. The old game rewarded whoever posted the most. The new game rewards whoever is positioned the best. Visibility beats ability, and the people winning right now are not better than you. They just figured out the signal part before you did.</p><p style="font-size:19px;line-height:1.55;color:var(--t-dark);text-align:center;font-weight:600;margin:0 0 32px;">AuthorityOS is the operating system for the new game.</p><div class="center"><a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a></div></div></section>
+<section class="section" data-screen-label="What you get" style="background:var(--paper-2);"><div class="wrap"><div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>Everything included</span></div><h2 class="center" style="font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-.02em;color:var(--t-dark);">EVERYTHING INSIDE AUTHORITYOS</h2><div class="offer-grid"><div class="offer-card"><div class="oc-head"><h3>The Full AuthorityOS Course</h3><span class="oc-val">$1,997 value</span></div><p>Every module, filmed and complete. The Signal Space Framework from first principles: positioning, brand architecture, and the content system 1DS runs for clients who pay them 5 figures a month. This is the agency playbook, codified.</p></div><div class="offer-card"><div class="oc-head"><h3>AuthorityOS Community on Skool</h3><span class="oc-val">$1,164/yr value</span></div><p>Your access starts the minute you join. This is where the fast track happens, where your questions get answered, and where the first 200 founding members build alongside each other. You are not doing this alone in a course portal.</p></div><div class="offer-card"><div class="oc-head"><h3>Bi-Weekly Live Group Calls</h3><span class="oc-val">$2,400/yr value</span></div><p>Live coaching with the 1DS team every two weeks. Bring your positioning, your content, your sticking points. Get direct feedback from the people who do this for major brands every day.</p></div><div class="offer-card"><div class="oc-head"><h3>The AuthorityOS Book, Hardcover</h3><span class="oc-val">$39 value</span></div><p>The complete system in print, shipped to your door in August. The digital edition hits your inbox tonight so you can start before the box arrives.</p></div><div class="offer-card" style="grid-column:1/-1;"><div class="oc-head"><h3>The AI Knowledge Base Files</h3><span class="oc-val">$497 value</span></div><p>The entire AuthorityOS system packaged as ready-to-load knowledge files for Claude, ChatGPT, or Gemini. Load them in and your AI already knows the framework, your positioning, and how to build content that sounds like you instead of everyone else.</p></div></div><div class="value-total">Total value: <span>$6,097</span></div><div class="stack-cta"><a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a></div></div></section>
+<section class="section" data-screen-label="Founding pricing" style="background:var(--ink);color:var(--t-light);" id="checkout"><div class="wrap" style="max-width:820px;"><div class="eyebrow-row"><span class="kicker"><span class="dot"></span>Founding Member Pricing</span></div><h2 class="center" style="font-size:clamp(28px,4vw,46px);font-weight:900;letter-spacing:-.02em;color:#fff;">FOUNDING MEMBER PRICING</h2><p class="center" style="margin:18px auto 0;max-width:680px;color:var(--t-light-dim);font-size:17px;line-height:1.6;">AuthorityOS retails at $2,997. That is the price the next wave pays.</p><p class="center" style="margin:14px auto 0;max-width:680px;color:var(--t-light-dim);font-size:17px;line-height:1.6;">As a founding member from tonight's masterclass, you join for a one-time payment of $997. That covers your 4-week fast track, your book, your AI files, and your first month inside the community.</p><p class="center" style="margin:14px auto 0;max-width:680px;color:var(--t-light-dim);font-size:17px;line-height:1.6;">After your fast track, membership continues at $199/mo so you keep the community, the bi-weekly calls, and every update we ship. Cancel anytime with one email. No contracts, no games.</p><div class="price-card"><div class="price-row"><span class="was">$2,997</span><span class="now">$997</span></div><div class="price-terms">today, then <b style="color:#fff;">$199/mo</b> after your 4-week fast track. Cancel anytime.</div></div><div class="stack-cta"><a class="btn" href="#pay">CLAIM MY FOUNDING MEMBER SPOT</a><span class="sub-note">Secure checkout. Instant access.</span></div></div></section>
+<section class="section tight" data-screen-label="Who this is for" style="background:var(--paper);"><div class="wrap"><div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>Who this is for</span></div><h2 class="center" style="font-size:clamp(26px,3.6vw,40px);font-weight:900;letter-spacing:-.02em;color:var(--t-dark);margin-bottom:26px;">THIS WAS BUILT FOR A SPECIFIC PERSON</h2><div class="who-box"><p style="margin:0;">You are established. A founder, a doctor, a clinic owner, an operator with real results behind you. You may already be spending real money on content every month and watching people with half your ability get twice your attention.</p><p style="margin:14px 0 0;font-weight:600;color:var(--t-dark);">If that is you, this room was built for you.</p><p class="no">If you are brand new, still figuring out what you sell, or looking for a posting-hacks course, this is not that. AuthorityOS fixes positioning, and positioning only matters once you have something worth positioning.</p></div></div></section>
+<section class="section tight" data-screen-label="Proof" style="background:var(--ink);color:var(--t-light);"><div class="wrap"><div class="eyebrow-row"><span class="kicker"><span class="dot"></span>Proof</span></div><h2 class="center" style="font-size:clamp(26px,3.8vw,42px);font-weight:900;letter-spacing:-.02em;color:#fff;margin-bottom:26px;max-width:820px;margin-left:auto;margin-right:auto;">THE SAME SYSTEM BEHIND THE BRANDS YOU ALREADY KNOW</h2><p class="proof-line"><b>1DS</b> is the agency behind Liver King's run to 2.5 million followers in 5 months, behind Miesha Tate's brand, behind Chef Rush and his 8 million on TikTok. Not theory from a course creator. The working playbook from a team that manages <b>170+ creators</b> and builds brands for a living.</p><p class="proof-line" style="margin-top:18px;">AuthorityOS is that playbook, packaged so you can run it yourself.</p></div></section>
+<section class="section tight" data-screen-label="Guarantee" style="background:var(--paper-2);"><div class="wrap"><div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>The Guarantee</span></div><h2 class="center" style="font-size:clamp(26px,3.6vw,40px);font-weight:900;letter-spacing:-.02em;color:var(--t-dark);margin-bottom:26px;">THE RISK STAYS ON US</h2><div class="guarantee-card"><span class="seal">30-Day Guarantee</span><h3>One email. No hoops. No hard feelings.</h3><p>Join, go through the fast track, show up to a call, put the framework to work. If after 30 days you do not have a clearer, sharper position in your market than you have ever had, email us and we refund the $997.</p></div></div></section>
+<section class="section tight" data-screen-label="FAQ" style="background:var(--paper);"><div class="wrap"><div class="eyebrow-row"><span class="kicker dark"><span class="dot"></span>FAQ</span></div><h2 class="center" style="font-size:clamp(26px,3.6vw,40px);font-weight:900;letter-spacing:-.02em;color:var(--t-dark);margin-bottom:32px;">QUESTIONS, ANSWERED</h2><div class="faq"><details><summary>When do I get access?</summary><p>Immediately. Your Skool invite lands in your inbox within minutes of checkout. The digital book arrives tonight. The hardcover ships in August.</p></details><details><summary>What does $199/mo get me after the fast track?</summary><p>Continued community access, the bi-weekly live calls, and every new framework, template, and AI file we add. You can cancel anytime from inside your account or with one email.</p></details><details><summary>How much time does this take?</summary><p>The fast track is built for operators with full calendars. Plan on 2-3 hours a week for the first 4 weeks. After that, the system runs inside the content work you are already doing.</p></details><details><summary>I run a clinic / firm / brand in a niche you did not mention. Does this work for me?</summary><p>The framework is niche-agnostic. Positioning works the same whether you are a surgeon, a founder, or a firm owner. The examples change, the system does not.</p></details><details><summary>What if I already have a content team?</summary><p>Even better. AuthorityOS gives your team the positioning layer they have been missing. Most content teams are great at output and blind on signal. This fixes the blind spot.</p></details></div><div class="stack-cta"><a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a></div></div></section>
+<footer class="foot" style="background:var(--ink);color:var(--t-light-dim);padding:44px 0 36px;text-align:center;"><div class="wrap"><p class="reassure">Secure checkout. 30-day guarantee. Skool access within minutes.</p><div class="links" style="margin:22px 0;"><span>1DS Collective LLC</span><span>|</span><a href="#" style="color:var(--t-light-dim);">Privacy</a><span>|</span><a href="#" style="color:var(--t-light-dim);">Terms</a></div></div></footer>
 <script>
 (function(){
-  // 72-hour countdown from first visit (persisted in localStorage)
-  var KEY='aos_founding_deadline_v1';
-  var deadline=parseInt(localStorage.getItem(KEY)||'0',10);
-  var now=Date.now();
-  if(!deadline||deadline<now){ deadline=now+72*60*60*1000; localStorage.setItem(KEY,String(deadline)); }
-  var h=document.getElementById('tHrs'),m=document.getElementById('tMin'),s=document.getElementById('tSec');
-  function pad(n){return n<10?'0'+n:''+n;}
-  function tick(){
-    var d=deadline-Date.now();
-    if(d<=0){h.textContent='00';m.textContent='00';s.textContent='00';return;}
-    var hrs=Math.floor(d/3600000), mins=Math.floor(d%3600000/60000), secs=Math.floor(d%60000/1000);
-    h.textContent=pad(hrs); m.textContent=pad(mins); s.textContent=pad(secs);
-  }
-  tick(); setInterval(tick,1000);
+var KEY='aos_founding_deadline_v1';
+var deadline=parseInt(localStorage.getItem(KEY)||'0',10);
+var now=Date.now();
+if(!deadline||deadline<now){deadline=now+72*60*60*1000;localStorage.setItem(KEY,String(deadline));}
+var h=document.getElementById('tHrs'),m=document.getElementById('tMin'),s=document.getElementById('tSec');
+function pad(n){return n<10?'0'+n:''+n;}
+function tick(){
+var d=deadline-Date.now();
+if(d<=0){h.textContent='00';m.textContent='00';s.textContent='00';return;}
+var hrs=Math.floor(d/3600000),mins=Math.floor(d%3600000/60000),secs=Math.floor(d%60000/1000);
+h.textContent=pad(hrs);m.textContent=pad(mins);s.textContent=pad(secs);
+}
+tick();setInterval(tick,1000);
 })();
 </script>
 </body>
