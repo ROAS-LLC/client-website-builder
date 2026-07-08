@@ -7,148 +7,141 @@
 <link rel="icon" href="/aos/assets/aos-logo.png">
 <link rel="stylesheet" href="/aos/assets/aos.css">
 <style>
-  /* ============ HERO — two-column ============ */
-  .hero{position:relative; padding:56px 0 90px; overflow:hidden;}
-  .hero-grid{display:grid; grid-template-columns: 1.05fr .95fr; gap:56px; align-items:start; max-width:1200px; margin:0 auto;}
-  .hero-eyebrow{display:inline-flex; align-items:center; gap:10px; font-family:'Outfit',sans-serif; font-weight:700; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--violet-soft); padding:8px 14px; border:1px solid rgba(197,136,224,.28); border-radius:999px; background:rgba(197,136,224,.06);}
-  .hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(231,178,75,.18);}
-  .hero h1{font-family:'Outfit',sans-serif; font-weight:900; font-size:clamp(38px,4.6vw,64px); line-height:1.02; letter-spacing:-.032em; color:#fff; margin:22px 0 0;}
-  .hero h1 em{font-style:normal; background:linear-gradient(120deg,#C588E0,#E7B24B 70%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
-  .hero-sub{margin:22px 0 0; font-size:17.5px; line-height:1.6; color:var(--t-light-dim); max-width:520px;}
+  .co-eyebrow{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-soft);margin-bottom:14px;}
+  .co-timer{display:flex;justify-content:center;gap:10px;margin:26px auto 0;}
+  .co-timer .unit{background:rgba(0,0,0,.35);border:1px solid var(--ink-line);border-radius:10px;padding:10px 14px;min-width:66px;text-align:center;}
+  .co-timer .num{font-family:'Outfit',sans-serif;font-weight:900;font-size:26px;color:#fff;letter-spacing:-.02em;line-height:1;}
+  .co-timer .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t-light-dim);margin-top:6px;}
+  .stack-cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:32px;}
+  .stack-cta .sub-note{color:var(--t-light-dim);font-size:14px;font-weight:600;text-align:center;max-width:420px;}
+  .stack-cta.dark .sub-note{color:var(--t-dark-dim);}
 
-  .hero-timer{display:flex; gap:10px; margin:30px 0 0;}
-  .hero-timer .u{background:rgba(255,255,255,.04); border:1px solid var(--ink-line); border-radius:12px; padding:12px 16px; min-width:74px; text-align:center;}
-  .hero-timer .n{font-family:'Outfit',sans-serif; font-weight:900; font-size:30px; color:#fff; line-height:1; letter-spacing:-.02em;}
-  .hero-timer .l{font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--t-light-dim); margin-top:7px;}
-  .hero-timer-note{margin:14px 0 0; font-size:13.5px; color:var(--gold); font-weight:600; letter-spacing:.02em;}
-
-  .hero-trust{margin:34px 0 0; display:grid; gap:12px;}
-  .hero-trust .row{display:flex; align-items:center; gap:12px; color:var(--t-light); font-size:15px;}
-  .hero-trust .row .ck{flex:0 0 auto; width:22px; height:22px; border-radius:50%; background:var(--signal); color:#03291b; font-size:12px; font-weight:900; display:grid; place-items:center;}
-
-  /* Form panel */
-  .hero-form{position:relative;}
-  .hero-form-inner{background:#fff; border-radius:20px; padding:10px; box-shadow:0 60px 120px -30px rgba(0,0,0,.65), 0 0 0 1px rgba(197,136,224,.14); position:relative;}
-  .hero-form-inner::before{content:""; position:absolute; inset:-2px; border-radius:22px; padding:2px; background:linear-gradient(140deg, rgba(197,136,224,.55), rgba(231,178,75,.35) 55%, rgba(126,39,164,.5)); -webkit-mask:linear-gradient(#000,#000) content-box, linear-gradient(#000,#000); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;}
-  .hero-form-tag{position:absolute; top:-14px; left:24px; z-index:2; background:linear-gradient(135deg,#7E27A4,#A24BC9); color:#fff; font-family:'Outfit',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; padding:7px 14px; border-radius:8px; box-shadow:0 12px 24px -10px rgba(126,39,164,.7);}
-  .hero-form iframe{width:100%; min-height:820px; border:none; border-radius:14px; display:block; background:#fff;}
-
-  /* ============ Section helpers ============ */
-  .btn-solid{display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:800; font-size:16px; letter-spacing:.02em; padding:16px 30px; border-radius:12px; border:0; cursor:pointer; color:#fff; background:linear-gradient(135deg,#7E27A4 0%,#A24BC9 55%,#C167E2 100%); box-shadow:0 20px 40px -14px rgba(126,39,164,.55); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease; text-decoration:none;}
-  .btn-solid:hover{transform:translateY(-2px); filter:brightness(1.06); box-shadow:0 26px 50px -14px rgba(162,75,201,.7);}
-  .btn-solid .arr{font-size:20px; line-height:1;}
-  .btn-ghost-dark{display:inline-flex; align-items:center; gap:10px; font-family:'Outfit',sans-serif; font-weight:700; font-size:14.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--grape); padding:12px 22px; border:1.5px solid var(--grape); border-radius:10px; background:transparent; cursor:pointer; text-decoration:none; transition:background .15s, color .15s;}
-  .btn-ghost-dark:hover{background:var(--grape); color:#fff;}
-
-  .stack-cta{display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:32px;}
-  .stack-cta .sub-note{color:var(--t-light-dim); font-size:13.5px; font-weight:500; text-align:center;}
-  .stack-cta.on-light .sub-note{color:var(--t-dark-dim);}
-
-  /* ============ Value / offer grid ============ */
-  .offer-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:1000px; margin:44px auto 0;}
-  @media(max-width:760px){.offer-grid{grid-template-columns:1fr;}}
-  .offer-card{background:#fff; border:1px solid var(--paper-line); border-radius:16px; padding:26px 28px; box-shadow:0 20px 40px -28px rgba(40,8,60,.25); position:relative; transition:transform .18s, box-shadow .18s;}
-  .offer-card:hover{transform:translateY(-3px); box-shadow:0 30px 60px -28px rgba(40,8,60,.35);}
-  .offer-card .oc-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:8px; flex-wrap:wrap;}
-  .offer-card h3{font-family:'Outfit',sans-serif; font-weight:800; font-size:18px; color:var(--t-dark); margin:0; letter-spacing:-.01em;}
-  .offer-card .oc-val{font-family:'Outfit',sans-serif; font-weight:800; font-size:12px; letter-spacing:.06em; color:var(--grape-600); background:rgba(126,39,164,.09); padding:4px 9px; border-radius:6px; white-space:nowrap;}
-  .offer-card p{color:var(--t-dark-dim); font-size:15px; line-height:1.55; margin:0;}
-  .value-total{text-align:center; margin-top:32px; font-family:'Outfit',sans-serif; font-weight:800; font-size:22px; color:var(--t-dark);}
+  .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:960px;margin:40px auto 0;}
+  @media(max-width:720px){.offer-grid{grid-template-columns:1fr;}}
+  .offer-card{background:#fff;border:1px solid var(--paper-line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow-card);}
+  .offer-card .oc-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap;}
+  .offer-card h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--t-dark);margin:0;letter-spacing:-.01em;}
+  .offer-card .oc-val{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;color:var(--grape-600);white-space:nowrap;}
+  .offer-card p{color:var(--t-dark-dim);font-size:15px;line-height:1.55;margin:0;}
+  .value-total{text-align:center;margin-top:26px;font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;color:var(--t-dark);}
   .value-total span{color:var(--grape);}
 
-  /* ============ Price card ============ */
-  .price-card{max-width:640px; margin:36px auto 0; background:linear-gradient(180deg, rgba(126,39,164,.18), rgba(255,255,255,.02)); border:1px solid rgba(162,75,201,.4); border-radius:20px; padding:36px 30px; text-align:center; box-shadow:0 40px 90px -34px rgba(0,0,0,.75); position:relative;}
-  .price-card::after{content:"FOUNDING MEMBER"; position:absolute; top:-11px; left:50%; transform:translateX(-50%); font-family:'Outfit',sans-serif; font-weight:800; font-size:11px; letter-spacing:.22em; color:#3a2a08; background:linear-gradient(135deg,#E7B24B,#F0CA6E); padding:6px 14px; border-radius:6px;}
-  .price-row{display:flex; align-items:baseline; justify-content:center; gap:16px; margin-top:14px; flex-wrap:wrap;}
-  .price-row .was{color:#b09dc2; text-decoration:line-through; font-family:'Outfit',sans-serif; font-weight:700; font-size:26px;}
-  .price-row .now{font-family:'Outfit',sans-serif; font-weight:900; font-size:60px; color:#fff; letter-spacing:-.03em; line-height:1;}
-  .price-terms{margin-top:16px; color:var(--t-light-dim); font-size:15px; line-height:1.55;}
+  .price-card{max-width:640px;margin:36px auto 0;background:linear-gradient(180deg,rgba(126,39,164,.16),rgba(255,255,255,.02));border:1px solid rgba(162,75,201,.4);border-radius:20px;padding:34px 30px;text-align:center;box-shadow:0 40px 90px -34px rgba(0,0,0,.75);}
+  .price-row{display:flex;align-items:baseline;justify-content:center;gap:16px;margin-top:10px;flex-wrap:wrap;}
+  .price-row .was{color:#b09dc2;text-decoration:line-through;font-family:'Outfit',sans-serif;font-weight:700;font-size:26px;}
+  .price-row .now{font-family:'Outfit',sans-serif;font-weight:900;font-size:56px;color:#fff;letter-spacing:-.03em;line-height:1;}
+  .price-terms{margin-top:14px;color:var(--t-light-dim);font-size:15px;line-height:1.55;}
 
-  /* ============ Content boxes ============ */
-  .who-box{max-width:820px; margin:0 auto; background:#fff; border:1px solid var(--paper-line); border-radius:18px; padding:36px 38px; box-shadow:0 24px 60px -30px rgba(40,8,60,.28); color:var(--t-dark); font-size:16.5px; line-height:1.65;}
-  .who-box p{margin:0 0 14px;} .who-box p:last-child{margin-bottom:0;}
-  .proof-line{max-width:820px; margin:0 auto; color:var(--t-light-dim); font-size:17px; line-height:1.65; text-align:center;}
-  .guarantee-card{max-width:720px; margin:0 auto; background:#fff; border:2px solid var(--gold); border-radius:20px; padding:34px 32px; text-align:center; box-shadow:0 30px 60px -28px rgba(184,132,42,.35); position:relative;}
-  .guarantee-card::before{content:"30-DAY GUARANTEE"; display:block; font-family:'Outfit',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.22em; color:var(--gold-deep); margin-bottom:12px;}
-  .guarantee-card p{color:var(--t-dark-dim); font-size:16.5px; line-height:1.65; margin:0;}
+  .who-box{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--paper-line);border-radius:18px;padding:34px 36px;box-shadow:var(--shadow-card);color:var(--t-dark);font-size:16.5px;line-height:1.6;}
+  .who-box p{margin:0 0 14px;}
+  .who-box p:last-child{margin-bottom:0;}
 
-  /* ============ FAQ ============ */
-  .faq-wrap{max-width:820px; margin:0 auto;}
-  .faq-wrap details{background:#fff; border:1px solid var(--paper-line); border-radius:14px; padding:20px 26px; margin-bottom:12px; box-shadow:0 10px 24px -18px rgba(40,8,60,.25); transition:border-color .15s;}
-  .faq-wrap details[open]{border-color:var(--violet);}
-  .faq-wrap summary{font-family:'Outfit',sans-serif; font-weight:700; font-size:16.5px; color:var(--t-dark); cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;}
-  .faq-wrap summary::-webkit-details-marker{display:none;}
-  .faq-wrap summary::after{content:'+'; font-size:24px; color:var(--grape-600); font-weight:300; line-height:1;}
-  .faq-wrap details[open] summary::after{content:'–';}
-  .faq-wrap details p{color:var(--t-dark-dim); font-size:15px; line-height:1.65; margin:14px 0 0;}
+  .proof-line{max-width:820px;margin:0 auto;color:var(--t-light-dim);font-size:17px;line-height:1.6;text-align:center;}
 
-  /* ============ Modal ============ */
-  .co-modal{position:fixed; inset:0; z-index:9999; display:none;}
+  .guarantee-card{max-width:720px;margin:0 auto;background:#fff;border:2px solid var(--gold);border-radius:20px;padding:34px 32px;text-align:center;box-shadow:0 30px 60px -28px rgba(184,132,42,.4);}
+  .guarantee-card p{color:var(--t-dark-dim);font-size:16.5px;line-height:1.65;margin:0;}
+
+  .faq{max-width:820px;margin:0 auto;}
+  .faq details{background:#fff;border:1px solid var(--paper-line);border-radius:14px;padding:18px 24px;margin-bottom:12px;box-shadow:0 8px 20px -14px rgba(40,8,60,.2);}
+  .faq details[open]{border-color:var(--violet);}
+  .faq summary{font-family:'Outfit',sans-serif;font-weight:700;font-size:16.5px;color:var(--t-dark);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:'+';font-size:22px;color:var(--grape-600);font-weight:400;}
+  .faq details[open] summary::after{content:'–';}
+  .faq details p{color:var(--t-dark-dim);font-size:15.5px;line-height:1.6;margin:12px 0 0;}
+
+  /* Modal */
+  .co-modal{position:fixed;inset:0;z-index:9999;display:none;}
   .co-modal.open{display:block;}
-  .co-modal-backdrop{position:absolute; inset:0; background:rgba(6,3,14,.78); backdrop-filter:blur(4px);}
-  .co-modal-panel{position:relative; max-width:560px; width:calc(100% - 24px); margin:4vh auto; background:#fff; border-radius:16px; box-shadow:0 40px 100px -20px rgba(0,0,0,.6); max-height:92vh; overflow:hidden; display:flex; flex-direction:column;}
-  .co-modal-close{position:absolute; top:8px; right:12px; background:transparent; border:none; font-size:32px; line-height:1; color:#333; cursor:pointer; z-index:2; padding:4px 10px;}
-  .co-modal-body{flex:1; overflow-y:auto; padding:44px 6px 6px;}
-  .co-modal-body iframe{width:100%; min-height:780px; border:none; display:block; border-radius:8px; background:#fff;}
+  .co-modal-backdrop{position:absolute;inset:0;background:rgba(6,3,14,.78);backdrop-filter:blur(4px);}
+  .co-modal-panel{position:relative;max-width:560px;width:calc(100% - 24px);margin:4vh auto;background:#fff;border-radius:16px;box-shadow:0 40px 100px -20px rgba(0,0,0,.6);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;}
+  .co-modal-close{position:absolute;top:8px;right:12px;background:transparent;border:none;font-size:32px;line-height:1;color:#333;cursor:pointer;z-index:2;padding:4px 10px;}
+  .co-modal-body{flex:1;overflow-y:auto;padding:44px 6px 6px;}
+  .co-modal-body iframe{width:100%;min-height:780px;border:none;display:block;border-radius:8px;background:#fff;}
   body.co-modal-open{overflow:hidden;}
 
-  /* ============ MOBILE ============ */
-  @media (max-width: 960px){
-    .hero-grid{grid-template-columns:1fr; gap:32px;}
-    .hero-sub, .hero-trust{max-width:none;}
+  /* Hero form */
+  .hero-form-wrap{max-width:640px;margin:28px auto 0;background:#fff;border-radius:16px;padding:10px;box-shadow:0 30px 70px -30px rgba(0,0,0,.55);}
+  .hero-form-wrap iframe{width:100%;min-height:820px;border:none;border-radius:12px;display:block;background:#fff;}
+
+  /* ============ MOBILE TIGHTENING ============ */
+  @media (max-width: 640px) {
+    .wrap { padding: 0 14px; }
+    .section { padding: 22px 0 !important; }
+    .section.tight { padding: 14px 0 !important; }
+    header.dark.grain { padding: 28px 0 36px !important; }
+    .topbar { padding: 8px 0 !important; }
+    .topbar img { height: 24px !important; }
+    .topbar .wm { font-size: 11px !important; }
+    .topbar .wm small { font-size: 8px !important; }
+
+    .co-eyebrow { font-size: 9.5px; letter-spacing: .12em; margin-bottom: 6px; }
+    h1.center { font-size: 24px !important; line-height: 1.06 !important; letter-spacing: -.026em !important; }
+    header p.center { font-size: 14px !important; margin-top: 10px !important; line-height: 1.5 !important; }
+
+    .co-timer { gap: 5px; margin-top: 14px; }
+    .co-timer .unit { padding: 6px 8px; min-width: 52px; border-radius: 8px; }
+    .co-timer .num { font-size: 20px; }
+    .co-timer .lbl { font-size: 8.5px; margin-top: 3px; letter-spacing: .1em; }
+
+    .stack-cta { margin-top: 14px; gap: 5px; }
+    .btn { width: 100%; max-width: 320px; padding: 14px 18px !important; font-size: 14.5px !important; letter-spacing: .02em; }
+    .stack-cta .sub-note { font-size: 12px; padding: 0 6px; line-height: 1.35; }
+
+    section h2.center { font-size: 20px !important; line-height: 1.15 !important; margin-bottom: 10px !important; letter-spacing: -.02em !important; }
+
+    section p { font-size: 14.5px !important; line-height: 1.5 !important; }
+    section p[style*="font-size:20px"] { font-size: 15px !important; margin-bottom: 8px !important; }
+    section p[style*="font-size:19px"] { font-size: 15px !important; margin-bottom: 12px !important; }
+    section p.center[style*="max-width:680px"] { font-size: 14px !important; margin-top: 8px !important; }
+
+    .offer-grid { gap: 8px; margin-top: 14px; }
+    .offer-card { padding: 14px 14px; border-radius: 10px; }
+    .offer-card .oc-head { gap: 5px 8px; margin-bottom: 5px; }
+    .offer-card h3 { font-size: 14.5px; line-height: 1.25; }
+    .offer-card .oc-val { font-size: 11px; }
+    .offer-card p { font-size: 13px; line-height: 1.5; }
+    .value-total { font-size: 14.5px; margin-top: 12px; }
+
+    .price-card { padding: 18px 14px; margin-top: 14px; border-radius: 12px; }
+    .price-row { gap: 10px; margin-top: 5px; }
+    .price-row .was { font-size: 16px; }
+    .price-row .now { font-size: 36px; }
+    .price-terms { font-size: 12.5px; margin-top: 6px; }
+
+    .who-box { padding: 16px 16px; border-radius: 10px; font-size: 14px; line-height: 1.55; }
+    .who-box p { margin-bottom: 6px; }
+
+    .proof-line { font-size: 14px; line-height: 1.5; }
+    .proof-line + .proof-line { margin-top: 8px !important; }
+
+    .guarantee-card { padding: 18px 16px; border-radius: 12px; }
+    .guarantee-card p { font-size: 14px; line-height: 1.55; }
+
+    .faq details { padding: 12px 14px; margin-bottom: 6px; border-radius: 8px; }
+    .faq summary { font-size: 14px; gap: 8px; line-height: 1.3; }
+    .faq summary::after { font-size: 18px; }
+    .faq details p { font-size: 13px; line-height: 1.5; margin-top: 6px; }
+
+    footer { padding: 18px 0 16px !important; }
+    footer p { font-size: 12px !important; margin-top: 8px !important; }
+
+    .hero-form-wrap { margin-top: 18px; padding: 6px; border-radius: 10px; }
+    .hero-form-wrap iframe { min-height: 600px; border-radius: 8px; }
+
+    .co-modal-panel { width: calc(100% - 12px); margin: 2vh auto; border-radius: 12px; max-height: 96vh; }
+    .co-modal-body { padding: 36px 4px 4px; }
+    .co-modal-body iframe { min-height: 600px; }
+    .co-modal-close { font-size: 26px; top: 6px; right: 8px; }
   }
-  @media (max-width: 640px){
-    .wrap{padding:0 16px;}
-    .hero{padding:26px 0 44px;}
-    .hero-grid{gap:22px;}
-    .hero-eyebrow{font-size:10.5px; letter-spacing:.16em; padding:6px 11px;}
-    .hero h1{font-size:30px; line-height:1.05; letter-spacing:-.028em; margin-top:14px;}
-    .hero-sub{font-size:15px; margin-top:14px; line-height:1.5;}
-    .hero-timer{gap:7px; margin-top:20px;}
-    .hero-timer .u{padding:8px 10px; min-width:58px;}
-    .hero-timer .n{font-size:22px;}
-    .hero-timer .l{font-size:9.5px; margin-top:4px;}
-    .hero-timer-note{margin-top:10px; font-size:12.5px;}
-    .hero-trust{margin-top:18px; gap:9px;}
-    .hero-trust .row{font-size:13.5px; gap:10px;}
-    .hero-trust .row .ck{width:20px; height:20px; font-size:11px;}
-    .hero-form-inner{padding:6px; border-radius:16px;}
-    .hero-form-inner::before{border-radius:18px;}
-    .hero-form-tag{left:14px; top:-11px; font-size:10.5px; letter-spacing:.14em; padding:5px 10px;}
-    .hero-form iframe{min-height:900px; border-radius:12px;}
 
-    .section{padding:36px 0 !important;}
-    .section.tight{padding:28px 0 !important;}
-    h2.sec-title{font-size:24px !important; line-height:1.15 !important; letter-spacing:-.02em !important; margin-bottom:16px !important;}
-
-    .offer-grid{gap:12px; margin-top:22px;}
-    .offer-card{padding:18px 18px; border-radius:12px;}
-    .offer-card h3{font-size:15.5px;}
-    .offer-card .oc-val{font-size:10.5px;}
-    .offer-card p{font-size:13.5px; line-height:1.5;}
-    .value-total{font-size:16.5px; margin-top:20px;}
-
-    .price-card{padding:24px 18px; margin-top:22px; border-radius:14px;}
-    .price-row .was{font-size:20px;}
-    .price-row .now{font-size:44px;}
-    .price-terms{font-size:13.5px; margin-top:10px;}
-
-    .who-box{padding:22px 20px; border-radius:12px; font-size:14.5px; line-height:1.6;}
-    .proof-line{font-size:14.5px; line-height:1.6;}
-    .guarantee-card{padding:24px 20px; border-radius:14px;}
-    .guarantee-card p{font-size:14.5px; line-height:1.6;}
-
-    .faq-wrap details{padding:15px 18px; margin-bottom:9px; border-radius:11px;}
-    .faq-wrap summary{font-size:14.5px;}
-    .faq-wrap details p{font-size:13.5px; margin-top:10px;}
-
-    .btn-solid{padding:14px 22px; font-size:15px; width:100%; max-width:360px;}
-    .stack-cta{margin-top:22px;}
-
-    .topbar{padding:8px 0 !important;}
-    .topbar img{height:26px !important;}
-    footer{padding:26px 0 22px !important;}
-    footer p{font-size:12.5px !important;}
+  @media (max-width: 380px) {
+    h1.center { font-size: 22px !important; }
+    .price-row .now { font-size: 32px; }
+    .co-timer .unit { min-width: 46px; padding: 5px 6px; }
+    .co-timer .num { font-size: 18px; }
+    .co-eyebrow { font-size: 8.5px; }
+    .btn { padding: 13px 16px !important; font-size: 13.5px !important; }
   }
 </style>
 </head>
@@ -163,47 +156,41 @@
   </div>
 </div>
 
-<!-- ============ HERO ============ -->
-<header class="dark grain hero">
-  <div class="wrap">
-    <div class="hero-grid">
+<!-- SECTION 1 -->
+<header class="dark grain" style="padding:60px 0 80px;">
+  <div class="wrap" style="max-width:960px;">
+    <span class="co-eyebrow">For the experts who watched the AuthorityOS Masterclass</span>
+    <h1 class="center" style="font-size:clamp(34px,5.4vw,64px); font-weight:900; letter-spacing:-.03em; line-height:1.05; margin-top:6px;">
+      BUILD THE KIND OF AUTHORITY THAT MAKES YOU THE OBVIOUS CHOICE
+    </h1>
+    <p class="center" style="margin:22px auto 0; max-width:720px; font-size:clamp(16px,2vw,20px); color:var(--t-light-dim); line-height:1.55;">
+      The complete AuthorityOS system. The same positioning framework 1DS used to build Liver King to 2.5 million followers in 5 months, handed to you as a 4-week fast track.
+    </p>
 
-      <div class="hero-left">
-        <span class="hero-eyebrow"><span class="dot"></span>For the experts who watched the masterclass</span>
-        <h1>Build the kind of authority that makes you the <em>obvious choice</em>.</h1>
-        <p class="hero-sub">The complete AuthorityOS system. The same positioning framework 1DS used to build Liver King to 2.5 million followers in 5 months, handed to you as a 4-week fast track.</p>
+    <div class="co-timer">
+      <div class="unit"><div class="num" id="tHrs">72</div><div class="lbl">Hours</div></div>
+      <div class="unit"><div class="num" id="tMin">00</div><div class="lbl">Mins</div></div>
+      <div class="unit"><div class="num" id="tSec">00</div><div class="lbl">Secs</div></div>
+    </div>
 
-        <div class="hero-timer">
-          <div class="u"><div class="n" id="tHrs">72</div><div class="l">Hours</div></div>
-          <div class="u"><div class="n" id="tMin">00</div><div class="l">Mins</div></div>
-          <div class="u"><div class="n" id="tSec">00</div><div class="l">Secs</div></div>
-        </div>
-        <div class="hero-timer-note">Founding member pricing ends when the timer hits zero</div>
+    <div class="stack-cta">
+      <a class="btn js-open-checkout" href="#hero-form">CLAIM MY FOUNDING MEMBER SPOT</a>
+      <span class="sub-note">Founding member pricing ends when the timer hits zero</span>
+    </div>
 
-        <div class="hero-trust">
-          <div class="row"><span class="ck">✓</span>$997 today, $199/mo after your 4-week fast track</div>
-          <div class="row"><span class="ck">✓</span>Skool community access within minutes of checkout</div>
-          <div class="row"><span class="ck">✓</span>30-day money-back guarantee, one email, no hoops</div>
-        </div>
-      </div>
-
-      <aside class="hero-form" id="hero-form">
-        <div class="hero-form-inner">
-          <span class="hero-form-tag">Secure Checkout</span>
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/1Ae5cEi9hw7rKnKI0GST"
-            id="inline-1Ae5cEi9hw7rKnKI0GST-hero"
-            title="webinar purchase"
-            loading="lazy"
-          ></iframe>
-        </div>
-      </aside>
-
+    <div class="hero-form-wrap" id="hero-form">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/1Ae5cEi9hw7rKnKI0GST"
+        id="inline-1Ae5cEi9hw7rKnKI0GST-hero"
+        title="webinar purchase"
+        loading="lazy"
+        style="width:100%;min-height:820px;border:none;border-radius:12px;background:#fff;display:block;"
+      ></iframe>
     </div>
   </div>
 </header>
 
-<!-- Checkout modal (for CTAs lower on the page) -->
+<!-- Checkout modal -->
 <div class="co-modal" id="coModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Founding member checkout">
   <div class="co-modal-backdrop" data-close-modal></div>
   <div class="co-modal-panel">
@@ -212,28 +199,28 @@
   </div>
 </div>
 
-<!-- ============ SECTION 2 ============ -->
+<!-- SECTION 2 -->
 <section class="section tight" style="background:var(--paper);">
   <div class="wrap" style="max-width:820px;">
-    <p style="font-size:20px; line-height:1.6; color:var(--t-dark); text-align:center; margin:0 0 20px; font-weight:600;">
+    <p style="font-size:20px; line-height:1.6; color:var(--t-dark); text-align:center; margin:0 0 20px;">
       You already know how to do the work. That was never the problem.
     </p>
     <p style="font-size:17px; line-height:1.7; color:var(--t-dark-dim); text-align:center; margin:0 0 20px;">
       The problem is the game changed. The old game rewarded whoever posted the most. The new game rewards whoever is positioned the best. Visibility beats ability, and the people winning right now are not better than you. They just figured out the signal part before you did.
     </p>
-    <p style="font-size:19px; line-height:1.55; color:var(--grape); text-align:center; font-weight:700; margin:0;">
+    <p style="font-size:19px; line-height:1.55; color:var(--t-dark); text-align:center; font-weight:600; margin:0 0 32px;">
       AuthorityOS is the operating system for the new game.
     </p>
-    <div class="stack-cta on-light">
-      <a class="btn-solid js-open-checkout" href="#hero-form">Claim my founding member spot <span class="arr">→</span></a>
+    <div class="stack-cta dark" style="margin-top:0;">
+      <a class="btn js-open-checkout" href="#hero-form">CLAIM MY FOUNDING MEMBER SPOT</a>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 3 ============ -->
+<!-- SECTION 3 -->
 <section class="section" style="background:var(--paper-2);">
   <div class="wrap">
-    <h2 class="sec-title center" style="font-family:'Outfit',sans-serif; font-size:clamp(28px,4vw,44px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); text-align:center; margin:0;">Everything inside AuthorityOS</h2>
+    <h2 class="center" style="font-size:clamp(28px,4vw,44px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark);">EVERYTHING INSIDE AUTHORITYOS</h2>
 
     <div class="offer-grid">
       <div class="offer-card">
@@ -260,24 +247,24 @@
 
     <div class="value-total">Total value: <span>$6,097</span></div>
 
-    <div class="stack-cta on-light">
-      <a class="btn-solid js-open-checkout" href="#hero-form">Claim my founding member spot <span class="arr">→</span></a>
+    <div class="stack-cta dark">
+      <a class="btn js-open-checkout" href="#hero-form">CLAIM MY FOUNDING MEMBER SPOT</a>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 4 — PRICING ============ -->
-<section class="section" style="background:var(--ink); color:var(--t-light);" id="pricing">
+<!-- SECTION 4 -->
+<section class="section" style="background:var(--ink); color:var(--t-light);" id="checkout">
   <div class="wrap" style="max-width:820px;">
-    <h2 class="sec-title center" style="font-family:'Outfit',sans-serif; font-size:clamp(28px,4vw,46px); font-weight:900; letter-spacing:-.02em; color:#fff; text-align:center; margin:0;">Founding member pricing</h2>
+    <h2 class="center" style="font-size:clamp(28px,4vw,46px); font-weight:900; letter-spacing:-.02em; color:#fff;">FOUNDING MEMBER PRICING</h2>
 
-    <p class="center" style="margin:20px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.65;">
+    <p class="center" style="margin:18px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.6;">
       AuthorityOS retails at $2,997. That is the price the next wave pays.
     </p>
-    <p class="center" style="margin:14px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.65;">
+    <p class="center" style="margin:14px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.6;">
       As a founding member from tonight's masterclass, you join for a one-time payment of $997. That covers your 4-week fast track, your book, your AI files, and your first month inside the community.
     </p>
-    <p class="center" style="margin:14px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.65;">
+    <p class="center" style="margin:14px auto 0; max-width:680px; color:var(--t-light-dim); font-size:17px; line-height:1.6;">
       After your fast track, membership continues at $199/mo so you keep the community, the bi-weekly calls, and every update we ship. Cancel anytime with one email. No contracts, no games.
     </p>
 
@@ -290,29 +277,29 @@
     </div>
 
     <div class="stack-cta">
-      <a class="btn-solid js-open-checkout" href="#hero-form">Claim my founding member spot <span class="arr">→</span></a>
+      <a class="btn js-open-checkout" href="#hero-form">CLAIM MY FOUNDING MEMBER SPOT</a>
       <span class="sub-note">Secure checkout. Instant access.</span>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 5 ============ -->
+<!-- SECTION 5 -->
 <section class="section tight" style="background:var(--paper);">
   <div class="wrap">
-    <h2 class="sec-title center" style="font-family:'Outfit',sans-serif; font-size:clamp(26px,3.6vw,40px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); text-align:center; margin:0 0 28px;">This was built for a specific person</h2>
+    <h2 class="center" style="font-size:clamp(26px,3.6vw,40px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); margin-bottom:26px;">THIS WAS BUILT FOR A SPECIFIC PERSON</h2>
     <div class="who-box">
       <p>You are established. A founder, a doctor, a clinic owner, an operator with real results behind you. You may already be spending real money on content every month and watching people with half your ability get twice your attention.</p>
-      <p style="font-weight:700; color:var(--grape);">If that is you, this room was built for you.</p>
+      <p style="font-weight:600; color:var(--t-dark);">If that is you, this room was built for you.</p>
       <p>If you are brand new, still figuring out what you sell, or looking for a posting-hacks course, this is not that. AuthorityOS fixes positioning, and positioning only matters once you have something worth positioning.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 6 ============ -->
+<!-- SECTION 6 -->
 <section class="section tight" style="background:var(--ink); color:var(--t-light);">
   <div class="wrap">
-    <h2 class="sec-title center" style="font-family:'Outfit',sans-serif; font-size:clamp(26px,3.8vw,42px); font-weight:900; letter-spacing:-.02em; color:#fff; text-align:center; margin:0 auto 28px; max-width:820px;">
-      The same system behind the brands you already know
+    <h2 class="center" style="font-size:clamp(26px,3.8vw,42px); font-weight:900; letter-spacing:-.02em; color:#fff; margin-bottom:26px; max-width:820px; margin-left:auto; margin-right:auto;">
+      THE SAME SYSTEM BEHIND THE BRANDS YOU ALREADY KNOW
     </h2>
     <p class="proof-line">
       1DS is the agency behind Liver King's run to 2.5 million followers in 5 months, behind Miesha Tate's brand, behind Chef Rush and his 8 million on TikTok. Not theory from a course creator. The working playbook from a team that manages 170+ creators and builds brands for a living.
@@ -323,21 +310,20 @@
   </div>
 </section>
 
-<!-- ============ SECTION 7 ============ -->
+<!-- SECTION 7 -->
 <section class="section tight" style="background:var(--paper-2);">
   <div class="wrap">
-    <h2 class="sec-title center" style="font-family:'Outfit',sans-serif; font-size:clamp(26px,3.6vw,40px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); text-align:center; margin:0 0 28px;">The risk stays on us</h2>
+    <h2 class="center" style="font-size:clamp(26px,3.6vw,40px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); margin-bottom:26px;">THE RISK STAYS ON US</h2>
     <div class="guarantee-card">
       <p>Join, go through the fast track, show up to a call, put the framework to work. If after 30 days you do not have a clearer, sharper position in your market than you have ever had, email us and we refund the $997. One email. No hoops, no hard feelings.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 8 — FAQ ============ -->
+<!-- SECTION 8 -->
 <section class="section tight" style="background:var(--paper);">
   <div class="wrap">
-    <h2 class="sec-title center" style="font-family:'Outfit',sans-serif; font-size:clamp(26px,3.6vw,40px); font-weight:900; letter-spacing:-.02em; color:var(--t-dark); text-align:center; margin:0 0 28px;">Questions we get every time</h2>
-    <div class="faq-wrap">
+    <div class="faq">
       <details>
         <summary>When do I get access?</summary>
         <p>Immediately. Your Skool invite lands in your inbox within minutes of checkout. The digital book arrives tonight. The hardcover ships in August.</p>
@@ -360,13 +346,13 @@
       </details>
     </div>
 
-    <div class="stack-cta on-light">
-      <a class="btn-solid js-open-checkout" href="#hero-form">Claim my founding member spot <span class="arr">→</span></a>
+    <div class="stack-cta dark">
+      <a class="btn js-open-checkout" href="#hero-form">CLAIM MY FOUNDING MEMBER SPOT</a>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- SECTION 9 -->
 <footer style="background:var(--ink); color:var(--t-light-dim); padding:44px 0 36px; text-align:center;">
   <div class="wrap">
     <p style="font-size:14.5px;">Secure checkout. 30-day guarantee. Skool access within minutes.</p>
@@ -398,9 +384,8 @@
   var body=document.getElementById('coModalBody');
   var loaded=false;
   var FORM_SRC='https://api.leadconnectorhq.com/widget/form/1Ae5cEi9hw7rKnKI0GST';
-  function isMobile(){return window.matchMedia('(max-width: 960px)').matches;}
+  function isMobile(){return window.matchMedia('(max-width: 640px)').matches;}
   function open(e){
-    // On mobile the form is already stacked below the hero content — just scroll to it
     if(isMobile()){
       var t=document.getElementById('hero-form');
       if(t){e && e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'});}
@@ -410,6 +395,7 @@
     if(!loaded){
       var f=document.createElement('iframe');
       f.src=FORM_SRC; f.title='webinar purchase'; f.setAttribute('loading','lazy');
+      f.style.cssText='width:100%;min-height:780px;border:none;display:block;border-radius:8px;background:#fff;';
       body.appendChild(f); loaded=true;
     }
     modal.classList.add('open');
