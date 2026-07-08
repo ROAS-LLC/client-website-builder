@@ -151,11 +151,30 @@
     </div>
 
     <div class="stack-cta">
-      <a class="btn" href="#checkout">CLAIM MY FOUNDING MEMBER SPOT</a>
+      <a class="btn js-open-checkout" href="#hero-form">CLAIM MY FOUNDING MEMBER SPOT</a>
       <span class="sub-note">Founding member pricing ends when the timer hits zero</span>
+    </div>
+
+    <div class="hero-form-wrap" id="hero-form">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/1Ae5cEi9hw7rKnKI0GST"
+        id="inline-1Ae5cEi9hw7rKnKI0GST-hero"
+        title="webinar purchase"
+        loading="lazy"
+        style="width:100%;min-height:820px;border:none;border-radius:12px;background:#fff;display:block;"
+      ></iframe>
     </div>
   </div>
 </header>
+
+<!-- Checkout modal -->
+<div class="co-modal" id="coModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Founding member checkout">
+  <div class="co-modal-backdrop" data-close-modal></div>
+  <div class="co-modal-panel">
+    <button type="button" class="co-modal-close" data-close-modal aria-label="Close">&times;</button>
+    <div class="co-modal-body" id="coModalBody"></div>
+  </div>
+</div>
 
 <!-- SECTION 2 -->
 <section class="section tight" style="background:var(--paper);">
