@@ -49,6 +49,76 @@
   .faq summary::after{content:'+';font-size:22px;color:var(--grape-600);font-weight:400;}
   .faq details[open] summary::after{content:'–';}
   .faq details p{color:var(--t-dark-dim);font-size:15.5px;line-height:1.6;margin:12px 0 0;}
+
+  /* ============ MOBILE TIGHTENING ============ */
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .section { padding: 40px 0 !important; }
+    .section.tight { padding: 32px 0 !important; }
+    header.dark.grain { padding: 32px 0 44px !important; }
+
+    .co-eyebrow { font-size: 10.5px; letter-spacing: .14em; margin-bottom: 10px; }
+    h1.center { font-size: 30px !important; line-height: 1.08 !important; letter-spacing: -.025em !important; }
+    header p.center { font-size: 15px !important; margin-top: 14px !important; line-height: 1.5 !important; }
+
+    .co-timer { gap: 6px; margin-top: 18px; }
+    .co-timer .unit { padding: 8px 10px; min-width: 58px; }
+    .co-timer .num { font-size: 22px; }
+    .co-timer .lbl { font-size: 9.5px; margin-top: 4px; }
+
+    .stack-cta { margin-top: 20px; gap: 8px; }
+    .btn { width: 100%; max-width: 360px; padding: 16px 22px !important; font-size: 15.5px !important; letter-spacing: .02em; }
+    .stack-cta .sub-note { font-size: 13px; padding: 0 12px; }
+
+    section h2.center { font-size: 24px !important; line-height: 1.15 !important; margin-bottom: 18px !important; }
+
+    /* section 2 */
+    section p { font-size: 15.5px !important; line-height: 1.55 !important; }
+    section p[style*="font-size:20px"] { font-size: 17px !important; margin-bottom: 12px !important; }
+    section p[style*="font-size:19px"] { font-size: 16.5px !important; margin-bottom: 20px !important; }
+
+    /* offer cards */
+    .offer-grid { gap: 12px; margin-top: 22px; }
+    .offer-card { padding: 18px 18px; border-radius: 14px; }
+    .offer-card h3 { font-size: 16px; }
+    .offer-card .oc-val { font-size: 12px; }
+    .offer-card p { font-size: 14px; line-height: 1.5; }
+    .value-total { font-size: 16.5px; margin-top: 18px; }
+
+    /* price */
+    .price-card { padding: 22px 18px; margin-top: 22px; border-radius: 16px; }
+    .price-row .was { font-size: 20px; }
+    .price-row .now { font-size: 44px; }
+    .price-terms { font-size: 14px; margin-top: 10px; }
+
+    /* who */
+    .who-box { padding: 22px 20px; border-radius: 14px; font-size: 15px; line-height: 1.55; }
+    .who-box p { margin-bottom: 10px; }
+
+    /* proof */
+    .proof-line { font-size: 15px; line-height: 1.55; }
+    .proof-line + .proof-line { margin-top: 12px !important; }
+
+    /* guarantee */
+    .guarantee-card { padding: 22px 20px; border-radius: 16px; }
+    .guarantee-card p { font-size: 15px; line-height: 1.55; }
+
+    /* faq */
+    .faq details { padding: 14px 16px; margin-bottom: 8px; border-radius: 12px; }
+    .faq summary { font-size: 15px; gap: 8px; }
+    .faq summary::after { font-size: 20px; }
+    .faq details p { font-size: 14px; line-height: 1.55; margin-top: 8px; }
+
+    footer { padding: 28px 0 24px !important; }
+    footer p { font-size: 13px !important; }
+  }
+
+  @media (max-width: 380px) {
+    h1.center { font-size: 26px !important; }
+    .price-row .now { font-size: 38px; }
+    .co-timer .unit { min-width: 52px; padding: 7px 8px; }
+    .co-timer .num { font-size: 20px; }
+  }
 </style>
 </head>
 <body data-screen-label="AuthorityOS Founding Checkout">
