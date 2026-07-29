@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YasirVipRouteImport } from './routes/yasir-vip'
 import { Route as RoasRouteImport } from './routes/roas'
+import { Route as DigitalservicesRouteImport } from './routes/digitalservices'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as YasirIndexRouteImport } from './routes/yasir/index'
 import { Route as YasirWebinarIndexRouteImport } from './routes/yasir-webinar/index'
@@ -28,6 +29,11 @@ const YasirVipRoute = YasirVipRouteImport.update({
 const RoasRoute = RoasRouteImport.update({
   id: '/roas',
   path: '/roas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalservicesRoute = DigitalservicesRouteImport.update({
+  id: '/digitalservices',
+  path: '/digitalservices',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -73,6 +79,7 @@ const AosV1PageRoute = AosV1PageRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/digitalservices': typeof DigitalservicesRoute
   '/roas': typeof RoasRoute
   '/yasir-vip': typeof YasirVipRoute
   '/aos-v1/$page': typeof AosV1PageRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/digitalservices': typeof DigitalservicesRoute
   '/roas': typeof RoasRoute
   '/yasir-vip': typeof YasirVipRoute
   '/aos-v1/$page': typeof AosV1PageRoute
@@ -98,6 +106,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/digitalservices': typeof DigitalservicesRoute
   '/roas': typeof RoasRoute
   '/yasir-vip': typeof YasirVipRoute
   '/aos-v1/$page': typeof AosV1PageRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/digitalservices'
     | '/roas'
     | '/yasir-vip'
     | '/aos-v1/$page'
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/digitalservices'
     | '/roas'
     | '/yasir-vip'
     | '/aos-v1/$page'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/digitalservices'
     | '/roas'
     | '/yasir-vip'
     | '/aos-v1/$page'
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DigitalservicesRoute: typeof DigitalservicesRoute
   RoasRoute: typeof RoasRoute
   YasirVipRoute: typeof YasirVipRoute
   AosV1PageRoute: typeof AosV1PageRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/roas'
       fullPath: '/roas'
       preLoaderRoute: typeof RoasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digitalservices': {
+      id: '/digitalservices'
+      path: '/digitalservices'
+      fullPath: '/digitalservices'
+      preLoaderRoute: typeof DigitalservicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -237,6 +257,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DigitalservicesRoute: DigitalservicesRoute,
   RoasRoute: RoasRoute,
   YasirVipRoute: YasirVipRoute,
   AosV1PageRoute: AosV1PageRoute,
