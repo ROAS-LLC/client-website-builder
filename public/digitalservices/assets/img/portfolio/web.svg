@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <radialGradient id="glow1" cx="18%" cy="12%" r="75%">
+      <stop offset="0%" stop-color="#4338ca" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#4338ca" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#4338ca" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="88%" cy="92%" r="70%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#c084fc" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4338ca" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.8"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#07070d"/>
+  <rect width="1200" height="900" fill="url(#grid)"/>
+  <rect width="1200" height="900" fill="url(#glow1)"/>
+  <rect width="1200" height="900" fill="url(#glow2)"/>
+  <g>
+    <rect x="140" y="465" width="46" height="235" rx="8" fill="url(#bar)" opacity="0.16"/>
+    <rect x="218" y="611" width="46" height="89" rx="8" fill="url(#bar)" opacity="0.21"/>
+    <rect x="296" y="607" width="46" height="93" rx="8" fill="url(#bar)" opacity="0.26"/>
+    <rect x="374" y="490" width="46" height="210" rx="8" fill="url(#bar)" opacity="0.31"/>
+    <rect x="452" y="620" width="46" height="80" rx="8" fill="url(#bar)" opacity="0.16"/>
+    <rect x="530" y="515" width="46" height="185" rx="8" fill="url(#bar)" opacity="0.21"/>
+    <rect x="608" y="451" width="46" height="249" rx="8" fill="url(#bar)" opacity="0.26"/>
+    <rect x="686" y="585" width="46" height="115" rx="8" fill="url(#bar)" opacity="0.31"/>
+    <rect x="764" y="572" width="46" height="128" rx="8" fill="url(#bar)" opacity="0.16"/>
+  </g>
+  <g>
+    <line x1="428" y1="462" x2="961" y2="190" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="961" y1="190" x2="513" y2="526" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="513" y1="526" x2="554" y2="327" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="554" y1="327" x2="853" y2="589" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="853" y1="589" x2="801" y2="283" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="801" y1="283" x2="658" y2="168" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="658" y1="168" x2="527" y2="745" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="527" y1="745" x2="1006" y2="150" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="1006" y1="150" x2="139" y2="608" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="139" y1="608" x2="333" y2="592" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="333" y1="592" x2="407" y2="191" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="407" y1="191" x2="806" y2="494" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <line x1="806" y1="494" x2="598" y2="338" stroke="#c084fc" stroke-opacity="0.10" stroke-width="1.5"/>
+    <circle cx="428" cy="462" r="2" fill="#c084fc" fill-opacity="0.47"/>
+    <circle cx="961" cy="190" r="2" fill="#c084fc" fill-opacity="0.39"/>
+    <circle cx="513" cy="526" r="2" fill="#c084fc" fill-opacity="0.41"/>
+    <circle cx="554" cy="327" r="2" fill="#c084fc" fill-opacity="0.56"/>
+    <circle cx="853" cy="589" r="3" fill="#c084fc" fill-opacity="0.53"/>
+    <circle cx="801" cy="283" r="2" fill="#c084fc" fill-opacity="0.59"/>
+    <circle cx="658" cy="168" r="4" fill="#c084fc" fill-opacity="0.34"/>
+    <circle cx="527" cy="745" r="4" fill="#c084fc" fill-opacity="0.43"/>
+    <circle cx="1006" cy="150" r="2" fill="#c084fc" fill-opacity="0.48"/>
+    <circle cx="139" cy="608" r="3" fill="#c084fc" fill-opacity="0.55"/>
+    <circle cx="333" cy="592" r="4" fill="#c084fc" fill-opacity="0.56"/>
+    <circle cx="407" cy="191" r="3" fill="#c084fc" fill-opacity="0.43"/>
+    <circle cx="806" cy="494" r="3" fill="#c084fc" fill-opacity="0.49"/>
+    <circle cx="598" cy="338" r="2" fill="#c084fc" fill-opacity="0.43"/>
+  </g>
+  <text x="72" y="120" font-family="'Space Grotesk','Arial',sans-serif" font-size="230" font-weight="700"
+        fill="none" stroke="url(#edge)" stroke-opacity="0.4" stroke-width="2" dominant-baseline="hanging">05</text>
+  <circle cx="960" cy="250" r="110" fill="none" stroke="#c084fc" stroke-opacity="0.22" stroke-width="1.5"/>
+  <circle cx="960" cy="250" r="150" fill="none" stroke="#4338ca" stroke-opacity="0.14" stroke-width="1"/>
+  <circle cx="960" cy="250" r="34" fill="url(#bar)" fill-opacity="0.5"/>
+  <rect x="1.5" y="1.5" width="1197" height="897" rx="20" fill="none" stroke="url(#edge)" stroke-opacity="0.5" stroke-width="2"/>
+</svg>
