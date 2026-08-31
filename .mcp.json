@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "page-grader": {
+      "type": "http",
+      "url": "https://mjaxhuehopzbsuhmseeg.supabase.co/functions/v1/page-grader-mcp",
+      "headers": {
+        "Authorization": "Bearer ${ROAS_MCP_API_KEY}"
+      }
+    }
+  }
+}
