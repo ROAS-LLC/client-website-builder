@@ -139,3 +139,24 @@ I can still help you with this task directly! Would you like me to proceed?
 If this is something you do often, you could create your own skill:
 npx skills init my-xyz-skill
 ```
+
+## Restricted Networks and Cloud Sessions
+
+`npx skills find` searches through skills.sh. If the network blocks skills.sh, the command prints "No skills found" for every query, even common ones like `react`. When that happens, don't tell the user no skill exists. Instead:
+
+1. List the skills in a trusted source repo, which only needs GitHub access:
+
+   ```bash
+   npx skills add vercel-labs/agent-skills --list
+   npx skills add anthropics/skills --list
+   ```
+
+2. Install the one you need into the project, copied rather than symlinked:
+
+   ```bash
+   npx skills add <owner/repo> --skill <skill-name> -a claude-code --copy -y
+   ```
+
+   This writes `.claude/skills/<skill-name>/SKILL.md`. Commit and push it so later sessions on this repo have it too. A global (`-g`) install doesn't survive in a cloud session, because the container is reset.
+
+3. Tell the user that skills.sh is blocked and that they can add `skills.sh` to the environment's allowed domains to turn search back on.
